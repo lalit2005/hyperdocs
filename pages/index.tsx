@@ -1,7 +1,6 @@
 import Nav from '@/components/Nav';
-import type { NextPage } from 'next';
 import { useTheme } from 'next-themes';
-import Link from 'next/link';
+import type { NextPage } from 'next';
 import { RoughNotation } from 'react-rough-notation';
 
 const Home: NextPage = () => {
@@ -9,11 +8,11 @@ const Home: NextPage = () => {
   return (
     <div>
       <Nav />
-      <div className='mt-20'>
+      <div>
         <p className='uppercase text-sm text-slate-500 dark:text-slate-400 text-center font-semibold mb-2'>
           Open source. Free forever
         </p>
-        <h1 className='md:text-7xl text-6xl text-center font-black '>
+        <h1 className='md:text-7xl text-6xl text-center font-black'>
           Simplest way to{' '}
           <p className='bg-clip-text text-transparent bg-gradient-to-r from-[#40c9ff] to-[#e81cff] inline'>
             create docs{' '}
@@ -44,22 +43,16 @@ const Home: NextPage = () => {
           <div className='absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg opacity-75 group-hover:opacity-100 transition filter blur-2xl duration-1000 group-hover:duration-200 animate-tilt'></div>
           <a
             className='block px-8 py-4 text-2xl font-bold text-white transition-all duration-150 transform bg-blue-500 rounded font-cal hover:scale-105'
-            href='/auth/login'>
-            Get Started <span className='ml-2 '>→</span>
+            href='/signup'>
+            Get Started <span className='ml-2'>→</span>
           </a>
         </div>
-      </div>
-
-      {/* <div className='mt-32'>
-        <h2 className='text-center text-4xl font-extrabold'>
-          Documentation. Made Simple
-        </h2>
       </div>
 
       <button onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')}>
         Toggle theme
       </button>
-      <p>{theme}</p> */}
+      <p>{theme}</p>
     </div>
   );
 };
