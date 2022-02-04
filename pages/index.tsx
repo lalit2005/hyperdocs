@@ -2,6 +2,7 @@ import Nav from '@/components/Nav';
 import { useTheme } from 'next-themes';
 import type { NextPage } from 'next';
 import { RoughNotation } from 'react-rough-notation';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   const { setTheme, theme } = useTheme();
@@ -41,11 +42,11 @@ const Home: NextPage = () => {
       <div className='grid items-start justify-center gap-8 mt-24'>
         <div className='relative group'>
           <div className='absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg opacity-75 group-hover:opacity-100 transition filter blur-2xl duration-1000 group-hover:duration-200 animate-tilt'></div>
-          <a
-            className='block px-8 py-4 text-2xl font-bold text-white transition-all duration-150 transform bg-blue-500 rounded font-cal hover:scale-105'
-            href='/signup'>
-            Get Started <span className='ml-2'>→</span>
-          </a>
+          <Link href='/signup'>
+            <a className='block px-8 py-4 text-2xl font-bold text-white transition-all duration-150 transform bg-blue-500 rounded font-cal hover:scale-105'>
+              Get Started <span className='ml-2'>→</span>
+            </a>
+          </Link>
         </div>
       </div>
 
