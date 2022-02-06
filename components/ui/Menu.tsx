@@ -96,6 +96,6 @@ export const MenuItem: React.FC<{
 
 export const MenuSeparator: React.FC = () => {
   return (
-    <RadixMenu.Separator className='h-px dark:bg-slate-600 bg-slate-200 w-10/12 mx-auto' />
+    <RadixMenu.Separator className='h-px dark:bg-slate-600 bg-slate-200' />
   );
 };

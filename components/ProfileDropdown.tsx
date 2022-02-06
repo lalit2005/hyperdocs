@@ -30,14 +30,14 @@ const ProfileDropdown = () => {
         </MenuTrigger>
         <MenuContent isOpen={isOpen}>
           <MenuItem className='px-5 pr-10 focus:outline-none focus:bg-slate-100 hover:bg-slate-100 focus:dark:bg-slate-800 hover:dark:bg-slate-800 cursor-pointer py-3'>
-            <span className='font-bold'>{name}</span>
+            Signed in as <span className='font-bold'>{name}</span>
             <br />
             <p className='text-sm mt-1 opacity-80'>{email}</p>
           </MenuItem>
           <MenuItem link='/docs'>Documentation</MenuItem>
           <MenuItem link='/themes'>Themes</MenuItem>
           <MenuItem link='/showcase'>Showcase</MenuItem>
-          <MenuItem link='/account'>Account</MenuItem>
+          <MenuItem link='/support'>Support</MenuItem>
           <MenuSeparator />
           <MenuItem
             callBack={signOut}
