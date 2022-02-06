@@ -1,6 +1,6 @@
 import DashboardNav from '@/components/DashboardNav';
-import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import { CustomLink } from '@/components/ui/Link';
 import ProtectedRoute from '@/lib/ProtectedRoute';
 import { useEffect, useState } from 'react';
 import { Plus } from 'react-feather';
@@ -39,9 +39,9 @@ const Dashboard = () => {
             id='search-input'
             className='max-w-[10/12] w-full'
           />
-          <Button className='!ml-5 block w-52'>
+          <CustomLink href='/new' className='ml-5 block w-52 p-0 text-center'>
             <Plus className='inline-block relative -top-px' /> New Project
-          </Button>
+          </CustomLink>
         </div>
         <p className='mt-5'>Search results for: {searchQuery}</p>
       </div>
