@@ -53,7 +53,7 @@ export const MenuContent: React.FC<{ isOpen: boolean }> = ({
             }}
             transition={{
               type: 'spring',
-              duration: 0.1,
+              duration: 0.2,
             }}>
             {props.children}
           </motion.div>

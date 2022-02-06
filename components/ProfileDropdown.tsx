@@ -9,8 +9,6 @@ import {
   MenuSeparator,
   MenuTrigger,
 } from './ui/Menu';
-import Link from 'next/link';
-import { usePrefetch } from 'use-link-prefetch';
 
 const ProfileDropdown = () => {
   const { data } = useSession();
