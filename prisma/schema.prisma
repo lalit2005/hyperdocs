@@ -61,7 +61,7 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Sites {
+model Site {
   id              String     @id @default(cuid())
   createdAt       DateTime   @default(now())
   updatedAt       DateTime   @updatedAt
@@ -70,7 +70,7 @@ model Sites {
   siteName        String
   siteDescription String
   ogImageUrl      String
-  web3formsKey    String
+  web3formsKey    String?
   feedbacks       Feedback[]
   customHead      String?
   homePage        String?
@@ -83,7 +83,7 @@ model Feedback {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   siteId    String
-  site      Sites    @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  site      Site     @relation(fields: [siteId], references: [id], onDelete: Cascade)
   feedback  String
   stars     Int
   sentBy    String?
@@ -94,7 +94,7 @@ model Blog {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   siteId      String
-  site        Sites    @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  site        Site     @relation(fields: [siteId], references: [id], onDelete: Cascade)
   title       String
   description String
   ogImageUrl  String

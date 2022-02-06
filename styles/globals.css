@@ -30,6 +30,10 @@ html {
   @apply bg-white text-black dark:bg-black dark:text-white;
 }
 
+.text-light {
+  @apply text-gray-500 dark:text-gray-800;
+}
+
 *::selection {
   @apply !bg-blue-500 !text-white;
 }
