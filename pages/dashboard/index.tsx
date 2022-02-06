@@ -1,6 +1,7 @@
 import DashboardNav from '@/components/DashboardNav';
 import { Input } from '@/components/ui/Input';
 import { CustomLink } from '@/components/ui/Link';
+import Loader from '@/components/ui/Loader';
 import ProtectedRoute from '@/lib/ProtectedRoute';
 import { Site } from '@prisma/client';
 import { useEffect, useState } from 'react';
@@ -56,6 +57,7 @@ const Dashboard = () => {
           </CustomLink>
         </div>
         <div className='mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5'>
+          {!data && !error && <Loader />}
           {results &&
             results.map((site) => {
               return (
