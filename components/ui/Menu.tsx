@@ -35,7 +35,7 @@ export const MenuContent: React.FC<{ isOpen: boolean }> = ({
           asChild
           forceMount
           align='start'
-          className='border-slate-200 dark:border-slate-600 border rounded block shadow-lg !max-w-lg !w-full'>
+          className='border-slate-200 dark:border-slate-600 border rounded block shadow-lg !max-w-lg !w-full bg-white dark:bg-black'>
           <motion.div
             initial={{
               opacity: 0,
