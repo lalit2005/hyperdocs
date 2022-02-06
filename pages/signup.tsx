@@ -1,5 +1,6 @@
 import Logo from '@/components/Logo';
 import { Heading1, Heading2 } from '@/components/ui/Typography';
+import { RedirectToDashboard } from '@/lib/redirect';
 import clsx from 'clsx';
 import { signIn } from 'next-auth/react';
 import { useTheme } from 'next-themes';
@@ -9,7 +10,7 @@ const Signup = () => {
   const { theme } = useTheme();
   return (
     <div>
-      {/* // TODO: <RedirectToDashboard /> */}
+      <RedirectToDashboard />
       <div className='grid grid-cols-2 h-screen'>
         <div className='mt-20 px-14 ml-7'>
           <span className='inline-block'>
@@ -33,12 +34,11 @@ const Signup = () => {
         </div>
         <div className='pt-[33vh] px-14 ml-7 bg-white text-invert'>
           <div className='text-center flex flex-col items-center justify-center'>
-            {/* <h1 className='text-4xl font-bold'>Sign up</h1> */}
             <Heading1>Sign up</Heading1>
             <button
               onClick={() => signIn('github')}
               className={clsx(
-                'mt-10 rounded text-invert px-5 py-2 text-lg hover:opacity-90',
+                'mt-10 rounded text-no-invert px-5 py-2 text-lg hover:opacity-90',
                 theme === 'light' && 'text-no-invert'
               )}>
               <GitHub className='inline-block mr-2' /> Sign up with GitHub

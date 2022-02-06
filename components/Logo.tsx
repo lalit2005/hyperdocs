@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-const Logo = () => {
+const Logo: React.FC<{ href?: string }> = ({ href }) => {
   return (
-    <Link href='/'>
-      <a>
+    <Link href={href || '/'}>
+      <a className='focus:outline-none'>
         <svg
           className='logo'
           width={632 / 3}
