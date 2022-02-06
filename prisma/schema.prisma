@@ -60,3 +60,45 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Sites {
+  id              String     @id @default(cuid())
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  createdBy       String
+  repoLink        String
+  siteName        String
+  siteDescription String
+  ogImageUrl      String
+  web3formsKey    String
+  feedbacks       Feedback[]
+  customHead      String?
+  homePage        String?
+  navbar          String?
+  shikiTheme      String?
+  blogs           Blog[]
+}
+
+model Feedback {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  siteId    String
+  site      Sites    @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  feedback  String
+  stars     Int
+  sentBy    String?
+}
+
+model Blog {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  siteId      String
+  site        Sites    @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  title       String
+  description String
+  ogImageUrl  String
+  content     String
+  postedBy    String
+  published   Boolean  @default(false)
+}
