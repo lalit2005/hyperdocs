@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import snarkdown from 'snarkdown';
 
 export const Heading1: React.FC<{ className?: string }> = ({
   className,
@@ -26,5 +27,26 @@ export const Heading3: React.FC<{ className?: string }> = ({
 }) => {
   return (
     <h3 className={clsx('text-4xl font-bold', className)}>{props.children}</h3>
+  );
+};
+
+export const TextSmall: React.FC<{ className?: string }> = ({
+  className,
+  ...props
+}) => {
+  return <p className={clsx('text-light', className)}>{props.children}</p>;
+};
+
+export const Markdown: React.FC<{ className?: string }> = ({
+  className,
+  ...props
+}) => {
+  return (
+    <p
+      className={className}
+      dangerouslySetInnerHTML={{
+        __html: snarkdown(props.children?.toString() || ''),
+      }}
+    />
   );
 };

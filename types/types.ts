@@ -12,3 +12,10 @@ export interface User {
   image?: string;
   id: string;
 }
+
+export interface NewSite {
+  siteName: string;
+  siteDescription: string;
+  repoLink: string;
+  ogImageUrl: string;
+}

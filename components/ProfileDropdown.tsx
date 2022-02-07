@@ -34,6 +34,7 @@ const ProfileDropdown = () => {
             <br />
             <p className='text-sm mt-1 opacity-80'>{email}</p>
           </MenuItem>
+          <MenuItem link='/new'>New Site</MenuItem>
           <MenuItem link='/docs'>Documentation</MenuItem>
           <MenuItem link='/themes'>Themes</MenuItem>
           <MenuItem link='/showcase'>Showcase</MenuItem>
