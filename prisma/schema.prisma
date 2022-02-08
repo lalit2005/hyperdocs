@@ -76,6 +76,7 @@ model Site {
   customHead      String?
   homePage        String?
   navbar          String?
+  announcement    String?
   shikiTheme      String?
   blogs           Blog[]
 }

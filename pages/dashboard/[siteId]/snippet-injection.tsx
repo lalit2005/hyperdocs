@@ -40,16 +40,19 @@ const SnippetInjection = () => {
         <div className='mt-10'>
           <Button
             onClick={() => {
-              const postReq = axios.post('/api/update/custom-head', {
-                customHead: head,
-                siteId: data?.id,
-              });
+              const postReq = axios
+                .post('/api/update/custom-head', {
+                  customHead: head,
+                  siteId: data?.id,
+                })
+                .then(({ data }) => {
+                  mutate(data);
+                });
               toast.promise(postReq, {
                 loading: 'Updating...',
                 success: 'Updated successfully!',
                 error: 'Failed to update!',
               });
-              mutate(data);
             }}>
             Save
           </Button>
