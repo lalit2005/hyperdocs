@@ -23,19 +23,20 @@ export const MenuTrigger: React.FC = (props) => {
   );
 };
 
-export const MenuContent: React.FC<{ isOpen: boolean }> = ({
-  isOpen,
-  ...props
-}) => {
+export const MenuContent: React.FC<{
+  isOpen: boolean;
+  side?: 'right' | 'top' | 'bottom' | 'left';
+}> = ({ isOpen, side, ...props }) => {
   return (
     <AnimatePresence>
       {isOpen && (
         <RadixMenu.Content
           sideOffset={10}
           asChild
+          side={side || 'bottom'}
           forceMount
           align='start'
-          className='border-slate-200 dark:border-slate-600 border rounded block shadow-lg !max-w-lg !w-full bg-white dark:bg-black'>
+          className='border-slate-200 dark:border-slate-600 border rounded block shadow-lg !max-w-lg !w-full bg-white dark:bg-black max-h-80 overflow-y-scroll'>
           <motion.div
             initial={{
               opacity: 0,

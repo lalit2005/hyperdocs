@@ -77,7 +77,7 @@ model Site {
   homePage        String?
   navbar          String?
   announcement    String?
-  shikiTheme      String?
+  shikiTheme      String     @default("one-dark-pro")
   blogs           Blog[]
 }
 

@@ -26,7 +26,7 @@ export const Heading3: React.FC<{ className?: string }> = ({
   ...props
 }) => {
   return (
-    <h3 className={clsx('text-4xl font-bold', className)}>{props.children}</h3>
+    <h3 className={clsx('text-xl font-bold', className)}>{props.children}</h3>
   );
 };
 
