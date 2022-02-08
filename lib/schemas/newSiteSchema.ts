@@ -17,4 +17,5 @@ export const newSiteSchema = z.object({
     .min(1, "Please enter a description that's more than a character")
     .max(150, "Please enter a description that's less than 150 characters"),
   ogImageUrl: z.string().url('Please enter a valid URL'),
+  siteSlug: z.string().regex(/^[a-z0-9-]+$/, 'Please enter a valid slug'),
 });

@@ -37,16 +37,14 @@ export const TextSmall: React.FC<{ className?: string }> = ({
   return <p className={clsx('text-light', className)}>{props.children}</p>;
 };
 
-export const Markdown: React.FC<{ className?: string }> = ({
+export const Markdown: React.FC<{ className?: string; text?: string }> = ({
   className,
+  text,
   ...props
 }) => {
   return (
     <p
       className={className}
-      dangerouslySetInnerHTML={{
-        __html: snarkdown(props.children?.toString() || ''),
-      }}
-    />
+      dangerouslySetInnerHTML={{ __html: snarkdown(text || '') }}></p>
   );
 };

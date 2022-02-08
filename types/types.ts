@@ -18,4 +18,5 @@ export interface NewSite {
   siteDescription: string;
   repoLink: string;
   ogImageUrl: string;
+  siteSlug: string;
 }

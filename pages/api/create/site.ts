@@ -6,7 +6,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { ogImageUrl, repoLink, siteName, siteDescription } = req.body;
+  const { ogImageUrl, repoLink, siteName, siteDescription, siteSlug } =
+    req.body;
 
   const session = await getSession({ req });
   // @ts-ignore
@@ -18,7 +19,8 @@ export default async function handler(
       repoLink,
       siteName,
       siteDescription,
-      ogImageUrl: ogImageUrl || null,
+      ogImageUrl: ogImageUrl,
+      siteSlug: siteSlug,
     },
   });
 

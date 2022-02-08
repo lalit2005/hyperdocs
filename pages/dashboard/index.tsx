@@ -7,6 +7,7 @@ import { Site } from '@prisma/client';
 import { useEffect, useState } from 'react';
 import { Plus } from 'react-feather';
 import useSWR from 'swr';
+import truncate from 'lodash.truncate';
 
 const Dashboard = () => {
   const { data, error } = useSWR<Site[]>('/api/get/dashboard-data');
@@ -71,7 +72,9 @@ const Dashboard = () => {
                         {site.siteName}
                       </h3>
                       <p className='mt-5 dark:text-slate-300'>
-                        {site.siteDescription}
+                        {truncate(site.siteDescription, {
+                          length: 100,
+                        })}
                       </p>
                     </CustomLink>
                   </div>

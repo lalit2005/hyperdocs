@@ -9,6 +9,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { newSiteSchema } from '@/lib/schemas/newSiteSchema';
 import { DevTool } from '@hookform/devtools';
 import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 const NewSite = () => {
   const {
@@ -22,12 +24,25 @@ const NewSite = () => {
     resolver: zodResolver(newSiteSchema),
   });
 
+  const router = useRouter();
+
   const createSite = async (data: NewSite) => {
-    alert(JSON.stringify(data, null, 2));
-    const asd = await axios.post('/api/create/site', {
-      ...data,
+    // alert(JSON.stringify(data, null, 2));
+    const asd = axios
+      .post('/api/create/site', {
+        ...data,
+      })
+      .then(({ data }) => {
+        router.push(`/dashboard/${data.id}`);
+      });
+
+    toast.promise(asd, {
+      loading: 'Creating site...',
+      success: 'Site created!',
+      error: 'Error creating site',
     });
-    alert(JSON.stringify(asd.data, null, 2));
+
+    // alert(JSON.stringify(asd.data, null, 2));
   };
 
   return (
@@ -54,6 +69,25 @@ const NewSite = () => {
               {errors.siteName && (
                 <p className='text-red-400 text-sm mt-1'>
                   {errors.siteName.message}
+                </p>
+              )}
+            </label>
+            <br />
+            <label className='my-2 block' htmlFor='siteName'>
+              <TextSmall>A slug for your site</TextSmall>
+              <input
+                className='max-w-xl mt-2 w-full text-input'
+                placeholder='hyperdocs'
+                id='siteName'
+                {...register('siteSlug')}
+              />
+              <TextSmall className='mt-1 text-xs'>
+                This will be included URL for your site, however you can add a
+                custom domain or subdomain later.
+              </TextSmall>
+              {errors.siteName && (
+                <p className='text-red-400 text-sm mt-1'>
+                  {errors.siteSlug?.message}
                 </p>
               )}
             </label>

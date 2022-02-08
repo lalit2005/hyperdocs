@@ -120,7 +120,7 @@ const DashboardLayout: React.FC<{
             <div className='pl-16 mt-24'>
               <Heading1>{title}</Heading1>
               <p className='text-lg text-light mt-5 mb-16'>
-                <Markdown>{subtitle}</Markdown>
+                <Markdown text={subtitle} />
               </p>
               {props.children}
             </div>
