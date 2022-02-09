@@ -56,7 +56,10 @@ const NewSite = () => {
             documentation site
           </span>
         </Heading1>
-        <div className='mt-16'>
+        <TextSmall className='my-3'>
+          The details here will be used for SEO purposes too
+        </TextSmall>
+        <div className='mt-10'>
           <form className='max-w-3xl' onSubmit={handleSubmit(createSite)}>
             <label className='my-2 block' htmlFor='siteName'>
               <TextSmall>Name of the new site</TextSmall>
