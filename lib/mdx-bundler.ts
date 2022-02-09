@@ -51,7 +51,7 @@ const bundleMdxContent = async (rawContent: string, theme: string) => {
             },
           },
         ],
-        [rehypePrettyCode, syntaxHighlightingOptions],
+        // [rehypePrettyCode, syntaxHighlightingOptions],
       ];
       return options;
     },
