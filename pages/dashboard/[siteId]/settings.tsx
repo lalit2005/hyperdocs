@@ -7,7 +7,6 @@ import {
 } from '@/components/ui/Menu';
 import { Heading3, TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
-// import shikiThemes from '@/lib/shikiThemes';
 import { Site } from '@prisma/client';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -19,11 +18,6 @@ const Settings = () => {
   const { data, mutate } = useSWR<Site>(
     `/api/get/site/?siteId=${router.query.siteId}`
   );
-
-  const [isCodeblocksThemeSelectMenuOpen, setisCodeblocksThemeSelectMenuOpen] =
-    useState<boolean>(false);
-
-  const [theme, setTheme] = useState(data?.shikiTheme);
 
   return (
     <DashboardLayout
