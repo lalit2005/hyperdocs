@@ -8,12 +8,12 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import shikiThemes from './shikiThemes';
 
 const bundleMdxContent = async (rawContent: string, theme: string) => {
-  let codeBlockTheme;
-  if (shikiThemes.includes(theme)) {
-    codeBlockTheme = theme;
-  } else {
-    codeBlockTheme = moonlight;
-  }
+  // let codeBlockTheme;
+  // if (shikiThemes.includes(theme)) {
+  //   codeBlockTheme = theme;
+  // } else {
+  //   codeBlockTheme = moonlight;
+  // }
   const syntaxHighlightingOptions = {
     // Use one of Shiki's packaged themes
     // Or your own JSON theme
