@@ -36,7 +36,7 @@ export const MenuContent: React.FC<{
           side={side || 'bottom'}
           forceMount
           align='start'
-          className='border-slate-200 dark:border-slate-600 border rounded block shadow-lg !max-w-lg !w-full bg-white dark:bg-black max-h-80 overflow-y-scroll'>
+          className='border-slate-200 dark:border-slate-600 border rounded block shadow-lg !max-w-lg !w-full bg-white dark:bg-black max-h-96 overflow-y-scroll'>
           <motion.div
             initial={{
               opacity: 0,
@@ -91,6 +91,35 @@ export const MenuItem: React.FC<{
         )}
         {!link && props.children}
       </RadixMenu.Item>
+    </>
+  );
+};
+
+export const MenuTriggerItem: React.FC<{
+  className?: string;
+  link?: string;
+}> = ({ className, link, ...props }) => {
+  const router = usePrefetch([link || '/dashboard']);
+  const r = (url?: string) => {
+    return () => {
+      router.push(url || '/dashboard');
+    };
+  };
+
+  return (
+    <>
+      <RadixMenu.TriggerItem
+        className={clsx(
+          'px-5 pr-10 focus:outline-none focus:bg-slate-100 hover:bg-slate-100 focus:dark:bg-slate-800 hover:dark:bg-slate-800 cursor-pointer py-2',
+          className
+        )}>
+        {link && (
+          <Link href={link}>
+            <a className='w-full'>{props.children}</a>
+          </Link>
+        )}
+        {!link && props.children}
+      </RadixMenu.TriggerItem>
     </>
   );
 };
