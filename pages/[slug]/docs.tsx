@@ -77,7 +77,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         fileContents.data.content,
         'base64'
       ).toString('utf8');
-      return 'hi ' + decodedFileContents;
+      return decodedFileContents;
     })
   );
 
