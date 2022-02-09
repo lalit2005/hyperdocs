@@ -1,11 +1,9 @@
 import Nav from '@/components/Nav';
-import { useTheme } from 'next-themes';
 import type { NextPage } from 'next';
 import { RoughNotation } from 'react-rough-notation';
 import Link from 'next/link';
 
 const Home: NextPage = () => {
-  const { setTheme, theme } = useTheme();
   return (
     <div>
       <Nav />
@@ -49,11 +47,6 @@ const Home: NextPage = () => {
           </Link>
         </div>
       </div>
-
-      <button onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')}>
-        Toggle theme
-      </button>
-      <p>{theme}</p>
     </div>
   );
 };
