@@ -17,7 +17,10 @@ const Dashboard = () => {
   const results =
     data &&
     data.filter((site) => {
-      return site.siteName.toLowerCase().includes(searchQuery.toLowerCase());
+      return (
+        site.siteName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        site.siteDescription.toLowerCase().includes(searchQuery.toLowerCase())
+      );
     });
 
   useEffect(() => {
@@ -62,23 +65,21 @@ const Dashboard = () => {
           {results &&
             results.map((site) => {
               return (
-                site.siteName.includes(searchQuery) && (
-                  <div key={site.id}>
-                    <CustomLink
-                      href={`/dashboard/${site.id}`}
-                      noInvert
-                      className='hover:scale-[1.01] focus:scale-[1.01] transition-all !p-5 h-full'>
-                      <h3 className='text-xl font-bold capitalize'>
-                        {site.siteName}
-                      </h3>
-                      <p className='mt-5 dark:text-slate-300'>
-                        {truncate(site.siteDescription, {
-                          length: 100,
-                        })}
-                      </p>
-                    </CustomLink>
-                  </div>
-                )
+                <div key={site.id}>
+                  <CustomLink
+                    href={`/dashboard/${site.id}`}
+                    noInvert
+                    className='hover:scale-[1.01] focus:scale-[1.01] transition-all !p-5 h-full'>
+                    <h3 className='text-xl font-bold capitalize'>
+                      {site.siteName}
+                    </h3>
+                    <p className='mt-5 dark:text-slate-300'>
+                      {truncate(site.siteDescription, {
+                        length: 100,
+                      })}
+                    </p>
+                  </CustomLink>
+                </div>
               );
             })}
           {results?.length == 0 && (
