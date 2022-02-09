@@ -16,6 +16,7 @@ const Settings = () => {
   );
 
   const [ghToken, setGhToken] = useState(data?.gitHubAccessToken);
+  const [web3formsKey, setWeb3formsKey] = useState(data?.web3formsKey);
 
   return (
     <DashboardLayout
@@ -51,6 +52,36 @@ const Settings = () => {
             </Button>
           </div>
         </Card>
+
+        <Card
+          title='Web3forms API key'
+          subtitle='Get your API key from [here](https://web3forms.com). This API key will be used for sending an email to you once a **feedback** is submitted from the docs site. You can access all the feedbacks here in the dashboard too.'>
+          <div className='flex'>
+            <Input
+              className='w-full mr-3'
+              placeholder='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+              value={web3formsKey || ''}
+              onChange={(e) => {
+                setWeb3formsKey(e.target.value);
+              }}
+            />
+            <Button
+              onClick={() => {
+                const req = axios.post('/api/update/web3forms-key', {
+                  siteId: data?.id,
+                  web3formsKey,
+                });
+                toast.promise(req, {
+                  loading: 'Updating...',
+                  success: 'Updated successfully!',
+                  error: 'Failed to update!',
+                });
+              }}>
+              Save
+            </Button>
+          </div>
+        </Card>
+
         <Card
           title='Danger'
           subtitle='Delete your site **permanently**, this cannot be reversed'>

@@ -49,8 +49,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const repoUrl = siteData?.repoLink as string;
   const repoLinkData = parseGitHubUrl(repoUrl);
 
-  console.log(repoLinkData);
-
   // get all files from /docs folder in the repo
   const files = await octokit.rest.repos.getContent({
     owner: repoLinkData?.owner as string,
