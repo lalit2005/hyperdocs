@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import { Plus } from 'react-feather';
 import useSWR from 'swr';
 import truncate from 'lodash.truncate';
+import { TextSmall } from '@/components/ui/Typography';
+import Empty from '@/components/Empty';
 
 const Dashboard = () => {
   const { data, error } = useSWR<Site[]>('/api/get/dashboard-data');
@@ -16,6 +18,7 @@ const Dashboard = () => {
 
   const results =
     data &&
+    data.length !== 0 &&
     data.filter((site) => {
       return (
         site.siteName.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -82,10 +85,26 @@ const Dashboard = () => {
                 </div>
               );
             })}
+          {/* @ts-ignore */}
           {results?.length == 0 && (
             <p className='text-red-400'>No results found for `{searchQuery}`</p>
           )}
         </div>
+        {data?.length == 0 && (
+          <div className='text-center'>
+            <Empty />
+            <TextSmall className='my-3'>
+              You don&apos;t have any sites created.
+              <br />
+              <CustomLink
+                href='/new'
+                noInvert
+                className='max-w-sm my-3 mx-auto'>
+                Create your first documentation site
+              </CustomLink>
+            </TextSmall>
+          </div>
+        )}
       </div>
     </ProtectedRoute>
   );
