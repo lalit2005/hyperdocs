@@ -8,12 +8,12 @@ import moonlight from './moonlight-ii.json';
 import shikiThemes from './shikiThemes';
 
 const bundleMdxContent = async (rawContent: string, theme: string) => {
-  let codeBlockTheme;
-  if (shikiThemes.includes(theme)) {
-    codeBlockTheme = theme;
-  } else {
-    codeBlockTheme = moonlight;
-  }
+  // let codeBlockTheme;
+  // if (shikiThemes.includes(theme)) {
+  //   codeBlockTheme = theme;
+  // } else {
+  //   codeBlockTheme = moonlight;
+  // }
   const syntaxHighlightingOptions = {
     // Use one of Shiki's packaged themes
     theme: moonlight,
