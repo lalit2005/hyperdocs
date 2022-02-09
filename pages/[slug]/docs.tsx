@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   console.log(siteData);
 
   const octokit = new Octokit({
-    auth: process.env.GITHUB_APIKEY || '',
+    auth: siteData?.gitHubAccessToken,
   });
 
   // get repo owner and repo name from siteData?.repoUrl

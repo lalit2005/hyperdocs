@@ -43,5 +43,13 @@ html {
 }
 
 .text-input {
-  @apply relative -bottom-[1px] rounded border border-slate-400 px-5 py-[9px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent m-px;
+  @apply relative -bottom-[1px] rounded border border-slate-500 px-5 py-[9px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent m-px;
+}
+
+.markdown > a {
+  @apply text-blue-500 dark:text-blue-300 hover:underline;
+}
+
+.markdown code {
+  @apply before:content-["`"] after:content-["`"] bg-gray-500 p-1 rounded font-mono;
 }
