@@ -37,7 +37,7 @@
     "react-tiny-tooltip": "^0.0.7",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-code-titles": "^1.0.3",
-    "rehype-pretty-code": "^0.2.1",
+    "rehype-pretty-code": "^0.0.6",
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
     "shiki": "^0.10.0",
