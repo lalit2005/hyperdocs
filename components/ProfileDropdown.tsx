@@ -39,11 +39,6 @@ const ProfileDropdown = () => {
             <br />
             <p className='text-sm mt-1 opacity-80'>{email}</p>
           </MenuItem>
-          <MenuItem link='/new'>New Site</MenuItem>
-          <MenuItem link='/docs'>Documentation</MenuItem>
-          <MenuItem link='/themes'>Themes</MenuItem>
-          <MenuItem link='/showcase'>Showcase</MenuItem>
-          <MenuItem link='/support'>Support</MenuItem>
           <MenuRoot isOpen={isSubMenuOpen} setIsOpen={setIsSubMenuOpen}>
             <MenuTriggerItem>Change theme</MenuTriggerItem>
             <MenuContent isOpen={isSubMenuOpen}>
@@ -61,6 +56,11 @@ const ProfileDropdown = () => {
               </MenuItem>
             </MenuContent>
           </MenuRoot>
+          <MenuItem link='/new'>New Site</MenuItem>
+          <MenuItem link='/docs'>Documentation</MenuItem>
+          <MenuItem link='/themes'>Themes</MenuItem>
+          <MenuItem link='/showcase'>Showcase</MenuItem>
+          <MenuItem link='/support'>Support</MenuItem>
           <MenuSeparator />
           <MenuItem
             callBack={signOut}
