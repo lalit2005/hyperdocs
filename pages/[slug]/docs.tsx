@@ -7,14 +7,21 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
 import axios from 'axios';
 import bundleMdxContent from '@/lib/mdx-bundler';
+import Head from 'next/head';
 
 const Page = ({ files, code }) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
   return (
     <div>
+      <Head>
+        <link
+          rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark.min.css'
+        />
+      </Head>
       {/* <pre>{JSON.stringify(files, null, 2)}</pre> */}
-      <div className='dark:text-slate-200 dark:prose-headings:text-slate-50 text-slate-800 prose-headings:text-slate-800 max-w-3xl prose-headings:font-bold px-3 mx-auto dark:prose-invert mt-10 prose-lg prose-slate prose-pre:bg-slate-800 dark:prose-hr:divide-slate-600 prose-pre:overflow-x-scroll prose-a:text-blue-500 hover:prose-a:bg-blue-100 prose-a:p-[2px] prose-a:rounded-sm dark:prose-a:text-blue-400 dark:hover:prose-a:bg-slate-700 prose-ul:list-disc prose-ol:list-decimal prose-blockquote:border-l-4 prose-blockquote:border-slate-600 prose-blockquote:py-1'>
+      <div className='dark:text-slate-200 dark:prose-headings:text-slate-50 text-slate-800 prose-headings:text-slate-800 max-w-3xl prose-headings:font-bold px-3 mx-auto dark:prose-invert mt-10 prose-lg prose-slate prose-pre:bg-[#282C34] dark:prose-hr:divide-slate-600 prose-pre:overflow-x-scroll prose-a:text-blue-500 hover:prose-a:bg-blue-100 prose-a:p-[2px] prose-a:rounded-sm dark:prose-a:text-blue-400 dark:hover:prose-a:bg-slate-700 prose-ul:list-disc prose-ol:list-decimal prose-blockquote:border-l-4 prose-blockquote:border-slate-600 prose-blockquote:py-1'>
         <Component />
       </div>
     </div>

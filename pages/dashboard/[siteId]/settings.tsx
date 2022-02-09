@@ -7,12 +7,11 @@ import {
 } from '@/components/ui/Menu';
 import { Heading3, TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
-import shikiThemes from '@/lib/shikiThemes';
+// import shikiThemes from '@/lib/shikiThemes';
 import { Site } from '@prisma/client';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { ChevronDown } from 'react-feather';
 import useSWR from 'swr';
 
 const Settings = () => {
@@ -32,55 +31,6 @@ const Settings = () => {
       subtitle='Settings that control the behavior of the documentation website'
       active='settings'>
       <div>
-        <div>
-          <Card
-            title='Code blocks theme'
-            subtitle='Select the theme you want for code blocks on the docs site'>
-            <MenuRoot
-              isOpen={isCodeblocksThemeSelectMenuOpen}
-              setIsOpen={setisCodeblocksThemeSelectMenuOpen}>
-              <MenuTrigger>
-                <Button
-                  noInvert
-                  className='capitalize flex justify-between items-center w-full'
-                  onClick={() => {
-                    setisCodeblocksThemeSelectMenuOpen(
-                      !isCodeblocksThemeSelectMenuOpen
-                    );
-                  }}>
-                  <p>{theme?.replace(/\-/g, ' ') || 'Atom One Dark'}</p>
-                  <div className='block ml-5'>
-                    <ChevronDown size={15} />
-                  </div>
-                </Button>
-              </MenuTrigger>
-              <MenuContent
-                isOpen={isCodeblocksThemeSelectMenuOpen}
-                side='bottom'>
-                {shikiThemes.map((theme) => {
-                  return (
-                    <MenuItem
-                      key={theme}
-                      callBack={() => {
-                        setisCodeblocksThemeSelectMenuOpen(false);
-                        setTheme(theme);
-                        axios
-                          .post('/api/update/shiki-theme', {
-                            shikiTheme: theme,
-                            siteId: data?.id,
-                          })
-                          .then(({ data }) => {
-                            mutate(data);
-                          });
-                      }}>
-                      <p className='capitalize'>{theme.replace(/\-/g, ' ')}</p>
-                    </MenuItem>
-                  );
-                })}
-              </MenuContent>
-            </MenuRoot>
-          </Card>
-        </div>
         <Card
           title='Danger'
           subtitle='Delete your site permanently, this cannot be reversed'>
