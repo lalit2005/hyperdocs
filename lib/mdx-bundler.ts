@@ -4,19 +4,20 @@ import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
-import moonlight from './moonlight-ii.json';
+// import moonlight from './moonlight-ii.json';
 import shikiThemes from './shikiThemes';
 
 const bundleMdxContent = async (rawContent: string, theme: string) => {
-  // let codeBlockTheme;
-  // if (shikiThemes.includes(theme)) {
-  //   codeBlockTheme = theme;
-  // } else {
-  //   codeBlockTheme = moonlight;
-  // }
+  let codeBlockTheme;
+  if (shikiThemes.includes(theme)) {
+    codeBlockTheme = theme;
+  } else {
+    codeBlockTheme = moonlight;
+  }
   const syntaxHighlightingOptions = {
     // Use one of Shiki's packaged themes
-    theme: moonlight,
+    // Or your own JSON theme
+    theme: 'one-dark-pro',
     onVisitLine(node: any) {
       // Prevent lines from collapsing in `display: grid` mode, and allow empty
       // lines to be copy/pasted
@@ -24,6 +25,7 @@ const bundleMdxContent = async (rawContent: string, theme: string) => {
         node.children = [{ type: 'text', value: ' ' }];
       }
     },
+    // Feel free to add classNames that suit your docs
     onVisitHighlightedLine(node: any) {
       node.properties.className.push('highlighted');
     },
@@ -51,7 +53,7 @@ const bundleMdxContent = async (rawContent: string, theme: string) => {
             },
           },
         ],
-        // [rehypePrettyCode, syntaxHighlightingOptions],
+        [rehypePrettyCode, syntaxHighlightingOptions],
       ];
       return options;
     },
