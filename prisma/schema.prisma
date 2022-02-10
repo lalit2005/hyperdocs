@@ -62,13 +62,14 @@ model VerificationToken {
 }
 
 model Site {
-  id                String     @id @default(cuid())
-  createdAt         DateTime   @default(now())
-  updatedAt         DateTime   @updatedAt
+  id                String       @id @default(cuid())
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
   createdBy         String
   repoLink          String
-  siteSlug          String     @unique @default(cuid())
+  siteSlug          String       @unique @default(cuid())
   siteName          String
+  docsFolder        String       @default("docs")
   siteDescription   String
   ogImageUrl        String
   web3formsKey      String?
@@ -76,9 +77,18 @@ model Site {
   feedbacks         Feedback[]
   customHead        String?
   homePage          String?
-  navbar            String?
+  navbarCta         String?
+  navbarLinks       NavbarLink[]
   announcement      String?
   blogs             Blog[]
+}
+
+model NavbarLink {
+  id       String @id @default(cuid())
+  siteId   String
+  site     Site   @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  link     String
+  linkText String
 }
 
 model Feedback {

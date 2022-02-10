@@ -27,6 +27,7 @@ const handler = async (
     include: {
       // @ts-ignore
       feedbacks: includeFeedbacks,
+      navbarLinks: req.query.includeNavbarData === 'true',
     },
   });
 

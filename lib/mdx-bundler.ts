@@ -4,6 +4,8 @@ import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
+// import remarkRemoveComments from 'remark-remove-comments'
+// import remarkImgLink from '@pondorasti/remark-img-links'
 
 const bundleMdxContent = async (rawContent: string, theme: string) => {
   const result = await bundleMDX({
