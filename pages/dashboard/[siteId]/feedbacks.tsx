@@ -7,6 +7,7 @@ import useSWR from 'swr';
 import ReactStars from 'react-stars';
 import truncate from 'lodash.truncate';
 import { formatRelative } from 'date-fns';
+import Empty from '@/components/Empty';
 
 const Feedbacks = () => {
   const router = useRouter();
@@ -54,6 +55,12 @@ const Feedbacks = () => {
             );
           })}
         </div>
+        {feedbacks?.length === 0 && (
+          <div className='p-5 space-y-4'>
+            <Empty />
+            <TextSmall className='text-center'>No feedbacks yet!</TextSmall>
+          </div>
+        )}
       </div>
     </DashboardLayout>
   );
