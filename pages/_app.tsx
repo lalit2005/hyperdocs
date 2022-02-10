@@ -17,10 +17,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         value={{ fetcher: (url) => fetch(url).then((res) => res.json()) }}>
         <ThemeProvider attribute='class'>
           <Component {...pageProps} />
-          <Toaster
-            // containerClassName='bg-slate-900 text-slate-50 rounded-sm'
-            position='bottom-left'
-          />
+          <Toaster position='bottom-left' />
         </ThemeProvider>
       </SWRConfig>
     </SessionProvider>

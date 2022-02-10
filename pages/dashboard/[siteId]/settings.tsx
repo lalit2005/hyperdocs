@@ -1,4 +1,9 @@
 import { Button } from '@/components/ui/Button';
+import {
+  DialogContent,
+  DialogRoot,
+  DialogTrigger,
+} from '@/components/ui/Dialog';
 import { Input } from '@/components/ui/Input';
 import { Heading3, Markdown, TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
@@ -85,9 +90,37 @@ const Settings = () => {
         <Card
           title='Danger'
           subtitle='Delete your site **permanently**, this cannot be reversed'>
-          <Button className='!text-red-400 w-full font-bold' noInvert>
-            Delete {data?.siteName}
-          </Button>
+          <DialogRoot>
+            <DialogTrigger>
+              <Button className='!text-red-400 w-full font-bold' noInvert>
+                Delete {data?.siteName}
+              </Button>
+            </DialogTrigger>
+            <DialogContent
+              title={`Delete ${data?.siteName}`}
+              description='Are you sure? This **cannot** be reversed!!!'>
+              <Button
+                noInvert
+                className='!text-red-500 text-bold text-lg w-full my-5 hover:!border-red-500 !border'
+                onClick={() => {
+                  const req = axios
+                    .post('/api/delete/site', {
+                      siteId: data?.id,
+                    })
+                    .then(() => {
+                      router.push('/dashboard');
+                    });
+
+                  toast.promise(req, {
+                    loading: 'Deleting...',
+                    success: 'Deleted successfully!',
+                    error: 'Failed to delete!',
+                  });
+                }}>
+                Delete it now
+              </Button>
+            </DialogContent>
+          </DialogRoot>
         </Card>
       </div>
     </DashboardLayout>
