@@ -18,7 +18,7 @@ const Index = () => {
       subtitle={`A brief overview and status of **${data?.siteName}**`}>
       <div>
         <CustomLink
-          className='inline mr-2'
+          className='block sm:inline my-2 sm:my-auto mr-2'
           href={`https://hyperdocs.tk/${data?.siteSlug}`}
           target='_blank'
           noInvert
@@ -26,7 +26,7 @@ const Index = () => {
           Visit site
         </CustomLink>
         <CustomLink
-          className='inline mr-2'
+          className='block sm:inline my-2 sm:my-auto mr-2'
           noInvert
           href={`https://pagespeed.web.dev/report/?url=https://hyperdocs.tk/${data?.siteSlug}`}
           target='_blank'
@@ -34,7 +34,7 @@ const Index = () => {
           View Lighthouse score
         </CustomLink>
         <CustomLink
-          className='inline'
+          className='block sm:inline my-2 sm:my-auto'
           noInvert
           href={data?.repoLink}
           target='_blank'

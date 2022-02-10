@@ -6,7 +6,11 @@ export const Heading1: React.FC<{ className?: string }> = ({
   ...props
 }) => {
   return (
-    <h2 className={clsx('text-5xl font-extrabold', className)}>
+    <h2
+      className={clsx(
+        'text-4xl font-bold sm:text-5xl sm:font-extrabold',
+        className
+      )}>
       {props.children}
     </h2>
   );
