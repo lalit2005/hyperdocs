@@ -93,13 +93,7 @@ const Navbar = () => {
                   <TextSmall>{link.linkText}</TextSmall>
                   <TextSmall>
                     <Tooltip content={link.link} side='right' sideOffset={5}>
-                      <Markdown
-                        text={
-                          link.link.startsWith('/')
-                            ? `[${link.linkText}](${link.link})`
-                            : `[${link.linkText}](https://${link.link})`
-                        }
-                      />
+                      <Markdown text={`[${link.linkText}](${link.link})`} />
                     </Tooltip>
                   </TextSmall>
                   <Button
