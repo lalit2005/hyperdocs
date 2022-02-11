@@ -9,8 +9,9 @@ import axios from 'axios';
 import bundleMdxContent from '@/lib/mdx-bundler';
 import Head from 'next/head';
 import Nav from '@/components/Nav';
+import DocsNav from '@/components/docs/navbar';
 
-const Page = ({ files, code }) => {
+const Page = ({ files, code, navLinks, navCta, logo }) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
   return (
@@ -22,12 +23,12 @@ const Page = ({ files, code }) => {
         />
       </Head>
       <div>
+        <div className='sticky top-0'>
+          <DocsNav links={navLinks} navbarCta={navCta} logo={logo} />
+        </div>
         <div className='container mx-auto'>
-          <div className='sticky top-0 -mb-20'>
-            <Nav />
-          </div>
           <div className='flex flex-row flex-wrap py-5'>
-            <aside className='w-full sm:w-2/12 px-2 border-r-2 border-white/50'>
+            <aside className='w-full sm:w-2/12 px-2 border-r-2 border-slate-300 dark:border-slate-600'>
               <div className='sticky top-20 p-4 w-full'>
                 <div className='flex flex-col overflow-hidden'>
                   <ul className='space-y-4'>
@@ -51,7 +52,7 @@ const Page = ({ files, code }) => {
               </div>
             </main>
             <div className='w-full sm:w-2/12 px-2'>
-              <div className='sticky top-20 p-4 w-full border-l border-white/30'>
+              <div className='sticky top-20 p-4 w-full border-l dark:border-slate-700 border-slate-300'>
                 <div className='flex flex-col overflow-hidden'>
                   <ul className='space-y-4'>
                     <li>Lorem, ipsum.</li>
@@ -84,6 +85,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const siteData = await prisma.site.findUnique({
     where: {
       siteSlug: slug,
+    },
+    include: {
+      navbarLinks: true,
     },
   });
 
@@ -133,13 +137,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       return decodedFileContents;
     })
   );
-
   const filesContentsBundled = await bundleMdxContent(filesContents.join('\n'));
 
   return {
     props: {
-      files: filesContentsBundled,
       code: filesContentsBundled.code,
+      navLinks: siteData?.navbarLinks,
+      navCta: siteData?.navbarCta,
+      logo: siteData?.siteName,
     },
     revalidate: 10,
   };

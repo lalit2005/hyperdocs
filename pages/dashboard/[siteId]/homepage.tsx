@@ -13,7 +13,7 @@ const Blog = () => {
   return (
     <DashboardLayout
       title='Homepage'
-      subtitle={`Create the homepage of your documentation with pre-made components. Want a new component? Just open a new issue [here](https://github.com/lalit2005/hyperdocs/issues/new)`}
+      subtitle={`Create the homepage of your documentation with pre-made components. Want a new component? Just open a ask for it [here](https://github.com/lalit2005/hyperdocs/issues/new)`}
       active='homepage'>
       Homepage
     </DashboardLayout>
