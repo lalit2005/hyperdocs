@@ -10,6 +10,7 @@ import {
   Activity,
   Command,
   Edit3,
+  Home,
   IconProps,
   Link2,
   MessageCircle,
@@ -21,6 +22,7 @@ type ActiveTab =
   | 'overview'
   | 'snippet-injection'
   | 'blog'
+  | 'homepage'
   | 'feedbacks'
   | 'integrations'
   | 'navbar'
@@ -41,7 +43,6 @@ const DashboardLayout: React.FC<{
 }> = ({ title, subtitle, active, ...props }) => {
   const router = useRouter();
   const siteId = router.query.siteId as string;
-  const { data } = useSession();
 
   const sideBarLinks: SideBarLinks[] = [
     {
@@ -51,16 +52,22 @@ const DashboardLayout: React.FC<{
       Icon: Activity,
     },
     {
-      name: 'Snippet injection',
-      href: `/dashboard/${siteId}/snippet-injection`,
-      active: 'snippet-injection',
-      Icon: Command,
-    },
-    {
       name: 'Blog',
       href: `/dashboard/${siteId}/blog`,
       active: 'blog',
       Icon: Edit3,
+    },
+    {
+      name: 'Homepage',
+      href: `/dashboard/${siteId}/homepage`,
+      active: 'homepage',
+      Icon: Home,
+    },
+    {
+      name: 'Snippet injection',
+      href: `/dashboard/${siteId}/snippet-injection`,
+      active: 'snippet-injection',
+      Icon: Command,
     },
     {
       name: `Feedbacks`,
@@ -142,7 +149,7 @@ const DashboardLayout: React.FC<{
           <main role='main' className='w-4/5 pt-1 sm:px-2 px-5'>
             <div className=' pl-5 sm:pl-16 mt-24'>
               <Heading1>{title}</Heading1>
-              <p className='text-lg text-light mt-5 mb-16'>
+              <p className='text-lg text-light mt-5 mb-16 max-w-4xl'>
                 <Markdown text={subtitle} />
               </p>
               {props.children}
