@@ -45,6 +45,7 @@
     "rehype-slug": "^5.0.1",
     "remark-gfm": "^3.0.1",
     "remark-remove-comments": "^0.2.0",
+    "remarkable": "^2.0.1",
     "snarkdown": "^2.0.0",
     "swr": "^1.2.1",
     "use-link-prefetch": "^0.1.1",
