@@ -2,7 +2,7 @@ import { Heading2, Heading3 } from '@/components/ui/Typography';
 import { CustomLink } from '@/components/ui/Link';
 import { Markdown, TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
-import { NavbarLink, Site } from '@prisma/client';
+import { Feedback, NavbarLink, Site } from '@prisma/client';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import { Input } from '@/components/ui/Input';
@@ -24,8 +24,9 @@ const Navbar = () => {
   const { data, mutate } = useSWR<
     Site & {
       navbarLinks: NavbarLink[];
+      feedbacks: Feedback[];
     }
-  >(`/api/get/site/?siteId=${siteId}&includeNavbarData=true`);
+  >(`/api/get/site/?siteId=${siteId}`);
 
   // navbarCta is in the form of ctaText|||ctaLink
   const [ctaText, setCtaText] = useState(

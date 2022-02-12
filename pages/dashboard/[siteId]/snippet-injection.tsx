@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/Button';
 import { TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
-import { Site } from '@prisma/client';
+import { Feedback, NavbarLink, Site } from '@prisma/client';
 import axios from 'axios';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -12,9 +12,12 @@ import { useRouter } from 'next/router';
 const SnippetInjection = () => {
   const router = useRouter();
 
-  const { data, mutate } = useSWR<Site>(
-    `/api/get/site/?siteId=${router.query.siteId as string}`
-  );
+  const { data, mutate } = useSWR<
+    Site & {
+      navbarLinks: NavbarLink[];
+      feedbacks: Feedback[];
+    }
+  >(`/api/get/site/?siteId=${router.query.siteId as string}`);
 
   const [head, setHead] = useState(data?.customHead);
 

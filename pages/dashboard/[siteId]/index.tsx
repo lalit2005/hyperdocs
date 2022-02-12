@@ -1,7 +1,7 @@
 import { CustomLink } from '@/components/ui/Link';
 import { Markdown, TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
-import { Site } from '@prisma/client';
+import { Feedback, NavbarLink, Site } from '@prisma/client';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
@@ -9,7 +9,12 @@ const Index = () => {
   const router = useRouter();
   const siteId = router.query.siteId as string;
 
-  const { data } = useSWR<Site>(`/api/get/site/?siteId=${siteId}`);
+  const { data } = useSWR<
+    Site & {
+      navbarLinks: NavbarLink[];
+      feedbacks: Feedback[];
+    }
+  >(`/api/get/site/?siteId=${siteId}`);
 
   return (
     <DashboardLayout

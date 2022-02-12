@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/Input';
 import { Heading3, Markdown, TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Site } from '@prisma/client';
+import { Feedback, NavbarLink, Site } from '@prisma/client';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -25,9 +25,12 @@ interface SiteDetails {
 
 const Settings = () => {
   const router = useRouter();
-  const { data, mutate } = useSWR<Site>(
-    `/api/get/site/?siteId=${router.query.siteId}`
-  );
+  const { data, mutate } = useSWR<
+    Site & {
+      navbarLinks: NavbarLink[];
+      feedbacks: Feedback[];
+    }
+  >(`/api/get/site/?siteId=${router.query.siteId}`);
 
   const [ghToken, setGhToken] = useState(data?.gitHubAccessToken);
   const [web3formsKey, setWeb3formsKey] = useState(data?.web3formsKey);

@@ -10,24 +10,18 @@ const handler = async (
 ) => {
   const userId = user.id;
 
-  const includeFeedbacks =
-    req.query.includeFeedbacks === 'true'
-      ? {
-          orderBy: {
-            createdAt: 'desc',
-          },
-        }
-      : false;
-
   const site = await prisma.site.findFirst({
     where: {
       createdBy: userId,
       id: req.query.siteId as string,
     },
     include: {
-      // @ts-ignore
-      feedbacks: includeFeedbacks,
-      navbarLinks: req.query.includeNavbarData === 'true',
+      feedbacks: {
+        orderBy: {
+          createdAt: 'desc',
+        },
+      },
+      navbarLinks: true,
     },
   });
 

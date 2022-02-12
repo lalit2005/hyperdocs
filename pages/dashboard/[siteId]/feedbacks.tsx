@@ -1,7 +1,7 @@
 import { CustomLink } from '@/components/ui/Link';
 import { Heading3, Markdown, TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
-import { Feedback, Site } from '@prisma/client';
+import { Feedback, NavbarLink, Site } from '@prisma/client';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import ReactStars from 'react-stars';
@@ -15,9 +15,10 @@ const Feedbacks = () => {
 
   const { data: site } = useSWR<
     Site & {
+      navbarLinks: NavbarLink[];
       feedbacks: Feedback[];
     }
-  >(`/api/get/site/?siteId=${siteId}&includeFeedbacks=true`);
+  >(`/api/get/site/?siteId=${siteId}`);
 
   return (
     <DashboardLayout

@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
-import { Site } from '@prisma/client';
+import { Feedback, NavbarLink, Site } from '@prisma/client';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -11,9 +11,12 @@ import useSWR from 'swr';
 
 const Announcement = () => {
   const router = useRouter();
-  const { data, mutate } = useSWR<Site>(
-    `/api/get/site/?siteId=${router.query.siteId as string}`
-  );
+  const { data, mutate } = useSWR<
+    Site & {
+      navbarLinks: NavbarLink[];
+      feedbacks: Feedback[];
+    }
+  >(`/api/get/site/?siteId=${router.query.siteId as string}`);
 
   // announcement-text and announcement-link will be stored in a single field separated by '|||'
   const [announcementText, setAnnouncementText] = useState(
