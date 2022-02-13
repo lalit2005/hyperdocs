@@ -1,13 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import prisma from '@/utils/prisma';
-import { Octokit } from 'octokit';
-import parseGitHubUrl from 'parse-github-url';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
-import axios from 'axios';
 import bundleMdxContent from '@/lib/mdx-bundler';
 import Head from 'next/head';
-import Nav from '@/components/Nav';
 import DocsNav from '@/components/docs/navbar';
 import getAllFiles from '@/utils/getAllFiles';
 import invariant from 'tiny-invariant';
