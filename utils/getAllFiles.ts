@@ -1,4 +1,5 @@
 import { Octokit } from 'octokit';
+// @ts-ignore
 import parseGhUrl from 'parse-github-url';
 
 const getAllFiles = async (repoLink: string, gitHubAccessToken?: string) => {

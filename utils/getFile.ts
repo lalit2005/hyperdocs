@@ -1,4 +1,6 @@
 import { Octokit } from 'octokit';
+// @ts-ignore
+
 import parseGhUrl from 'parse-gitHub-url';
 
 const getFileContent = async (
