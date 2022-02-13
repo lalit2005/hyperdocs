@@ -1,5 +1,5 @@
 import { Octokit } from 'octokit';
-import parseGithubUrl from 'parse-gitHub-url';
+import parseGhUrl from 'parse-gitHub-url';
 
 const getFileContent = async (
   repoLink: string,
@@ -10,7 +10,7 @@ const getFileContent = async (
     auth: gitHubAccessToken,
   });
 
-  const repoLinkData = parseGithubUrl(repoLink);
+  const repoLinkData = parseGhUrl(repoLink);
 
   const fileContent = await octokit.rest.repos.getContent({
     owner: repoLinkData?.owner as string,
