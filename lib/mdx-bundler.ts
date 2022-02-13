@@ -7,7 +7,7 @@ import rehypeHighlight from 'rehype-highlight';
 // import remarkRemoveComments from 'remark-remove-comments'
 // import remarkImgLink from '@pondorasti/remark-img-links'
 
-const bundleMdxContent = async (rawContent: string, theme: string) => {
+const bundleMdxContent = async (rawContent: string) => {
   const result = await bundleMDX({
     source: rawContent,
     xdmOptions(options) {
