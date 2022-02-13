@@ -6,14 +6,14 @@ import bundleMdxContent from '@/lib/mdx-bundler';
 import Head from 'next/head';
 import DocsNav from '@/components/docs/navbar';
 import getAllFiles from '@/utils/getAllFiles';
-import invariant from 'tiny-invariant';
 import getFileContent from '@/utils/getFile';
 import { Remarkable } from 'remarkable';
 // @ts-ignore
 import mdToc from 'markdown-toc';
+import { capitalize } from '@/lib/capitalize';
 // @ts-ignore
-const Page = ({ finalMdxCode: { code }, tocHtml, navLinks, navCta, logo }) => {
-  const Component = useMemo(() => getMDXComponent(code), [code]);
+const Page = ({ content, tocHtml, navLinks, navCta, logo, sidebar, slug }) => {
+  const Component = useMemo(() => getMDXComponent(content), [content]);
   return (
     <div>
       <Head>
@@ -31,9 +31,19 @@ const Page = ({ finalMdxCode: { code }, tocHtml, navLinks, navCta, logo }) => {
             <aside className='w-full sm:w-2/12 px-2 border-r-2 border-slate-300 dark:border-slate-600'>
               <div className='sticky top-20 p-4 w-full'>
                 <div className='flex flex-col overflow-hidden'>
-                  <ul
-                    dangerouslySetInnerHTML={{ __html: tocHtml }}
-                    className='space-y-4 prose prose-li:underline-offset-4 text-opacity-50 dark:prose-invert'></ul>
+                  <ul className='space-y-4'>
+                    {sidebar.map((file: string) => {
+                      return (
+                        <li key={file}>
+                          <a
+                            className='capitalize px-3 py-2 rounded hover:bg-slate-50 dark:hover:bg-slate-800 block'
+                            href={`/${slug}/docs/${file}`}>
+                            {file.replace(/-/gi, ' ')}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
               </div>
             </aside>
@@ -45,18 +55,10 @@ const Page = ({ finalMdxCode: { code }, tocHtml, navLinks, navCta, logo }) => {
             <div className='w-full sm:w-2/12 px-2'>
               <div className='sticky top-20 p-4 w-full border-l dark:border-slate-700 border-slate-300'>
                 <div className='flex flex-col'>
-                  <ul className='space-y-4'>
-                    <li>Lorem, ipsum.</li>
-                    <li>Saepe, eius?</li>
-                    <li>Ducimus, omnis.</li>
-                    <li>Error, cumque!</li>
-                    <li>Modi, quidem?</li>
-                    <li>Ducimus, officiis.</li>
-                    <li>Ipsum, aut?</li>
-                    <li>Hic, eveniet.</li>
-                    <li>Tenetur, odit!</li>
-                    <li>Laboriosam, quis?</li>
-                  </ul>
+                  <p className='uppercase text-xs mb-5'>In this page</p>
+                  <ul
+                    dangerouslySetInnerHTML={{ __html: tocHtml }}
+                    className='space-y-4 prose prose-li:underline-offset-4 text-opacity-50 dark:prose-invert'></ul>
                 </div>
               </div>
             </div>
@@ -72,6 +74,9 @@ export default Page;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string;
+  const filename = params?.file as string;
+
+  console.log(filename);
 
   const siteData = await prisma.site.findUnique({
     where: {
@@ -82,61 +87,43 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   });
 
-  const files = await getAllFiles(
+  const mdToHtml = new Remarkable();
+
+  const allFiles = await getAllFiles(
     siteData?.repoLink || '',
+    siteData?.gitHubAccessToken || ''
+  );
+
+  console.log(allFiles);
+
+  // @ts-ignore
+  let filesArray = allFiles.data.map((file) => file.name.replace(/\.md$/, ''));
+
+  filesArray = filesArray.filter((file: string) => file !== 'index');
+
+  const content = await getFileContent(
+    siteData?.repoLink || '',
+    filename + '.md',
     siteData?.gitHubAccessToken?.toString()
   );
 
-  invariant(files, 'No files found');
-
-  const mdToHtml = new Remarkable();
-
-  interface MdFileInfo {
-    mdxCode: string;
-    toc: string;
-    name: string;
-    content: string;
-  }
-
-  // @ts-ignore
-  const bundledFilesArray = files.data.map(async (file) => {
-    const content = await getFileContent(
-      siteData?.repoLink || '',
-      file.name,
-      siteData?.gitHubAccessToken?.toString()
-    );
-
-    const tocHtml = mdToHtml.render(mdToc(content).content);
-
-    return {
-      toc: tocHtml,
-      name: file.name,
-      content: `# ${file.name.slice(0, -3).replace(/-/gi, ' ')} \n ${content
-        .toString()
-        .trim()}`,
-    };
-  });
-
-  const bundledFiles: MdFileInfo[] = await Promise.all(bundledFilesArray);
-
-  console.log(bundledFiles);
-
-  const finalToc = mdToHtml.render(
-    mdToc(bundledFiles.map((file) => file.content).join('\n')).content
-  );
-  console.log(finalToc);
+  const tocHtml = mdToHtml.render(mdToc(content).content);
 
   return {
     props: {
-      // bundledFiles: bundledFiles,
-      // combine all files' content
-      finalMdxCode: await bundleMdxContent(
-        bundledFiles.map((file) => file.content).join('\n')
-      ),
-      tocHtml: finalToc,
+      content: (
+        await bundleMdxContent(
+          `# ${capitalize(filename.replace(/-/gi, ' '))} \n ${content
+            .toString()
+            .trim()}`
+        )
+      ).code,
+      tocHtml: tocHtml,
+      sidebar: filesArray,
       navLinks: siteData?.navbarLinks,
       navCta: siteData?.navbarCta,
       logo: siteData?.siteName,
+      slug: siteData?.siteSlug,
     },
     revalidate: 10,
   };
