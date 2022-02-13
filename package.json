@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "prisma generate"
+    "prebuild": "yarn && prisma generate"
   },
   "dependencies": {
     "@hookform/devtools": "^4.0.2",
