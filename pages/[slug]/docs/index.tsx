@@ -64,6 +64,7 @@ const Page: NextPage<DocsPageProps> = ({
             </div>
           )}>
           <MDXRenderer>
+            {/* @ts-ignore */}
             <Component components={DocsMDXcomponents} />
           </MDXRenderer>
         </DocsLayout>
