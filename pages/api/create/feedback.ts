@@ -5,6 +5,8 @@ import web3forms from 'use-web3forms';
 const handler: NextApiHandler = async (req, res) => {
   const { siteId, feedback, stars, sentBy } = req.body;
 
+  console.log(siteId, feedback, stars, sentBy);
+
   const site = await prisma.feedback.create({
     data: {
       feedback,

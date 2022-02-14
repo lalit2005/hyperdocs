@@ -1,3 +1,4 @@
+import { NavbarLink } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export type ApiRoute = (
@@ -19,4 +20,15 @@ export interface NewSite {
   repoLink: string;
   ogImageUrl: string;
   siteSlug: string;
+}
+
+export interface DocsPageProps {
+  content: string;
+  tocHtml: string;
+  navLinks: NavbarLink[];
+  navCta: string;
+  logo: string;
+  sidebar: string[];
+  slug: string;
+  siteId: string;
 }

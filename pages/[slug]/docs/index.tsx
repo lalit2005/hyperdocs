@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import prisma from '@/utils/prisma';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
@@ -11,8 +11,18 @@ import { Remarkable } from 'remarkable';
 // @ts-ignore
 import mdToc from 'markdown-toc';
 import DocsLayout from '@/layouts/DocsLayout';
+import { DocsPageProps } from 'types/types';
 // @ts-ignore
-const Page = ({ content, tocHtml, navLinks, navCta, logo, sidebar, slug }) => {
+const Page: NextPage<DocsPageProps> = ({
+  content,
+  tocHtml,
+  navLinks,
+  navCta,
+  logo,
+  sidebar,
+  slug,
+  siteId,
+}) => {
   const Component = useMemo(() => getMDXComponent(content), [content]);
   return (
     <div>
@@ -27,6 +37,7 @@ const Page = ({ content, tocHtml, navLinks, navCta, logo, sidebar, slug }) => {
           <DocsNav links={navLinks} navbarCta={navCta} logo={logo} />
         </div>
         <DocsLayout
+          siteId={siteId}
           LeftSidebarContent={() => (
             <ul className='space-y-4 mt-10'>
               {sidebar.map((file: string) => {
@@ -99,6 +110,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const tocHtml = mdToHtml.render(mdToc(content).content);
 
   return {
+    // * Make sure to change the DocsPageProps in @types/types.ts
     props: {
       content: (await bundleMdxContent(`${content.toString().trim()}`)).code,
       tocHtml: tocHtml,
@@ -107,6 +119,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       navCta: siteData?.navbarCta,
       logo: siteData?.siteName,
       slug: siteData?.siteSlug,
+      siteId: siteData?.id,
     },
     revalidate: 10,
   };
