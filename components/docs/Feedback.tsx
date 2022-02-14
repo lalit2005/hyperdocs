@@ -25,6 +25,7 @@ const Feedback: React.FC<{ siteId: string }> = ({ siteId }) => {
           className='my-1 scale-[1.4]'
           value={stars}
           onChange={(val) => setStars(val)}
+          half={false}
         />
         <DialogRoot>
           <DialogTrigger>
@@ -56,7 +57,7 @@ const Feedback: React.FC<{ siteId: string }> = ({ siteId }) => {
                   const req = axios.post('/api/create/feedback', {
                     feedback,
                     stars,
-                    sentBy: e.currentTarget.email?.value,
+                    sentBy: e.currentTarget.sentBy?.value,
                     siteId,
                   });
                   toast.promise(req, {

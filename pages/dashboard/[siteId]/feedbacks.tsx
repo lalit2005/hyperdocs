@@ -8,12 +8,13 @@ import ReactStars from 'react-stars';
 import truncate from 'lodash.truncate';
 import { formatRelative } from 'date-fns';
 import Empty from '@/components/Empty';
+import FeedbackCard from '@/components/FeedbackCard';
 
 const Feedbacks = () => {
   const router = useRouter();
   const siteId = router.query.siteId as string;
 
-  const { data: site } = useSWR<
+  const { data: site, mutate } = useSWR<
     Site & {
       navbarLinks: NavbarLink[];
       feedbacks: Feedback[];
@@ -37,23 +38,12 @@ const Feedbacks = () => {
         <div className='mt-4 space-y-3'>
           {site?.feedbacks?.map((feedback) => {
             return (
-              <div
+              <FeedbackCard
+                feedback={feedback}
+                mutate={mutate}
                 key={feedback.id}
-                className='flex justify-between items-center p-3 rounded border border-slate-300 dark:border-slate-700 shadow'>
-                <ReactStars edit={false} size={20} value={feedback.stars} />
-                <TextSmall className='font-semibold text-left'>
-                  {truncate(feedback.feedback, {
-                    length: 50,
-                  })}
-                </TextSmall>
-                <TextSmall>
-                  {formatRelative(
-                    new Date(feedback.createdAt),
-                    new Date()
-                    // make first letter caps
-                  ).replace(/^./, (str) => str.toUpperCase())}
-                </TextSmall>
-              </div>
+                data={site}
+              />
             );
           })}
         </div>
