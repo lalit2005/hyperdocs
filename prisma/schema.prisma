@@ -76,7 +76,7 @@ model Site {
   gitHubAccessToken String?
   feedbacks         Feedback[]
   customHead        String?
-  homePage          String?
+  homePage          String?      @db.LongText
   navbarCta         String?
   navbarLinks       NavbarLink[]
   announcement      String?
@@ -92,13 +92,14 @@ model NavbarLink {
 }
 
 model Feedback {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  siteId    String
-  site      Site     @relation(fields: [siteId], references: [id], onDelete: Cascade)
-  feedback  String
-  stars     Int
-  sentBy    String?
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  siteId        String
+  site          Site     @relation(fields: [siteId], references: [id], onDelete: Cascade)
+  feedback      String
+  submittedFrom String?
+  stars         Int
+  sentBy        String?
 }
 
 model Blog {

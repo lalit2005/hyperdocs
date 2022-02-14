@@ -36,6 +36,7 @@
     "react-feather": "^2.0.9",
     "react-hook-form": "^7.26.0",
     "react-hot-toast": "^2.2.0",
+    "react-medium-image-zoom": "^4.3.5",
     "react-rough-notation": "^1.0.1",
     "react-stars": "^2.2.5",
     "react-textarea-autosize": "^8.3.3",
