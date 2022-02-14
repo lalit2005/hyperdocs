@@ -1,4 +1,3 @@
-import { Heading1, Heading2 } from '@/components/ui/Typography';
 import { useRef } from 'react';
 import { Clipboard } from 'react-feather';
 
