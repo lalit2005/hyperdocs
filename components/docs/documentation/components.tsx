@@ -1,9 +1,10 @@
-import clsx from 'clsx';
 import { useRef } from 'react';
 import * as FeatherIcons from 'react-feather';
 import { Accordion } from './Accordion';
 import Callout from './Callout';
 import Tooltip from './Tooltip';
+import { Sandpack } from '@codesandbox/sandpack-react';
+import '@codesandbox/sandpack-react/dist/index.css';
 
 const DocsMDXcomponents = {
   pre: (props: any) => {
@@ -25,6 +26,7 @@ const DocsMDXcomponents = {
   Tooltip: Tooltip,
   Icons: FeatherIcons,
   Accordion: Accordion,
+  Sandpack: Sandpack,
 };
 
 function copyToClipboard(children: string | null | undefined): void {
