@@ -4,6 +4,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './layouts/**/*.{js,ts,jsx,tsx}',
   ],
+  safelist: ['p-4', 'rounded'],
   darkMode: 'class',
   theme: {
     extend: {},
