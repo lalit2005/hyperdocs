@@ -10,7 +10,7 @@ const Callout = (props: any) => {
         props.type == 'tip' && 'bg-cyan-400',
         props.type == 'success' && 'bg-green-400',
         props.type == 'warning' && 'bg-yellow-400',
-        props.type == 'danger' && 'bg-red-300',
+        props.type == 'danger' && 'bg-red-400',
         !props.type && 'bg-blue-400'
       )}>
       <div className='mb-3'>

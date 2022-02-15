@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useRef } from 'react';
 import * as FeatherIcons from 'react-feather';
+import { Accordion } from './Accordion';
 import Callout from './Callout';
 import Tooltip from './Tooltip';
 
@@ -23,6 +24,7 @@ const DocsMDXcomponents = {
   Callout: Callout,
   Tooltip: Tooltip,
   Icons: FeatherIcons,
+  Accordion: Accordion,
 };
 
 function copyToClipboard(children: string | null | undefined): void {
