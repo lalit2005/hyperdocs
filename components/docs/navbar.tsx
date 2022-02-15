@@ -30,8 +30,8 @@ const DocsNav: React.FC<{
         <div>
           <ThemeToggle />
         </div>
-        <CustomLink href={navbarCta.split('|||')[1]} className='scale-90'>
-          {navbarCta.split('|||')[0]}
+        <CustomLink href={navbarCta?.split('|||')[1]} className='scale-90'>
+          {navbarCta?.split('|||')[0]}
         </CustomLink>
       </div>
     </nav>
