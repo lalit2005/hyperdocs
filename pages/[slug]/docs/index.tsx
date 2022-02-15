@@ -14,6 +14,7 @@ import DocsLayout from '@/layouts/DocsLayout';
 import { DocsPageProps } from 'types/types';
 import MDXRenderer from '@/components/docs/MDXRenderer';
 import DocsMDXcomponents from '@/components/docs/documentation/components';
+import Link from 'next/link';
 // @ts-ignore
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -45,11 +46,11 @@ const Page: NextPage<DocsPageProps> = ({
               {sidebar.map((file: string) => {
                 return (
                   <li key={file}>
-                    <a
-                      className='capitalize px-3 py-2 rounded hover:bg-slate-50 dark:hover:bg-slate-800 block'
-                      href={`/${slug}/docs/${file}`}>
-                      {file.replace(/-/gi, ' ')}
-                    </a>
+                    <Link href={`/${slug}/docs/${file}`}>
+                      <a className='capitalize px-3 py-2 rounded hover:bg-slate-50 dark:hover:bg-slate-800 block'>
+                        {file.replace(/-/gi, ' ')}
+                      </a>
+                    </Link>
                   </li>
                 );
               })}
