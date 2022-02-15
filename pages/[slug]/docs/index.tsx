@@ -42,12 +42,12 @@ const Page: NextPage<DocsPageProps> = ({
         <DocsLayout
           siteId={siteId}
           LeftSidebarContent={() => (
-            <ul className='space-y-4 mt-10'>
+            <ul className='mt-10 space-y-4'>
               {sidebar.map((file: string) => {
                 return (
                   <li key={file}>
                     <Link href={`/${slug}/docs/${file}`}>
-                      <a className='capitalize px-3 py-2 rounded hover:bg-slate-50 dark:hover:bg-slate-800 block'>
+                      <a className='block rounded px-3 py-2 capitalize hover:bg-slate-50 dark:hover:bg-slate-800'>
                         {file.replace(/-/gi, ' ')}
                       </a>
                     </Link>
@@ -58,12 +58,14 @@ const Page: NextPage<DocsPageProps> = ({
           )}
           RightSidebarContent={() => (
             <div>
-              <p className='text-xs mb-8 uppercase'>On this page</p>
+              <p className='mb-8 text-xs uppercase'>On this page</p>
               <ul
                 dangerouslySetInnerHTML={{ __html: tocHtml }}
-                className='space-y-4 prose prose-li:underline-offset-4 text-opacity-50 dark:prose-invert'></ul>
+                className='prose space-y-4 text-opacity-50 prose-li:underline-offset-4 dark:prose-invert'
+              ></ul>
             </div>
-          )}>
+          )}
+        >
           <MDXRenderer>
             {/* @ts-ignore */}
             <Component components={DocsMDXcomponents} />

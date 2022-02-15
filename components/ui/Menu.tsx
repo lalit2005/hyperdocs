@@ -17,7 +17,7 @@ export const MenuRoot: React.FC<{
 
 export const MenuTrigger: React.FC = (props) => {
   return (
-    <RadixMenu.Trigger className='focus:outline-none focus:ring-transparent group'>
+    <RadixMenu.Trigger className='group focus:outline-none focus:ring-transparent'>
       {props.children}
     </RadixMenu.Trigger>
   );
@@ -36,7 +36,8 @@ export const MenuContent: React.FC<{
           side={side || 'bottom'}
           forceMount
           align='start'
-          className='border-slate-200 dark:border-slate-600 border rounded block shadow-lg !max-w-lg !w-full bg-white dark:bg-black max-h-96 overflow-y-scroll'>
+          className='block max-h-96 !w-full !max-w-lg overflow-y-scroll rounded border border-slate-200 bg-white shadow-lg dark:border-slate-600 dark:bg-black'
+        >
           <motion.div
             initial={{
               opacity: 0,
@@ -55,7 +56,8 @@ export const MenuContent: React.FC<{
             transition={{
               type: 'spring',
               duration: 0.2,
-            }}>
+            }}
+          >
             {props.children}
           </motion.div>
         </RadixMenu.Content>
@@ -81,9 +83,10 @@ export const MenuItem: React.FC<{
       <RadixMenu.Item
         onSelect={callBack || r(link)}
         className={clsx(
-          'px-5 pr-10 focus:outline-none focus:bg-slate-100 hover:bg-slate-100 focus:dark:bg-slate-800 hover:dark:bg-slate-800 cursor-pointer py-2',
+          'cursor-pointer px-5 py-2 pr-10 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none hover:dark:bg-slate-800 focus:dark:bg-slate-800',
           className
-        )}>
+        )}
+      >
         {link && (
           <Link href={link}>
             <a className='w-full'>{props.children}</a>
@@ -110,9 +113,10 @@ export const MenuTriggerItem: React.FC<{
     <>
       <RadixMenu.TriggerItem
         className={clsx(
-          'px-5 pr-10 focus:outline-none focus:bg-slate-100 hover:bg-slate-100 focus:dark:bg-slate-800 hover:dark:bg-slate-800 cursor-pointer py-2',
+          'cursor-pointer px-5 py-2 pr-10 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none hover:dark:bg-slate-800 focus:dark:bg-slate-800',
           className
-        )}>
+        )}
+      >
         {link && (
           <Link href={link}>
             <a className='w-full'>{props.children}</a>
@@ -126,6 +130,6 @@ export const MenuTriggerItem: React.FC<{
 
 export const MenuSeparator: React.FC = () => {
   return (
-    <RadixMenu.Separator className='h-px dark:bg-slate-600 bg-slate-200' />
+    <RadixMenu.Separator className='h-px bg-slate-200 dark:bg-slate-600' />
   );
 };

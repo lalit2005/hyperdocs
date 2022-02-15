@@ -34,10 +34,10 @@ const ProfileDropdown = () => {
           </Tooltip>
         </MenuTrigger>
         <MenuContent isOpen={isOpen}>
-          <MenuItem className='px-5 pr-10 focus:outline-none focus:bg-slate-100 hover:bg-slate-100 focus:dark:bg-slate-800 hover:dark:bg-slate-800 cursor-pointer py-3'>
+          <MenuItem className='cursor-pointer px-5 py-3 pr-10 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none hover:dark:bg-slate-800 focus:dark:bg-slate-800'>
             Signed in as <span className='font-bold'>{name}</span>
             <br />
-            <p className='text-sm mt-1 opacity-80'>{email}</p>
+            <p className='mt-1 text-sm opacity-80'>{email}</p>
           </MenuItem>
           <MenuRoot isOpen={isSubMenuOpen} setIsOpen={setIsSubMenuOpen}>
             <MenuTriggerItem>Change theme</MenuTriggerItem>
@@ -45,13 +45,15 @@ const ProfileDropdown = () => {
               <MenuItem
                 callBack={() => {
                   setTheme('dark');
-                }}>
+                }}
+              >
                 Dark
               </MenuItem>
               <MenuItem
                 callBack={() => {
                   setTheme('light');
-                }}>
+                }}
+              >
                 Light
               </MenuItem>
             </MenuContent>
@@ -64,7 +66,8 @@ const ProfileDropdown = () => {
           <MenuSeparator />
           <MenuItem
             callBack={signOut}
-            className='text-red-500 focus:underline hover:underline'>
+            className='text-red-500 hover:underline focus:underline'
+          >
             Logout
           </MenuItem>
         </MenuContent>

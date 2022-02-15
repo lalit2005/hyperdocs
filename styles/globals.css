@@ -43,13 +43,13 @@ html {
 }
 
 .text-input {
-  @apply relative -bottom-[1px] rounded border border-slate-500 px-5 py-[9px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent m-px;
+  @apply relative -bottom-[1px] m-px rounded border border-slate-500 px-5 py-[9px] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
 
 .markdown > a {
-  @apply text-blue-500 dark:text-blue-300 hover:underline;
+  @apply text-blue-500 hover:underline dark:text-blue-300;
 }
 
 .markdown code {
-  @apply before:content-["`"] after:content-["`"] bg-gray-500 p-1 rounded font-mono;
+  @apply rounded bg-gray-500 p-1 font-mono before:content-["`"] after:content-["`"];
 }

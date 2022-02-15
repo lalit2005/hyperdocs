@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "npx prettier --write \"**/*.{js,ts,jsx,tsx,json,css,md,html}\"",
     "prebuild": "prisma generate"
   },
   "dependencies": {

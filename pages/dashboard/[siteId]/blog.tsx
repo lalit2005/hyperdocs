@@ -5,7 +5,8 @@ const Blog = () => {
     <DashboardLayout
       title='Blogs'
       subtitle='Feedbacks that people submitted through the documentation website'
-      active='blog'>
+      active='blog'
+    >
       Blog
     </DashboardLayout>
   );

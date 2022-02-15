@@ -13,22 +13,22 @@ const Nav = () => {
         <div>
           <ul className='space-x-10 py-5'>
             <Link href='/docs'>
-              <a className='opacity-60 hover:opacity-100 transition-all'>
+              <a className='opacity-60 transition-all hover:opacity-100'>
                 Docs
               </a>
             </Link>
             <Link href='/showcase'>
-              <a className='opacity-60 hover:opacity-100 transition-all'>
+              <a className='opacity-60 transition-all hover:opacity-100'>
                 Showcase
               </a>
             </Link>
             <Link href='/themes'>
-              <a className='opacity-60 hover:opacity-100 transition-all'>
+              <a className='opacity-60 transition-all hover:opacity-100'>
                 Themes
               </a>
             </Link>
             <Link href='/login'>
-              <a className='opacity-60 hover:opacity-100 transition-all'>
+              <a className='opacity-60 transition-all hover:opacity-100'>
                 Login
               </a>
             </Link>

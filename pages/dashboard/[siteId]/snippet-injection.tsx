@@ -25,14 +25,15 @@ const SnippetInjection = () => {
     <DashboardLayout
       title='Snippet Injection'
       subtitle='Inject custom code such as analytics, popup menus, CSS stylesheets, custom fonts, etc.'
-      active='snippet-injection'>
+      active='snippet-injection'
+    >
       <div>
         <div>
           <TextSmall className='font-mono text-xl'>{'<head>'}</TextSmall>
           <ReactTextareaAutosize
             minRows={5}
             placeholder='Add your custom stylesheets(themes) or analytics here'
-            className='text-input font-mono max-w-3xl w-full'
+            className='text-input w-full max-w-3xl font-mono'
             onChange={(e) => {
               setHead(e.target.value);
             }}
@@ -56,7 +57,8 @@ const SnippetInjection = () => {
                 success: 'Updated successfully!',
                 error: 'Failed to update!',
               });
-            }}>
+            }}
+          >
             Save
           </Button>
         </div>

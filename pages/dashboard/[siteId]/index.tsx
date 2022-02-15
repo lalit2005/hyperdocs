@@ -20,30 +20,34 @@ const Index = () => {
     <DashboardLayout
       active='overview'
       title='Overview'
-      subtitle={`A brief overview and status of **${data?.siteName}**`}>
+      subtitle={`A brief overview and status of **${data?.siteName}**`}
+    >
       <div>
         <CustomLink
-          className='block sm:inline my-2 sm:my-auto mr-2'
+          className='my-2 mr-2 block sm:my-auto sm:inline'
           href={`https://hyperdocs.tk/${data?.siteSlug}`}
           target='_blank'
           noInvert
-          rel='noopener noreferrer'>
+          rel='noopener noreferrer'
+        >
           Visit site
         </CustomLink>
         <CustomLink
-          className='block sm:inline my-2 sm:my-auto mr-2'
+          className='my-2 mr-2 block sm:my-auto sm:inline'
           noInvert
           href={`https://pagespeed.web.dev/report/?url=https://hyperdocs.tk/${data?.siteSlug}`}
           target='_blank'
-          rel='noopener noreferrer'>
+          rel='noopener noreferrer'
+        >
           View Lighthouse score
         </CustomLink>
         <CustomLink
-          className='block sm:inline my-2 sm:my-auto'
+          className='my-2 block sm:my-auto sm:inline'
           noInvert
           href={data?.repoLink}
           target='_blank'
-          rel='noopener noreferrer'>
+          rel='noopener noreferrer'
+        >
           View repository on GitHub
         </CustomLink>
       </div>

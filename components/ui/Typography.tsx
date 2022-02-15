@@ -10,7 +10,8 @@ export const Heading1: React.FC<{ className?: string }> = ({
       className={clsx(
         'text-4xl font-bold sm:text-5xl sm:font-extrabold',
         className
-      )}>
+      )}
+    >
       {props.children}
     </h2>
   );
@@ -30,7 +31,7 @@ export const Heading3: React.FC<{ className?: string }> = ({
   ...props
 }) => {
   return (
-    <h3 className={clsx('text-xl text-opacity-75 font-bold', className)}>
+    <h3 className={clsx('text-xl font-bold text-opacity-75', className)}>
       {props.children}
     </h3>
   );
@@ -53,7 +54,8 @@ export const Markdown: React.FC<{ className?: string; text?: string }> = ({
       <p
         className={clsx('markdown', className)}
         {...props}
-        dangerouslySetInnerHTML={{ __html: snarkdown(text || '') }}></p>
+        dangerouslySetInnerHTML={{ __html: snarkdown(text || '') }}
+      ></p>
     </>
   );
 };

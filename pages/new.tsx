@@ -49,10 +49,10 @@ const NewSite = () => {
     <ProtectedRoute>
       <DevTool control={control} />
       <DashboardNav />
-      <div className='max-w-6xl mx-auto px-10 -mt-10'>
+      <div className='mx-auto -mt-10 max-w-6xl px-10'>
         <Heading1>
           Create a new{' '}
-          <span className='bg-clip-text text-transparent bg-gradient-to-r from-[#696eff] to-[#ff1b6b]'>
+          <span className='bg-gradient-to-r from-[#696eff] to-[#ff1b6b] bg-clip-text text-transparent'>
             documentation site
           </span>
         </Heading1>
@@ -64,13 +64,13 @@ const NewSite = () => {
             <label className='my-2 block' htmlFor='siteName'>
               <TextSmall>Name of the new site</TextSmall>
               <input
-                className='max-w-xl mt-2 w-full text-input'
+                className='text-input mt-2 w-full max-w-xl'
                 placeholder='Hyperdocs Documentation'
                 id='siteName'
                 {...register('siteName')}
               />
               {errors.siteName && (
-                <p className='text-red-400 text-sm mt-1'>
+                <p className='mt-1 text-sm text-red-400'>
                   {errors.siteName.message}
                 </p>
               )}
@@ -79,7 +79,7 @@ const NewSite = () => {
             <label className='my-2 block' htmlFor='siteName'>
               <TextSmall>A slug for your site</TextSmall>
               <input
-                className='max-w-xl mt-2 w-full text-input'
+                className='text-input mt-2 w-full max-w-xl'
                 placeholder='hyperdocs'
                 id='siteName'
                 {...register('siteSlug')}
@@ -89,7 +89,7 @@ const NewSite = () => {
                 custom domain or subdomain later.
               </TextSmall>
               {errors.siteName && (
-                <p className='text-red-400 text-sm mt-1'>
+                <p className='mt-1 text-sm text-red-400'>
                   {errors.siteSlug?.message}
                 </p>
               )}
@@ -98,14 +98,14 @@ const NewSite = () => {
             <label className='my-2 block' htmlFor='siteDescription'>
               <TextSmall>Description of the site</TextSmall>
               <textarea
-                className='text-input max-w-xl mt-2 w-full'
+                className='text-input mt-2 w-full max-w-xl'
                 placeholder='The simplest way to create docs for your next open source project.'
                 id='siteDescription'
                 rows={3}
                 {...register('siteDescription')}
               />
               {errors.siteDescription && (
-                <p className='text-red-400 text-sm mt-1'>
+                <p className='mt-1 text-sm text-red-400'>
                   {errors.siteDescription.message}
                 </p>
               )}
@@ -114,13 +114,13 @@ const NewSite = () => {
             <label className='mb-10 block' htmlFor='repoLink'>
               <TextSmall>Repository link</TextSmall>
               <input
-                className='max-w-xl mt-2 w-full text-input'
+                className='text-input mt-2 w-full max-w-xl'
                 id='repoLink'
                 placeholder='https://github.com/lalit2005/hyperdocs'
                 {...register('repoLink')}
               />
               {errors.repoLink && (
-                <p className='text-red-400 text-sm mt-1'>
+                <p className='mt-1 text-sm text-red-400'>
                   {errors.repoLink.message}
                 </p>
               )}
@@ -128,12 +128,12 @@ const NewSite = () => {
             <label className='my-10 block' htmlFor='ogImageUrl'>
               <TextSmall>OG Image URL for this site</TextSmall>
               <input
-                className='max-w-xl mt-2 w-full text-input'
+                className='text-input mt-2 w-full max-w-xl'
                 placeholder='https://image.com/my-image.png'
                 id='ogImageUrl'
                 {...register('ogImageUrl')}
               />
-              <TextSmall className='text-xs mt-1'>
+              <TextSmall className='mt-1 text-xs'>
                 <span
                   onClick={() => {
                     setValue(
@@ -142,12 +142,13 @@ const NewSite = () => {
                         getValues().siteName
                       )}`
                     );
-                  }}>
+                  }}
+                >
                   Click here to auto-generate one from title.
                 </span>
               </TextSmall>
               {errors.ogImageUrl && (
-                <p className='text-red-400 text-sm mt-1'>
+                <p className='mt-1 text-sm text-red-400'>
                   {errors.ogImageUrl.message}
                 </p>
               )}

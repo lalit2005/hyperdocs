@@ -25,11 +25,12 @@ const Feedbacks = () => {
     <DashboardLayout
       title='Feedbacks'
       subtitle='Feedbacks that people submitted through the documentation website'
-      active='feedbacks'>
+      active='feedbacks'
+    >
       <div className='max-w-4xl'>
         <div>
           {!site?.web3formsKey && (
-            <div className='dark:bg-green-800 bg-green-300 p-5 rounded-md inline-block'>
+            <div className='inline-block rounded-md bg-green-300 p-5 dark:bg-green-800'>
               <Markdown text='Make sure you have set up your [Web3forms](https://web3forms.com) API key in settings to recieve an email whenever someone submits a form.' />
             </div>
           )}
@@ -48,7 +49,7 @@ const Feedbacks = () => {
           })}
         </div>
         {site?.feedbacks?.length === 0 && (
-          <div className='p-5 space-y-4'>
+          <div className='space-y-4 p-5'>
             <Empty />
             <TextSmall className='text-center'>No feedbacks yet!</TextSmall>
           </div>

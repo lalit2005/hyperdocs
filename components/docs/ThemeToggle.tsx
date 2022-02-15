@@ -11,17 +11,17 @@ const ThemeToggle = () => {
     <div>
       <MenuRoot isOpen={isOpen} setIsOpen={setIsOpen}>
         <MenuTrigger>
-          <div className='px-[8px] border-none p-2 rounded hover:bg-slate-50 dark:hover:bg-slate-900 group-focus:ring group-focus:ring-blue-500 relative -bottom-1'>
+          <div className='relative -bottom-1 rounded border-none p-2 px-[8px] hover:bg-slate-50 group-focus:ring group-focus:ring-blue-500 dark:hover:bg-slate-900'>
             {theme === 'dark' ? <Moon size={20} /> : <Sun size={20} />}
           </div>
         </MenuTrigger>
         <MenuContent isOpen={isOpen}>
           <MenuItem callBack={() => setTheme('dark')}>
-            <Moon className='inline p-1 mr-2 relative -top-px' />
+            <Moon className='relative -top-px mr-2 inline p-1' />
             Dark
           </MenuItem>
           <MenuItem callBack={() => setTheme('light')}>
-            <Sun className='inline p-1 mr-2 relative -top-px' />
+            <Sun className='relative -top-px mr-2 inline p-1' />
             Light
           </MenuItem>
         </MenuContent>

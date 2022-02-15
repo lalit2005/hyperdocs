@@ -25,10 +25,10 @@ const FeedbackCard: React.FC<{
   return (
     <DialogRoot>
       <DialogTrigger>
-        <Button noInvert className='shadow w-full py-1'>
-          <div className='flex justify-between items-center p-3'>
+        <Button noInvert className='w-full py-1 shadow'>
+          <div className='flex items-center justify-between p-3'>
             <ReactStars edit={false} size={20} value={feedback.stars} />
-            <TextSmall className='font-semibold text-left'>
+            <TextSmall className='text-left font-semibold'>
               {truncate(feedback.feedback, {
                 length: 50,
               })}
@@ -48,18 +48,19 @@ const FeedbackCard: React.FC<{
         description={`Submitted on ${formatRelative(
           new Date(feedback.createdAt),
           new Date()
-        )}`}>
-        <div className='space-y-6 mt-8'>
+        )}`}
+      >
+        <div className='mt-8 space-y-6'>
           <div>
-            <p className='font-semibold text-lg'>Feedback</p>
+            <p className='text-lg font-semibold'>Feedback</p>
             <TextSmall>{feedback.feedback}</TextSmall>
           </div>
           <div>
-            <p className='font-semibold text-lg'>Rating</p>
+            <p className='text-lg font-semibold'>Rating</p>
             <TextSmall>{feedback.stars}</TextSmall>
           </div>
           <div>
-            <p className='font-semibold text-lg'>Submitted by</p>
+            <p className='text-lg font-semibold'>Submitted by</p>
             <TextSmall>
               <Markdown text={feedback?.sentBy || '*Not provided*'} />
             </TextSmall>
@@ -85,7 +86,8 @@ const FeedbackCard: React.FC<{
               });
             }}
             className='!border-red-500 !text-red-500'
-            noInvert>
+            noInvert
+          >
             Delete this feedback
           </Button>
         </div>

@@ -97,11 +97,11 @@ const DashboardLayout: React.FC<{
 
   return (
     <ProtectedRoute>
-      <div className='w-screen h-screen'>
+      <div className='h-screen w-screen'>
         <div className='flex flex-row flex-wrap'>
           <aside className='w-1/5'>
             <div className='sticky top-0 w-full'>
-              <div className='border-r-2 border-r-slate-200 dark:border-r-slate-800 pt-24 relative h-screen'>
+              <div className='relative h-screen border-r-2 border-r-slate-200 pt-24 dark:border-r-slate-800'>
                 <div className='absolute top-0 p-4'>
                   <Logo href='/dashboard' />
                 </div>
@@ -116,9 +116,10 @@ const DashboardLayout: React.FC<{
                           className={clsx(
                             'border-none',
                             active === link.active &&
-                              'font-semibold !bg-slate-100 dark:!bg-slate-700 dark:!text-white'
-                          )}>
-                          <Icon className='inline-block mr-2 opacity-75 scale-75' />
+                              '!bg-slate-100 font-semibold dark:!bg-slate-700 dark:!text-white'
+                          )}
+                        >
+                          <Icon className='mr-2 inline-block scale-75 opacity-75' />
                           <span className='hidden md:inline-block'>
                             {link.name}
                           </span>
@@ -128,17 +129,18 @@ const DashboardLayout: React.FC<{
                   })}
                 </ul>
                 <div>
-                  <div className='absolute bottom-0 w-full inline-block'>
+                  <div className='absolute bottom-0 inline-block w-full'>
                     <div>
                       <CustomLink
                         href='/dashboard'
                         noInvert
-                        className='text-slate-400 hover:font-bold text-sm py-3 block mt-3 border-none px-5 !bg-slate-100 dark:!bg-slate-900 mb-[2px] rounded-none'>
+                        className='mt-3 mb-[2px] block rounded-none border-none !bg-slate-100 py-3 px-5 text-sm text-slate-400 hover:font-bold dark:!bg-slate-900'
+                      >
                         {'<-'}{' '}
                         <span className='hidden sm:inline-block'>Go back</span>
                       </CustomLink>
                     </div>
-                    <div className='justify-between px-5 py-2 pt-5 bg-slate-100 dark:bg-slate-900 items-center border-t border-t-slate-300 dark:border-t-slate-700'>
+                    <div className='items-center justify-between border-t border-t-slate-300 bg-slate-100 px-5 py-2 pt-5 dark:border-t-slate-700 dark:bg-slate-900'>
                       <ProfileDropdown />
                     </div>
                   </div>
@@ -146,10 +148,10 @@ const DashboardLayout: React.FC<{
               </div>
             </div>
           </aside>
-          <main role='main' className='w-4/5 pt-1 sm:px-2 px-5'>
-            <div className=' pl-5 sm:pl-16 mt-24'>
+          <main role='main' className='w-4/5 px-5 pt-1 sm:px-2'>
+            <div className=' mt-24 pl-5 sm:pl-16'>
               <Heading1>{title}</Heading1>
-              <p className='text-lg text-light mt-5 mb-16 max-w-4xl'>
+              <p className='text-light mt-5 mb-16 max-w-4xl text-lg'>
                 <Markdown text={subtitle} />
               </p>
               {props.children}

@@ -12,15 +12,15 @@ const Feedback: React.FC<{ siteId: string }> = ({ siteId }) => {
   const [stars, setStars] = useState(0);
 
   return (
-    <div className='max-w-sm text-sm pb-1'>
+    <div className='max-w-sm pb-1 text-sm'>
       <ReactTextareaAutosize
-        className='rounded border border-slate-300 dark:border-slate-500 p-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent relative left-1'
+        className='relative left-1 rounded border border-slate-300 p-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-500'
         placeholder='Any feedbacks or ideas to improve the docs?'
         minRows={3}
         value={feedback}
         onChange={(e) => setFeedback(e.target.value)}
       />
-      <div className='flex justify-around items-center relative right-2'>
+      <div className='relative right-2 flex items-center justify-around'>
         <ReactStars
           className='my-1 scale-[1.4]'
           value={stars}
@@ -35,7 +35,8 @@ const Feedback: React.FC<{ siteId: string }> = ({ siteId }) => {
           </DialogTrigger>
           <DialogContent
             title='Email?'
-            description='Would you like to provide your email so that we can get back to you?'>
+            description='Would you like to provide your email so that we can get back to you?'
+          >
             <form
               className='flex'
               onSubmit={(e) => {
@@ -66,10 +67,11 @@ const Feedback: React.FC<{ siteId: string }> = ({ siteId }) => {
                     loading: 'Sending feedback...',
                   });
                 }
-              }}>
+              }}
+            >
               <Input
                 placeholder='Email (optional)'
-                className='w-full mr-2'
+                className='mr-2 w-full'
                 type='email'
                 name='sentBy'
               />

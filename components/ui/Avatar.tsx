@@ -7,12 +7,13 @@ const Avatar: React.FC<{ img: string; fallBack: string }> = ({
   return (
     <RadixAvatar.Root>
       <RadixAvatar.Image
-        className='rounded-full w-9 group-focus:ring group-focus:ring-blue-500'
+        className='w-9 rounded-full group-focus:ring group-focus:ring-blue-500'
         src={img}
       />
       <RadixAvatar.Fallback
         delayMs={600}
-        className='bg-blue-500 w-full h-full flex items-center justify-center p-3 uppercase text-xs leading-none rounded-full cursor-default'>
+        className='flex h-full w-full cursor-default items-center justify-center rounded-full bg-blue-500 p-3 text-xs uppercase leading-none'
+      >
         {fallBack?.split(' ')[0]?.substring(0, 2) || fallBack?.substring(0, 2)}
       </RadixAvatar.Fallback>
     </RadixAvatar.Root>

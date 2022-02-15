@@ -5,14 +5,15 @@ const Callout = (props: any) => {
   return (
     <div
       className={clsx(
-        'rounded p-7 not-prose my-5 text-black',
+        'not-prose my-5 rounded p-7 text-black',
         props.type == 'info' && 'bg-blue-400',
         props.type == 'tip' && 'bg-cyan-400',
         props.type == 'success' && 'bg-green-400',
         props.type == 'warning' && 'bg-yellow-400',
         props.type == 'danger' && 'bg-red-400',
         !props.type && 'bg-blue-400'
-      )}>
+      )}
+    >
       <div className='mb-3'>
         {(props.type == 'info' && <FeatherIcons.Info />) ||
           (props.type == 'tip' && <FeatherIcons.Zap />) ||

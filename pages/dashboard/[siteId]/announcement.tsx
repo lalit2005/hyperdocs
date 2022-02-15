@@ -30,7 +30,8 @@ const Announcement = () => {
     <DashboardLayout
       title='Announcement'
       subtitle='This text shows up as banner on the top of the website. You can use it for announcing new releases or other milestones'
-      active='announcement'>
+      active='announcement'
+    >
       <form>
         <div>
           <TextSmall>Announcement text</TextSmall>
@@ -41,7 +42,7 @@ const Announcement = () => {
             }}
             value={announcementText}
             placeholder='Version 3 of Hyperdocs is released 🎉 ->'
-            className='inline-block max-w-3xl w-full'
+            className='inline-block w-full max-w-3xl'
           />
         </div>
         <div className='mt-10'>
@@ -54,7 +55,7 @@ const Announcement = () => {
             type='url'
             value={announcementLink}
             placeholder='https://hyperdocs.tk/blog/version-3'
-            className='inline-block max-w-3xl w-full'
+            className='inline-block w-full max-w-3xl'
           />
         </div>
         <div className='mt-14'>
@@ -75,12 +76,13 @@ const Announcement = () => {
                 success: 'Updated successfully!',
                 error: 'Failed to update!',
               });
-            }}>
+            }}
+          >
             Save
           </Button>
         </div>
       </form>
-      <TextSmall className='opacity-70 max-w-lg mt-3'>
+      <TextSmall className='mt-3 max-w-lg opacity-70'>
         Remove the text and link (you should be able to see the placeholder in
         both the input fields) to hide the announcement banner
       </TextSmall>

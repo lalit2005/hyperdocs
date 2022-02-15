@@ -47,8 +47,8 @@ const Dashboard = () => {
   return (
     <ProtectedRoute>
       <DashboardNav />
-      <div className='max-w-6xl mx-auto px-10'>
-        <div className='w-full flex justify-between'>
+      <div className='mx-auto max-w-6xl px-10'>
+        <div className='flex w-full justify-between'>
           <Input
             onChange={(e) => {
               setSearchQuery(e.target.value);
@@ -56,14 +56,14 @@ const Dashboard = () => {
             autoComplete='off'
             placeholder='Search...'
             id='search-input'
-            className='max-w-[10/12] w-full'
+            className='w-full max-w-[10/12]'
           />
           <CustomLink href='/new' className='ml-5 block w-52 p-0 text-center'>
-            <Plus className='inline-block relative -top-px' />{' '}
+            <Plus className='relative -top-px inline-block' />{' '}
             <span className='hidden md:inline-block'>New Project</span>
           </CustomLink>
         </div>
-        <div className='mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5'>
+        <div className='mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3'>
           {!data && !error && <Loader />}
           {results &&
             results.map((site) => {
@@ -72,7 +72,8 @@ const Dashboard = () => {
                   <CustomLink
                     href={`/dashboard/${site.id}`}
                     noInvert
-                    className='hover:scale-[1.01] focus:scale-[1.01] transition-all !p-5 h-full'>
+                    className='h-full !p-5 transition-all hover:scale-[1.01] focus:scale-[1.01]'
+                  >
                     <h3 className='text-xl font-bold capitalize'>
                       {site.siteName}
                     </h3>
@@ -99,7 +100,8 @@ const Dashboard = () => {
               <CustomLink
                 href='/new'
                 noInvert
-                className='max-w-sm my-3 mx-auto'>
+                className='my-3 mx-auto max-w-sm'
+              >
                 Create your first documentation site
               </CustomLink>
             </TextSmall>

@@ -11,8 +11,8 @@ const Signup = () => {
   return (
     <div>
       <RedirectToDashboard />
-      <div className='grid grid-cols-2 h-screen'>
-        <div className='mt-20 px-14 ml-7'>
+      <div className='grid h-screen grid-cols-2'>
+        <div className='mt-20 ml-7 px-14'>
           <span className='inline-block'>
             <Logo />
           </span>
@@ -22,26 +22,27 @@ const Signup = () => {
             Start making beautiful docs <br /> without any hassle
           </Heading2>
           <div>
-            <ul className='mt-10 text-lg space-y-7 max-w-sm opacity-90'>
+            <ul className='mt-10 max-w-sm space-y-7 text-lg opacity-90'>
               {features.map((feature, index) => (
                 <li key={index}>
-                  <CheckCircle className='inline mr-3 text-blue-500 dark:text-blue-400' />
+                  <CheckCircle className='mr-3 inline text-blue-500 dark:text-blue-400' />
                   <p className='relative -right-10 -top-7'>{feature}</p>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <div className='pt-[33vh] px-14 ml-7 bg-white text-invert'>
-          <div className='text-center flex flex-col items-center justify-center'>
+        <div className='text-invert ml-7 bg-white px-14 pt-[33vh]'>
+          <div className='flex flex-col items-center justify-center text-center'>
             <Heading1>Sign up</Heading1>
             <button
               onClick={() => signIn('github')}
               className={clsx(
-                'mt-10 rounded text-no-invert px-5 py-2 text-lg hover:opacity-90',
+                'text-no-invert mt-10 rounded px-5 py-2 text-lg hover:opacity-90',
                 theme === 'light' && 'text-no-invert'
-              )}>
-              <GitHub className='inline-block mr-2' /> Sign up with GitHub
+              )}
+            >
+              <GitHub className='mr-2 inline-block' /> Sign up with GitHub
             </button>
           </div>
         </div>

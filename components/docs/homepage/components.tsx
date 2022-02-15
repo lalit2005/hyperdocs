@@ -9,9 +9,10 @@ const HomepageMDXcomponents = {
     return (
       <pre ref={ref} {...props} className='relative'>
         <button
-          className='absolute inline-block right-3 top-2'
-          onClick={() => copyToClipboard(ref.current?.textContent)}>
-          <Clipboard className='h-6 w-6 text-slate-400 hover:text-slate-50 transition-all hover:scale-105' />
+          className='absolute right-3 top-2 inline-block'
+          onClick={() => copyToClipboard(ref.current?.textContent)}
+        >
+          <Clipboard className='h-6 w-6 text-slate-400 transition-all hover:scale-105 hover:text-slate-50' />
         </button>
         {props?.children}
       </pre>
@@ -20,11 +21,11 @@ const HomepageMDXcomponents = {
 
   Hero1: (props: any) => {
     return (
-      <div className='text-center px-10'>
-        <h1 className='mt-32 text-6xl md:text-7xl font-extrabold'>
+      <div className='px-10 text-center'>
+        <h1 className='mt-32 text-6xl font-extrabold md:text-7xl'>
           {props?.heading}
         </h1>
-        <p className='text-xl text-slate-600 dark:text-slate-300 mt-5'>
+        <p className='mt-5 text-xl text-slate-600 dark:text-slate-300'>
           {props?.description}
         </p>
       </div>
@@ -32,13 +33,13 @@ const HomepageMDXcomponents = {
   },
   Hero2: (props: any) => {
     return (
-      <div className='text-center px-10'>
+      <div className='px-10 text-center'>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={props.logo} alt='' className='w-52 h-52 mx-auto mt-24' />
-        <h1 className='mt-10 text-6xl md:text-7xl font-black'>
+        <img src={props.logo} alt='' className='mx-auto mt-24 h-52 w-52' />
+        <h1 className='mt-10 text-6xl font-black md:text-7xl'>
           {props?.heading}
         </h1>
-        <p className='text-xl text-slate-600 dark:text-slate-300 mt-5'>
+        <p className='mt-5 text-xl text-slate-600 dark:text-slate-300'>
           {props?.description}
         </p>
       </div>
@@ -46,9 +47,9 @@ const HomepageMDXcomponents = {
   },
   Features1: (props: any) => {
     return (
-      <div className='mt-32 mx-20'>
+      <div className='mx-20 mt-32'>
         <h2 className='text-center text-4xl font-bold'>Features</h2>
-        <div className='grid sm:grid-cols-3 grid-cols-1 mt-10 gap-5'>
+        <div className='mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3'>
           {props.features.map(
             (
               feature: { title?: string; description?: string },
@@ -56,9 +57,10 @@ const HomepageMDXcomponents = {
             ) => (
               <div
                 key={index}
-                className='w-full rounded shadow border border-slate-300 dark:border-slate-700 p-5 text-center'>
-                <h3 className='font-bold text-2xl'>{feature?.title}</h3>
-                <p className='mt-6 text-lg text-light'>
+                className='w-full rounded border border-slate-300 p-5 text-center shadow dark:border-slate-700'
+              >
+                <h3 className='text-2xl font-bold'>{feature?.title}</h3>
+                <p className='text-light mt-6 text-lg'>
                   {feature?.description}
                 </p>
               </div>

@@ -25,13 +25,14 @@ const Blog = () => {
       title='Homepage'
       // TODO: Add docs link
       subtitle={`Create the homepage of your documentation with pre-made components. Visit [docs](docs) for more info.Want a new component? Just ask for it [here](https://github.com/lalit2005/hyperdocs/issues/new)`}
-      active='homepage'>
+      active='homepage'
+    >
       <div className='max-w-3xl'>
         <ReactTextareaAutosize
           minRows={7}
           // TODO: Add docs link
           placeholder='Build your homepage in markdown here with all the available react components. Visit docs for more info.'
-          className='text-input font-mono w-full'
+          className='text-input w-full font-mono'
           // @ts-ignore
           value={homepage}
           onChange={(e) => {
@@ -55,7 +56,8 @@ const Blog = () => {
             success: 'Updated successfully!',
             error: 'Failed to update!',
           });
-        }}>
+        }}
+      >
         Save
       </Button>
     </DashboardLayout>

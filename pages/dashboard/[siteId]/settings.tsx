@@ -81,18 +81,21 @@ const Settings = () => {
     <DashboardLayout
       title='Settings'
       subtitle='Settings that control the behavior of the documentation website'
-      active='settings'>
+      active='settings'
+    >
       <div>
         <Card
           title='Site details'
-          subtitle='These will appear on the docs navbar and SEO as well'>
+          subtitle='These will appear on the docs navbar and SEO as well'
+        >
           <form
             className='space-y-3'
-            onSubmit={handleSubmit(updateSiteDetails)}>
+            onSubmit={handleSubmit(updateSiteDetails)}
+          >
             <div>
               <TextSmall>Site name</TextSmall>
-              <input {...register('siteName')} className='w-full text-input' />
-              <TextSmall className='text-xs mt-1 !text-red-400'>
+              <input {...register('siteName')} className='text-input w-full' />
+              <TextSmall className='mt-1 text-xs !text-red-400'>
                 {errors.siteName?.message}
               </TextSmall>
             </div>
@@ -100,9 +103,9 @@ const Settings = () => {
               <TextSmall>Site description</TextSmall>
               <input
                 {...register('siteDescription')}
-                className='w-full text-input'
+                className='text-input w-full'
               />
-              <TextSmall className='text-xs mt-1 !text-red-400'>
+              <TextSmall className='mt-1 text-xs !text-red-400'>
                 {errors.siteDescription?.message}
               </TextSmall>
             </div>
@@ -110,9 +113,9 @@ const Settings = () => {
               <TextSmall>OG image</TextSmall>
               <input
                 {...register('ogImageUrl')}
-                className='w-full text-input'
+                className='text-input w-full'
               />
-              <TextSmall className='text-xs mt-1 !text-red-400'>
+              <TextSmall className='mt-1 text-xs !text-red-400'>
                 {errors.ogImageUrl?.message}
               </TextSmall>
             </div>
@@ -124,7 +127,8 @@ const Settings = () => {
 
         <Card
           title='Repository link on GitHub'
-          subtitle='The markdown files for generating the documentaion will be fetched from this repo on GitHub'>
+          subtitle='The markdown files for generating the documentaion will be fetched from this repo on GitHub'
+        >
           <form
             className='flex'
             onSubmit={(e) => {
@@ -142,12 +146,13 @@ const Settings = () => {
                 error: 'There was an error updating the site details',
                 loading: 'Updating...',
               });
-            }}>
+            }}
+          >
             <Input
               defaultValue={data?.repoLink}
               name='repoLink'
               pattern='^https:\/\/github.com\/[^/]+\/[^/]+$'
-              className='w-full inline-block mr-3'
+              className='mr-3 inline-block w-full'
             />
             <Button type='submit'>Update</Button>
           </form>
@@ -155,10 +160,11 @@ const Settings = () => {
 
         <Card
           title='Site slug'
-          subtitle={`The site will be be hosted at **hyperdocs.tk/${slug}**, a custom domain can be added later`}>
+          subtitle={`The site will be be hosted at **hyperdocs.tk/${slug}**, a custom domain can be added later`}
+        >
           <div className='flex'>
             <Input
-              className='w-full mr-3'
+              className='mr-3 w-full'
               placeholder='my-project'
               defaultValue={slug}
               onChange={(e) => setSlug(e.target.value)}
@@ -177,7 +183,8 @@ const Settings = () => {
                   error: 'There was an error updating the site slug',
                   loading: 'Updating...',
                 });
-              }}>
+              }}
+            >
               Save
             </Button>
           </div>
@@ -185,10 +192,11 @@ const Settings = () => {
 
         <Card
           title='GitHub token'
-          subtitle='Add this if you want to host docs from a private repo. You can get your token from [here](https://github.com/settings/tokens/new). Make sure you **give access to repos** while creating the token'>
+          subtitle='Add this if you want to host docs from a private repo. You can get your token from [here](https://github.com/settings/tokens/new). Make sure you **give access to repos** while creating the token'
+        >
           <div className='flex'>
             <Input
-              className='w-full mr-3'
+              className='mr-3 w-full'
               placeholder='ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
               value={ghToken || ''}
               onChange={(e) => {
@@ -206,7 +214,8 @@ const Settings = () => {
                   success: 'Updated successfully!',
                   error: 'Failed to update!',
                 });
-              }}>
+              }}
+            >
               Save
             </Button>
           </div>
@@ -214,10 +223,11 @@ const Settings = () => {
 
         <Card
           title='Web3forms API key'
-          subtitle='Get your API key from [here](https://web3forms.com). This API key will be used for sending an email to you once a **feedback** is submitted from the docs site. You can access all the feedbacks here in the dashboard too.'>
+          subtitle='Get your API key from [here](https://web3forms.com). This API key will be used for sending an email to you once a **feedback** is submitted from the docs site. You can access all the feedbacks here in the dashboard too.'
+        >
           <div className='flex'>
             <Input
-              className='w-full mr-3'
+              className='mr-3 w-full'
               placeholder='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
               value={web3formsKey || ''}
               onChange={(e) => {
@@ -235,7 +245,8 @@ const Settings = () => {
                   success: 'Updated successfully!',
                   error: 'Failed to update!',
                 });
-              }}>
+              }}
+            >
               Save
             </Button>
           </div>
@@ -243,19 +254,21 @@ const Settings = () => {
 
         <Card
           title='Danger'
-          subtitle='Delete your site **permanently**, this cannot be reversed'>
+          subtitle='Delete your site **permanently**, this cannot be reversed'
+        >
           <DialogRoot>
             <DialogTrigger>
-              <Button className='!text-red-400 w-full font-bold' noInvert>
+              <Button className='w-full font-bold !text-red-400' noInvert>
                 Delete {data?.siteName}
               </Button>
             </DialogTrigger>
             <DialogContent
               title={`Delete ${data?.siteName}`}
-              description='Are you sure? This **cannot** be reversed!!!'>
+              description='Are you sure? This **cannot** be reversed!!!'
+            >
               <Button
                 noInvert
-                className='!text-red-500 text-bold text-lg w-full my-5 hover:!border-red-500 !border'
+                className='text-bold my-5 w-full !border text-lg !text-red-500 hover:!border-red-500'
                 onClick={() => {
                   const req = axios
                     .post('/api/delete/site', {
@@ -270,7 +283,8 @@ const Settings = () => {
                     success: 'Deleted successfully!',
                     error: 'Failed to delete!',
                   });
-                }}>
+                }}
+              >
                 Delete it now
               </Button>
             </DialogContent>
@@ -290,7 +304,7 @@ const Card: React.FC<{ title: string; subtitle: string }> = ({
 }) => {
   return (
     <div>
-      <div className='rounded shadow-sm border dark:border-slate-800 p-4 max-w-3xl w-full my-9'>
+      <div className='my-9 w-full max-w-3xl rounded border p-4 shadow-sm dark:border-slate-800'>
         <Heading3>{title}</Heading3>
         <TextSmall className='my-2'>
           <Markdown text={subtitle} />

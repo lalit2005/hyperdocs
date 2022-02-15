@@ -2,7 +2,7 @@ import { Tooltip as TooltipComponent } from 'react-tiny-tooltip';
 
 const Tooltip = (props: any) => {
   return (
-    <p className='underline decoration-wavy decoration-blue-400 inline-block cursor-help -my-2'>
+    <p className='-my-2 inline-block cursor-help underline decoration-blue-400 decoration-wavy'>
       <TooltipComponent {...props}>{props.children}</TooltipComponent>
     </p>
   );
