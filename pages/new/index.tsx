@@ -11,6 +11,8 @@ import { DevTool } from '@hookform/devtools';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/router';
+import { usePrefetch } from 'use-link-prefetch';
+import { Site } from '@prisma/client';
 
 const NewSite = () => {
   const {
@@ -24,7 +26,7 @@ const NewSite = () => {
     resolver: zodResolver(newSiteSchema),
   });
 
-  const router = useRouter();
+  const router = usePrefetch(['/new/success']);
 
   const createSite = async (data: NewSite) => {
     // alert(JSON.stringify(data, null, 2));
@@ -32,8 +34,10 @@ const NewSite = () => {
       .post('/api/create/site', {
         ...data,
       })
-      .then(({ data }) => {
-        router.push(`/dashboard/${data.id}`);
+      .then(({ data }: { data: Site }) => {
+        router.push(
+          `/new/success/?siteName=${data.siteName}&siteId=${data.id}&ogImageUrl=${data.ogImageUrl}`
+        );
       });
 
     toast.promise(asd, {
@@ -142,8 +146,7 @@ const NewSite = () => {
                         getValues().siteName
                       )}`
                     );
-                  }}
-                >
+                  }}>
                   Click here to auto-generate one from title.
                 </span>
               </TextSmall>
