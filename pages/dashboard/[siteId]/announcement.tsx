@@ -30,8 +30,7 @@ const Announcement = () => {
     <DashboardLayout
       title='Announcement'
       subtitle='This text shows up as banner on the top of the website. You can use it for announcing new releases or other milestones'
-      active='announcement'
-    >
+      active='announcement'>
       <form>
         <div>
           <TextSmall>Announcement text</TextSmall>
@@ -54,7 +53,7 @@ const Announcement = () => {
             }}
             type='url'
             value={announcementLink}
-            placeholder='https://hyperdocs.tk/blog/version-3'
+            placeholder='https://hyperdocs.netlify.app/blog/version-3'
             className='inline-block w-full max-w-3xl'
           />
         </div>
@@ -76,8 +75,7 @@ const Announcement = () => {
                 success: 'Updated successfully!',
                 error: 'Failed to update!',
               });
-            }}
-          >
+            }}>
             Save
           </Button>
         </div>

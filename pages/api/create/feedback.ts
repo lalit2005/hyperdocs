@@ -33,7 +33,7 @@ const handler: NextApiHandler = async (req, res) => {
     message: `A new feedback has been submitted to ${site?.site.siteName}`,
     feedback: site.feedback,
     stars: site.stars,
-    'View in Hyperdocs dashboard': `https://hyperdocs.tk/dashboard/${site.siteId}/feedbacks`,
+    'View in Hyperdocs dashboard': `https://hyperdocs.netlify.app/dashboard/${site.siteId}/feedbacks`,
   });
 
   res.json(site);

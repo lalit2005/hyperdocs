@@ -160,7 +160,7 @@ const Settings = () => {
 
         <Card
           title='Site slug'
-          subtitle={`The site will be be hosted at **hyperdocs.tk/${slug}**, a custom domain can be added later`}
+          subtitle={`The site will be be hosted at **hyperdocs.netlify.app/${slug}**, a custom domain can be added later`}
         >
           <div className='flex'>
             <Input
