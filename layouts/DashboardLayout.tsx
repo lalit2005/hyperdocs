@@ -117,9 +117,8 @@ const DashboardLayout: React.FC<{
                             'border-none',
                             active === link.active &&
                               '!bg-slate-100 font-semibold dark:!bg-slate-700 dark:!text-white'
-                          )}
-                        >
-                          <Icon className='mr-2 inline-block scale-75 opacity-75' />
+                          )}>
+                          <Icon className='mr-2 inline-block scale-75 opacity-75 relative -top-px' />
                           <span className='hidden md:inline-block'>
                             {link.name}
                           </span>
@@ -134,8 +133,7 @@ const DashboardLayout: React.FC<{
                       <CustomLink
                         href='/dashboard'
                         noInvert
-                        className='mt-3 mb-[2px] block rounded-none border-none !bg-slate-100 py-3 px-5 text-sm text-slate-400 hover:font-bold dark:!bg-slate-900'
-                      >
+                        className='mt-3 mb-[2px] block rounded-none border-none !bg-slate-100 py-3 px-5 text-sm text-slate-400 hover:font-bold dark:!bg-slate-900'>
                         {'<-'}{' '}
                         <span className='hidden sm:inline-block'>Go back</span>
                       </CustomLink>
