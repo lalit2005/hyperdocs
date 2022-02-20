@@ -104,14 +104,15 @@ model Feedback {
 
 model Blog {
   id          String   @id @default(cuid())
+  slug        String?  @default(cuid())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   siteId      String
   site        Site     @relation(fields: [siteId], references: [id], onDelete: Cascade)
   title       String
-  description String
-  ogImageUrl  String
-  content     String
-  postedBy    String
+  description String   @db.LongText
+  ogImageUrl  String?
+  content     String?  @default("") @db.LongText
+  postedBy    String   @default("")
   published   Boolean  @default(false)
 }

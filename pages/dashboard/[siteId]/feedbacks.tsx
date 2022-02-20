@@ -1,12 +1,8 @@
-import { CustomLink } from '@/components/ui/Link';
 import { Heading3, Markdown, TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
 import { Feedback, NavbarLink, Site } from '@prisma/client';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import ReactStars from 'react-stars';
-import truncate from 'lodash.truncate';
-import { formatRelative } from 'date-fns';
 import Empty from '@/components/Empty';
 import FeedbackCard from '@/components/FeedbackCard';
 
@@ -25,8 +21,7 @@ const Feedbacks = () => {
     <DashboardLayout
       title='Feedbacks'
       subtitle='Feedbacks that people submitted through the documentation website'
-      active='feedbacks'
-    >
+      active='feedbacks'>
       <div className='max-w-4xl'>
         <div>
           {!site?.web3formsKey && (

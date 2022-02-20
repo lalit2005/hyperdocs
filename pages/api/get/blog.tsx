@@ -10,27 +10,13 @@ const handler = async (
 ) => {
   const userId = user.id;
 
-  const site = await prisma.site.findFirst({
+  const blog = await prisma.blog.findUnique({
     where: {
-      createdBy: userId,
-      id: req.query.siteId as string,
-    },
-    include: {
-      feedbacks: {
-        orderBy: {
-          createdAt: 'desc',
-        },
-      },
-      blogs: {
-        orderBy: {
-          createdAt: 'desc',
-        },
-      },
-      navbarLinks: true,
+      id: req.query.blogId as string,
     },
   });
 
-  res.json(site);
+  res.json(blog);
 };
 
 export default requireSession(handler);
