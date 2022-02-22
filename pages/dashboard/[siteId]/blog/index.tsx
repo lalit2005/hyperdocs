@@ -67,8 +67,8 @@ const BlogPage = () => {
                       description: formData.description,
                       siteId: siteId,
                     })
-                    .then(({ data }) => {
-                      router.push(`/dashboard/blog/${siteId}`);
+                    .then(({ data }: { data: Blog }) => {
+                      router.push(`/dashboard/blog/${data?.id}`);
                     });
                   toast.promise(req, {
                     success: 'Blog created!',
