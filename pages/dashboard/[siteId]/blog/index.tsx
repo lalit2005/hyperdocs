@@ -68,7 +68,7 @@ const BlogPage = () => {
                       siteId: siteId,
                     })
                     .then(({ data }: { data: Blog }) => {
-                      router.push(`/dashboard/blog/${data?.id}`);
+                      router.push(`/dashboard/${siteId}/blog/${data?.id}`);
                     });
                   toast.promise(req, {
                     success: 'Blog created!',
