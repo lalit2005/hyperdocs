@@ -17,16 +17,16 @@ const Grid: React.FC<{
           <a className='block'>
             <div
               className={clsx(
-                'rounded-lg shadow-md hover:scale-[1.02] px-4 py-6 transition-all duration-75 h-full',
-                color === 'blue' && 'bg-blue-400',
-                color === 'cyan' && 'bg-cyan-400',
-                color === 'green' && 'bg-green-400',
-                color === 'red' && 'bg-red-400',
-                color === 'yellow' && 'bg-yellow-400',
-                color === 'purple' && 'bg-purple-400',
-                color === 'teal' && 'bg-teal-400',
-                color === 'orange' && 'bg-orange-400',
-                color === 'gray' && 'bg-gray-400'
+                'rounded-lg shadow-md hover:scale-[1.02] px-4 py-6 transition-all duration-75 h-full bg-gradient-to-tr',
+                color === 'blue' && 'from-blue-500 to-blue-200',
+                color === 'cyan' && 'from-cyan-500 to-cyan-200',
+                color === 'green' && 'from-green-500 to-green-200',
+                color === 'red' && 'from-red-500 to-red-200',
+                color === 'yellow' && 'from-yellow-500 to-yellow-200',
+                color === 'purple' && 'from-purple-500 to-purple-200',
+                color === 'teal' && 'from-teal-500 to-teal-200',
+                color === 'orange' && 'from-orange-500 to-orange-200',
+                color === 'gray' && 'from-gray-500 to-gray-200'
               )}
               style={{
                 backgroundColor: customColor && customColor,
