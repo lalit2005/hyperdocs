@@ -53,3 +53,40 @@ html {
 .markdown code {
   @apply rounded bg-gray-500 p-1 font-mono before:content-["`"] after:content-["`"];
 }
+
+.prose blockquote {
+  font-style: normal;
+}
+
+.anchor {
+  @apply hover:!bg-transparent;
+}
+
+.anchor .icon-link:hover {
+  @apply visible no-underline;
+}
+
+.anchor .icon-link {
+  @apply absolute invisible;
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+  @apply p-0 text-slate-400 hover:bg-transparent group-hover:inline-block;
+}
+
+.anchor .icon-link:after {
+  content: '#';
+}
+
+*:hover > .anchor .icon-link {
+  @apply visible no-underline;
+}
+
+.prose p code {
+  @apply bg-slate-500;
+}
+hr {
+  @apply border-b-2 border-slate-300 dark:border-slate-600 rounded-full;
+}
