@@ -203,7 +203,8 @@ const BlogPage = () => {
       <div className='mt-10'>
         <ReactTextareaAutosize
           defaultValue={data?.content || ''}
-          className='w-full max-w-3xl font-mono bg-white dark:bg-black focus:outline-none'
+          className='w-full max-w-3xl font-mono bg-white dark:bg-black focus:outline-none text-slate-900 dark:text-slate-300'
+          spellCheck={false}
           minRows={15}
           onChange={(e) => setContent(e.target.value)}
           placeholder='Write your blog post in markdown here'
