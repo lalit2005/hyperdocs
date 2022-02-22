@@ -6,6 +6,7 @@ import Tooltip from './Tooltip';
 import { Sandpack } from '@codesandbox/sandpack-react';
 import '@codesandbox/sandpack-react/dist/index.css';
 import { RoughNotation } from 'react-rough-notation';
+import Grid from './Grid';
 
 const DocsMDXcomponents = {
   pre: (props: any) => {
@@ -29,6 +30,7 @@ const DocsMDXcomponents = {
   Accordion: Accordion,
   Sandpack: Sandpack,
   RoughNotation: RoughNotation,
+  Grid: Grid,
 };
 
 function copyToClipboard(children: string | null | undefined): void {
