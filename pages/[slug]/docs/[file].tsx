@@ -3,7 +3,6 @@ import prisma from '@/utils/prisma';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useMemo } from 'react';
 import bundleMdxContent from '@/lib/mdx-bundler';
-import Head from 'next/head';
 import DocsNav from '@/components/docs/navbar';
 import getAllFiles from '@/utils/getAllFiles';
 import getFileContent from '@/utils/getFile';
@@ -30,12 +29,6 @@ const Page: NextPage<DocsPageProps> = ({
   const Component = useMemo(() => getMDXComponent(content), [content]);
   return (
     <div>
-      <Head>
-        <link
-          rel='stylesheet'
-          href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark.min.css'
-        />
-      </Head>
       <div className='sticky top-0 z-30'>
         <DocsNav links={navLinks} navbarCta={navCta} logo={logo} />
       </div>
