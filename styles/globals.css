@@ -87,6 +87,7 @@ html {
 .mdx-content p > code {
   @apply px-1 py-px rounded bg-slate-200 dark:bg-slate-700;
 }
+
 hr {
   @apply border-b-2 border-slate-300 dark:border-slate-600 rounded-full;
 }
