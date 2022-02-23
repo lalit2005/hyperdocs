@@ -36,14 +36,16 @@ const BlogPage: NextPage<{
         <p className='text-slate-600 text-lg dark:text-slate-400 my-2'>
           {description}
         </p>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={ogImageUrl}
-          alt=''
-          className='rounded-xl mt-10'
-          width={1200}
-          height={600}
-        />
+        {ogImageUrl && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={ogImageUrl}
+            alt=''
+            className='rounded-xl mt-10'
+            width={1200}
+            height={600}
+          />
+        )}
         <div className='mt-14'>
           <MDXRenderer>
             {/* @ts-ignore */}
