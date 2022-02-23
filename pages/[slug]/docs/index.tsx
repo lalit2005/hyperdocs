@@ -20,7 +20,7 @@ const Page: NextPage<DocsPageProps> = ({
   tocHtml,
   navLinks,
   navCta,
-  logo,
+  siteName,
   sidebar,
   slug,
   siteId,
@@ -30,7 +30,7 @@ const Page: NextPage<DocsPageProps> = ({
     <div>
       <div>
         <div className='sticky top-0'>
-          <DocsNav links={navLinks} navbarCta={navCta} logo={logo} />
+          <DocsNav links={navLinks} navbarCta={navCta} logo={siteName} />
         </div>
         <DocsLayout
           siteId={siteId}
@@ -114,7 +114,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       sidebar: filesArray,
       navLinks: siteData?.navbarLinks,
       navCta: siteData?.navbarCta,
-      logo: siteData?.siteName,
+      siteName: siteData?.siteName,
       slug: siteData?.siteSlug,
       siteId: siteData?.id,
     },
