@@ -7,6 +7,7 @@ import { Sandpack } from '@codesandbox/sandpack-react';
 import '@codesandbox/sandpack-react/dist/index.css';
 import { RoughNotation } from 'react-rough-notation';
 import Grid from './Grid';
+import Head from 'next/head';
 
 const DocsMDXcomponents = {
   pre: (props: any) => {
@@ -31,6 +32,7 @@ const DocsMDXcomponents = {
   Sandpack: Sandpack,
   RoughNotation: RoughNotation,
   Grid: Grid,
+  Head: Head,
 };
 
 function copyToClipboard(children: string | null | undefined): void {
