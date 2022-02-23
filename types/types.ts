@@ -27,7 +27,8 @@ export interface DocsPageProps {
   tocHtml: string;
   navLinks: NavbarLink[];
   navCta: string;
-  logo: string;
+  siteName: string;
+  description: string;
   sidebar: string[];
   slug: string;
   siteId: string;

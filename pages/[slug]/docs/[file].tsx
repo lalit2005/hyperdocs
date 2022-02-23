@@ -15,13 +15,15 @@ import { DocsPageProps } from 'types/types';
 import MDXRenderer from '@/components/docs/MDXRenderer';
 import DocsMDXcomponents from '@/components/docs/documentation/components';
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 
 const Page: NextPage<DocsPageProps> = ({
   content,
   tocHtml,
   navLinks,
   navCta,
-  logo,
+  siteName,
+  description,
   sidebar,
   slug,
   siteId,
@@ -29,8 +31,29 @@ const Page: NextPage<DocsPageProps> = ({
   const Component = useMemo(() => getMDXComponent(content), [content]);
   return (
     <div>
+      <NextSeo
+        title={siteName}
+        description={description}
+        openGraph={{
+          url: 'https://hyperdocs.netlify.app',
+          title: siteName,
+          description: description,
+          images: [
+            {
+              url: `https://ogsupa.com/api/v1
+							?title=${encodeURIComponent(siteName)}
+							&description=${encodeURIComponent(description)}
+									&background_color=%2319354d&font_style=font-sans`,
+              alt: siteName,
+            },
+          ],
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+      />
       <div className='sticky top-0 z-30'>
-        <DocsNav links={navLinks} navbarCta={navCta} logo={logo} />
+        <DocsNav links={navLinks} navbarCta={navCta} logo={siteName} />
       </div>
       <DocsLayout
         siteId={siteId}
@@ -119,9 +142,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       sidebar: filesArray,
       navLinks: siteData?.navbarLinks,
       navCta: siteData?.navbarCta,
-      logo: siteData?.siteName,
+      siteName: siteData?.siteName,
       slug: siteData?.siteSlug,
       siteId: siteData?.id,
+      description: siteData?.siteDescription,
     },
     revalidate: 10,
   };
