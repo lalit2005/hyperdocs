@@ -19,6 +19,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       siteDescription,
       ogImageUrl: ogImageUrl,
       siteSlug: siteSlug,
+      navbarCta: `GitHub|||${repoLink}`,
+      navbarLinks: {
+        create: {
+          link: `/${siteSlug}/docs`,
+          linkText: 'Docs',
+        },
+      },
     },
   });
 
