@@ -40,10 +40,11 @@ const Page: NextPage<DocsPageProps> = ({
           description: description,
           images: [
             {
-              url: `https://ogsupa.com/api/v1
-							?title=${encodeURIComponent(siteName)}
-							&description=${encodeURIComponent(description)}
-									&background_color=%2319354d&font_style=font-sans`,
+              url: `https://ogsupa.com/api/v1?title=${encodeURIComponent(
+                siteName
+              )}&description=${encodeURIComponent(
+                description
+              )}&background_color=%2319354d&font_style=font-sans`,
               alt: siteName,
             },
           ],
