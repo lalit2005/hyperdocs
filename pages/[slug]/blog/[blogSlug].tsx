@@ -16,6 +16,7 @@ const BlogPage: NextPage<{
   description: string;
   navbarLinks: NavbarLink[];
   navbarCta: string;
+  author: string;
   logo: string;
 }> = ({
   mdxCode,
@@ -25,6 +26,7 @@ const BlogPage: NextPage<{
   navbarLinks,
   ogImageUrl,
   title,
+  author,
   updatedAt,
 }) => {
   const Component = useMemo(() => getMDXComponent(mdxCode), [mdxCode]);
@@ -36,6 +38,27 @@ const BlogPage: NextPage<{
         <p className='text-slate-600 text-lg dark:text-slate-400 my-2'>
           {description}
         </p>
+
+        <p className='text-opacity-30 text-sm my-5'>
+          Posted by:{' '}
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href={`https://twitter.com/${author}`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`https://unavatar.io/twitter/${author}`}
+              width={25}
+              height={25}
+              className='rounded-full inline-block ml-1 mr-1'
+              alt=''
+            />
+            <span className='dark:text-blue-400 text-blue-600'>
+              {author.startsWith('@') ? author : `@${author}`}
+            </span>
+          </a>
+        </p>
+
         {ogImageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -88,6 +111,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       navbarLinks: blog?.site?.navbarLinks,
       navbarCta: blog?.site?.navbarCta,
       logo: blog?.site?.siteName,
+      author: blog?.postedBy,
     },
   };
 };
