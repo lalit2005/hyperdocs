@@ -6,7 +6,8 @@ import React from 'react';
 export const CustomLink: React.FC<
   AnchorHTMLAttributes<HTMLAnchorElement> & { noInvert?: boolean }
 > = ({ noInvert = false, ...props }) => {
-  const isRelative = props.href?.startsWith('/' || '#') ?? false;
+  const isRelative =
+    (props.href?.startsWith('/') || props.href?.startsWith('#')) ?? false;
   const Wrap = isRelative ? Link : React.Fragment;
   const wrapProps = isRelative ? { href: props.href } : {};
   const linkProps = !isRelative ? { target: '_blank' } : {};
