@@ -8,6 +8,7 @@ import '@codesandbox/sandpack-react/dist/index.css';
 import { RoughNotation } from 'react-rough-notation';
 import Grid from './Grid';
 import Head from 'next/head';
+import DocsLink from './Link';
 
 const DocsMDXcomponents = {
   pre: (props: any) => {
@@ -25,6 +26,7 @@ const DocsMDXcomponents = {
       </pre>
     );
   },
+  a: DocsLink,
   Callout: Callout,
   Tooltip: Tooltip,
   Icons: FeatherIcons,
