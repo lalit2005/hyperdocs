@@ -8,4 +8,4 @@ Hyperdocs uses Next.js to render the website. The website keeps updating periodi
 
 To render mdx, Hyperdocs uses the [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) from Kent C. Dodds.
 
-The periodic regeneration regenerates very quickly because `mdx-bundler` uses esbuild under the hood to bundle mdx.
+The periodic regeneration regenerates the page very quickly because `mdx-bundler` uses esbuild under the hood to bundle mdx.
