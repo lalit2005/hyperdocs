@@ -2,11 +2,19 @@
   "name": "hyperdocs-cli",
   "version": "0.0.4",
   "description": "Easiest and simplest way to add documentation for your project on GitHub. Visit https://hyperdocs.netlify.app for more info.",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup src/index.ts",
-    "dev": "tsup src/index.ts --watch",
+    "build": "tsup src/index.ts --format cjs,esm --clean",
+    "dev": "yarn build --watch",
     "prepublish": "yarn build"
   },
   "repository": {

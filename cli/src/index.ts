@@ -37,7 +37,7 @@ cli
     );
 
     console.log(chalk.bgGreen.black('Done!'));
-    console.log(chalk.green(Constants.NextStepsMessage));
+    console.log(Constants.NextStepsMessage);
   });
 
 cli
