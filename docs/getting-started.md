@@ -28,3 +28,11 @@ If it's a private repository, make sure you add a github token in the site setti
 ## All Done!
 
 And that's it!! Now you can just keep adding new markdown files in the `/docs` directory and Hyperdocs will automatically update the website.
+
+## Next Steps
+
+- [Using react components inside markdown in docs](/docs/react-components-in-markdown)
+- [Adding a blog to your docs](/docs/blog)
+- [Adding analytics, custom styles and more](/docs/customization)
+- [Customizing navbar](/docs/navbar)
+- [Adding footer](/docs/footer)
