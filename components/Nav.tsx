@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 const Nav = () => {
   const { data, status } = useSession();
   return (
-    <nav className='sticky top-0 mb-20'>
+    <nav className='sticky top-0 mb-20 bg-white/70 dark:bg-black/70 backdrop-blur-md z-50 shadow-sm'>
       <div className='flex items-center justify-between px-5'>
         <div>
           <Logo />

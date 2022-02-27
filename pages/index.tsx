@@ -2,8 +2,22 @@ import Nav from '@/components/Nav';
 import type { NextPage } from 'next';
 import { RoughNotation } from 'react-rough-notation';
 import Link from 'next/link';
+import Image from 'next/image';
+import LandingPageImage from '../public/landing-page-image.png';
+import { Fade } from 'react-awesome-reveal';
+import clsx from 'clsx';
+import {
+  Zap,
+  Download,
+  Edit,
+  Terminal,
+  MessageSquare,
+  GitHub,
+} from 'react-feather';
 
 const Home: NextPage = () => {
+  const gradient = 'bg-gradient-to-r text-transparent bg-clip-text';
+
   return (
     <div>
       <Nav />
@@ -30,8 +44,7 @@ const Home: NextPage = () => {
             animationDuration={2000}
             color='rgb(129 140 248)'
             animate
-            show
-          >
+            show>
             <span>auto-updating</span>
           </RoughNotation>{' '}
           <br /> documentation website up in less than 30 seconds
@@ -48,8 +61,90 @@ const Home: NextPage = () => {
           </Link>
         </div>
       </div>
+
+      <div className='mt-24'>
+        <Fade direction='up' duration={500}>
+          <div className='max-w-5xl mx-auto'>
+            <Image
+              src={LandingPageImage}
+              alt=''
+              placeholder='blur'
+              className='rounded-lg shadow-xl block'
+            />
+          </div>
+        </Fade>
+      </div>
+
+      <div className='px-10 max-w-7xl mx-auto mt-40 mb-10'>
+        <div>
+          <h2 className='text-5xl font-extrabold'>
+            A feature packed <br />
+            <span className={clsx(gradient, `from-[#696eff] to-[#f8acff]`)}>
+              documentation generator
+            </span>
+          </h2>
+          <p className='mt-3 text-lg text-slate-700 dark:text-slate-300 max-w-2xl'>
+            Hyperdocs has all the features you need to create a fully fledged
+            documentation website for your open source project.
+          </p>
+        </div>
+        <div className='mt-10 grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
+          {features.map(({ title, description, Icon }) => (
+            <div
+              key={title}
+              className='p-7 rounded border dark:border-slate-800'>
+              <Icon size={25} opacity={0.7} />
+              <div className='mt-4'>
+                <h3 className='text-xl font-bold'>{title}</h3>
+                <p className='text-base mt-1 text-slate-700 dark:text-slate-300'>
+                  {description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Home;
+
+const features = [
+  {
+    title: 'Hosted docs',
+    description:
+      'Just have a docs/ folder with markdown files and a beautiful documentation site will be generated.',
+    Icon: Zap,
+  },
+  {
+    title: 'Auto updating',
+    description:
+      'Spend a minute on setup and forget the rest. Just keep updating the docs/ folder and the website will auto update automagically.',
+    Icon: Download,
+  },
+  {
+    title: 'Customizable',
+    description:
+      'You can change the look and feel of your docs with available themes and plugin.',
+    Icon: Edit,
+  },
+  {
+    title: 'CLI',
+    description:
+      'You can use Hyperdocs as a CLI tool to generate your docs and deploy them to your server.',
+    Icon: Terminal,
+  },
+  {
+    title: 'Feedback Widget',
+    description:
+      'Every docs comes with a feedback widget to help you get better feedback from your users.',
+    Icon: MessageSquare,
+  },
+  {
+    title: 'GitHub as source',
+    description:
+      'All your documentation lives on GitHub. So you get all the collab features of GitHub.',
+    Icon: GitHub,
+  },
+];
