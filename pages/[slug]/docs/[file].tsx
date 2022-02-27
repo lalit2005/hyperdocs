@@ -18,6 +18,8 @@ import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import web3forms from 'use-web3forms';
 import getSidebar from '@/lib/getSidebar';
+import { useRouter } from 'next/router';
+import clsx from 'clsx';
 
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -31,6 +33,8 @@ const Page: NextPage<DocsPageProps> = ({
   siteId,
 }) => {
   const Component = useMemo(() => getMDXComponent(content), [content]);
+  const router = useRouter();
+  const { file: fileName } = router.query;
   return (
     <div>
       <NextSeo
@@ -66,7 +70,13 @@ const Page: NextPage<DocsPageProps> = ({
               return (
                 <li key={file}>
                   <Link href={`/${slug}/docs/${file}`}>
-                    <a className='block rounded px-3 py-2 capitalize hover:bg-slate-50 dark:hover:bg-slate-800'>
+                    <a
+                      className={clsx(
+                        'block rounded px-3 py-2 capitalize hover:bg-slate-50 dark:hover:bg-slate-800',
+                        fileName === file
+                          ? 'bg-slate-100 dark:bg-slate-800'
+                          : ''
+                      )}>
                       {file.replace(/-/gi, ' ')}
                     </a>
                   </Link>
