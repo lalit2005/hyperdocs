@@ -1,3 +1,5 @@
+![Hyperdocs documentation](https://user-images.githubusercontent.com/69138026/155893394-e99262bf-5f38-4327-8d78-404de2f9c9e3.png)
+
 Hyperdocs is the simplest way you can create documentation sites for for your project on GitHub.
 
 Hyperdocs requires no configuration and yet is highly customizable. You just need to have a bunch of markdown(`.md`) files in a `/docs` directory and Hyperdocs will generate a blazing fast from them and host it for you.  
@@ -18,4 +20,4 @@ Here are some of the amazing features of Hyperdocs:
 - Dashboard to manage your docs site.
 - Support for private repositories.
 
-[Now, let's go and create a documentation site for your project.]('/docs/getting-started')
+[Now, let's go and create a documentation site for your project.](/docs/getting-started)

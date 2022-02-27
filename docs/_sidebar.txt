@@ -1,2 +1,3 @@
 introduction.md
 getting-started.md
+how-hyperdocs-works.md

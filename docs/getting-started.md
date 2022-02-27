@@ -31,8 +31,8 @@ And that's it!! Now you can just keep adding new markdown files in the `/docs` d
 
 ## Next Steps
 
-- [Using react components inside markdown in docs](/docs/react-components-in-markdown)
-- [Adding a blog to your docs](/docs/blog)
-- [Adding analytics, custom styles and more](/docs/customization)
-- [Customizing navbar](/docs/navbar)
-- [Adding footer](/docs/footer)
+- [Using react components inside markdown in docs](/hyperdocs/docs/react-components-in-markdown)
+- [Adding a blog to your docs](/hyperdocs/docs/blog)
+- [Adding analytics, custom styles and more](/hyperdocs/docs/customization)
+- [Customizing navbar](/hyperdocs/docs/navbar)
+- [Adding footer](/hyperdocs/docs/footer)
