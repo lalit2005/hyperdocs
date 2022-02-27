@@ -17,6 +17,7 @@ import DocsMDXcomponents from '@/components/docs/documentation/components';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import web3forms from 'use-web3forms';
+import getSidebar from '@/lib/getSidebar';
 
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -128,7 +129,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       file.name.replace(/\.md$/, '')
     );
 
-    filesArray = filesArray.filter((file: string) => file !== 'index');
+    const sidebar = await getSidebar(siteData);
 
     const content = await getFileContent(
       siteData?.repoLink || '',
@@ -149,7 +150,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           )
         ).code,
         tocHtml: tocHtml,
-        sidebar: filesArray,
+        sidebar: sidebar,
         navLinks: siteData?.navbarLinks,
         navCta: siteData?.navbarCta,
         siteName: siteData?.siteName,

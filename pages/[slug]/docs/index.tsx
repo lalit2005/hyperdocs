@@ -14,6 +14,7 @@ import { DocsPageProps } from 'types/types';
 import MDXRenderer from '@/components/docs/MDXRenderer';
 import DocsMDXcomponents from '@/components/docs/documentation/components';
 import Link from 'next/link';
+import getSidebar from '@/lib/getSidebar';
 // @ts-ignore
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -93,10 +94,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   console.log(allFiles);
 
-  // @ts-ignore
-  let filesArray = allFiles.data.map((file) => file.name.replace(/\.md$/, ''));
-
-  filesArray = filesArray.filter((file: string) => file !== 'index');
+  const sidebar = await getSidebar(siteData);
 
   const content = await getFileContent(
     siteData?.repoLink || '',
@@ -111,7 +109,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       content: (await bundleMdxContent(`${content.toString().trim()}`)).code,
       tocHtml: tocHtml,
-      sidebar: filesArray,
+      sidebar: sidebar,
       navLinks: siteData?.navbarLinks,
       navCta: siteData?.navbarCta,
       siteName: siteData?.siteName,
