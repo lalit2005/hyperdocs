@@ -22,7 +22,7 @@ cli
     }
 
     // create index.md
-    writeFileSync('docs/index.md', Constants.SidebarFileContent);
+    writeFileSync('docs/index.md', Constants.IndexFileContent);
 
     // create _sidebar.txt
     writeFileSync('docs/_sidebar.txt', Constants.SidebarFileContent);
