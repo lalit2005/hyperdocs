@@ -1,0 +1,38 @@
+{
+  "name": "hyperdocs-cli",
+  "version": "0.0.1",
+  "description": "Easiest and simplest way to add documentation for your project on GitHub. Visit https://hyperdocs.netlify.app for more info.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup src/index.ts",
+    "dev": "tsup src/index.ts --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lalit2005/hyperdocs.git"
+  },
+  "bin": "dist/index.js",
+  "keywords": [
+    "documentation",
+    "docs",
+    "docs-generator",
+    "nextra",
+    "docusaraus",
+    "gitbook",
+    "static-site-generator"
+  ],
+  "author": "Lalit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lalit2005/hyperdocs/issues"
+  },
+  "homepage": "https://github.com/lalit2005/hyperdocs#readme",
+  "dependencies": {
+    "cac": "^6.7.12",
+    "chalk": "^5.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^5.11.13"
+  }
+}
