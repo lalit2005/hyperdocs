@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn remove-cli && next build",
+    "remove-cli": "rm -rf cli/",
     "start": "next start",
     "lint": "next lint",
     "format": "npx prettier --write \"**/*.{js,ts,jsx,tsx,json,css,md,html}\"",
