@@ -16,6 +16,7 @@ import MDXRenderer from '@/components/docs/MDXRenderer';
 import DocsMDXcomponents from '@/components/docs/documentation/components';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
+import web3forms from 'use-web3forms';
 
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -107,49 +108,79 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   });
 
-  const mdToHtml = new Remarkable();
+  try {
+    const slug = params?.slug as string;
+    const filename = params?.file as string;
 
-  const allFiles = await getAllFiles(
-    siteData?.repoLink || '',
-    siteData?.gitHubAccessToken || ''
-  );
+    console.log(filename);
 
-  console.log(allFiles);
+    const mdToHtml = new Remarkable();
 
-  // @ts-ignore
-  let filesArray = allFiles.data.map((file) => file.name.replace(/\.md$/, ''));
+    const allFiles = await getAllFiles(
+      siteData?.repoLink || '',
+      siteData?.gitHubAccessToken || ''
+    );
 
-  filesArray = filesArray.filter((file: string) => file !== 'index');
+    console.log(allFiles);
 
-  const content = await getFileContent(
-    siteData?.repoLink || '',
-    filename + '.md',
-    siteData?.gitHubAccessToken?.toString()
-  );
+    // @ts-ignore
+    let filesArray: string[] = allFiles.data.map((file) =>
+      file.name.replace(/\.md$/, '')
+    );
 
-  const tocHtml = mdToHtml.render(mdToc(content).content);
+    filesArray = filesArray.filter((file: string) => file !== 'index');
 
-  return {
-    // * Make sure to change the DocsPageProps in @types/types.ts
-    props: {
-      content: (
-        await bundleMdxContent(
-          `# ${capitalize(filename.replace(/-/gi, ' '))} \n ${content
-            .toString()
-            .trim()}`
-        )
-      ).code,
-      tocHtml: tocHtml,
-      sidebar: filesArray,
-      navLinks: siteData?.navbarLinks,
-      navCta: siteData?.navbarCta,
-      siteName: siteData?.siteName,
-      slug: siteData?.siteSlug,
-      siteId: siteData?.id,
-      description: siteData?.siteDescription,
-    },
-    revalidate: 10,
-  };
+    const content = await getFileContent(
+      siteData?.repoLink || '',
+      filename + '.md',
+      siteData?.gitHubAccessToken?.toString()
+    );
+
+    const tocHtml = mdToHtml.render(mdToc(content).content);
+
+    return {
+      // * Make sure to change the DocsPageProps in @types/types.ts
+      props: {
+        content: (
+          await bundleMdxContent(
+            `# ${capitalize(filename.replace(/-/gi, ' '))} \n ${content
+              .toString()
+              .trim()}`
+          )
+        ).code,
+        tocHtml: tocHtml,
+        sidebar: filesArray,
+        navLinks: siteData?.navbarLinks,
+        navCta: siteData?.navbarCta,
+        siteName: siteData?.siteName,
+        slug: siteData?.siteSlug,
+        siteId: siteData?.id,
+        description: siteData?.siteDescription,
+      },
+      revalidate: 10,
+    };
+    // @ts-ignore
+  } catch (error: Error) {
+    const { submit } = web3forms({
+      apikey: siteData?.gitHubAccessToken || '',
+      onSuccess: () => {
+        console.log('Success');
+      },
+      onError: () => {
+        console.log('Error');
+      },
+    });
+
+    submit({
+      message: `Hey I'm Hyperdocs bot. There's an error with the ${siteData?.siteName}. While building the docs for docs/${filename}.md, the bundler threw an error. Please check the error`,
+      error: error.message,
+      'Visit Page on GitHub': `${siteData?.repoLink}/blob/master/docs/${filename}.md`,
+    });
+
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
