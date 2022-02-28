@@ -235,9 +235,9 @@ const features = [
     Icon: Download,
   },
   {
-    title: 'Customizable',
+    title: 'Blog',
     description:
-      'You can change the look and feel of your docs with available themes and plugin.',
+      'You can create, edit and publish blog posts from the dashboard. No pushing drafts to GitHub.',
     Icon: Edit,
   },
   {
