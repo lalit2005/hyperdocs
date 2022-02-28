@@ -20,9 +20,9 @@ import WorkflowSvg from '@/components/WorkflowSvg';
 import { Markdown } from '@/components/ui/Typography';
 import { CustomLink } from '@/components/ui/Link';
 
-const Home: NextPage = () => {
-  const gradient = 'bg-gradient-to-r text-transparent bg-clip-text';
+export const gradient = 'bg-gradient-to-r text-transparent bg-clip-text';
 
+const Home: NextPage = () => {
   return (
     <div>
       <Nav />
