@@ -84,7 +84,13 @@ html {
   @apply visible no-underline;
 }
 
-.mdx-content p > code {
+.mdx-content p > code,
+.mdx-content h1 > code,
+.mdx-content h2 > code,
+.mdx-content h3 > code,
+.mdx-content ul > code,
+.mdx-content ol > code,
+.mdx-content li > code {
   @apply px-1 py-px rounded bg-slate-200 dark:bg-slate-700;
 }
 
