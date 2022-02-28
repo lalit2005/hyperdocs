@@ -108,11 +108,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     sidebar = filesArray.filter((file: string) => file !== 'index');
   }
 
-  const content = await getFileContent(
-    siteData?.repoLink || '',
-    filename + '.md',
-    siteData?.gitHubAccessToken?.toString()
-  );
+  let content;
+
+  try {
+    content = await getFileContent(
+      siteData?.repoLink || '',
+      filename + '.md',
+      siteData?.gitHubAccessToken?.toString()
+    );
+  } catch (error) {
+    content = await getFileContent(
+      siteData?.repoLink || '',
+      sidebar[0] + '.md',
+      siteData?.gitHubAccessToken?.toString()
+    );
+  }
 
   const tocHtml = mdToHtml.render(mdToc(content).content);
 
