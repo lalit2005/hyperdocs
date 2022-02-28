@@ -8,3 +8,4 @@ feedbacks.md
 why-web3forms.md
 vs-docusaurus.md
 vs-gitbook.md
+homepage.md
