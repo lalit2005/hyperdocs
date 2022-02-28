@@ -14,6 +14,14 @@ To setup Docusaurus, you will need to install the docusaraus package and provide
 
 With Hyperdocs, you will just have to have a `docs` folder with markdown files. And also the two Hyperdocs specific files - `_sidebar.txt` and `index.md` are optional.
 
+## Config
+
+With Docusaurus, you will have to maintain a `docusaurus.config.js` file. This is where you will be able to configure the whole site.
+
+You will also have to deal with plugins, babel config(optional) and much more in this file.
+
+But with Hyperdocs, there's **no requirement of config files**. All it asks you is for a `_sidebar.txt`(yes a basic text file) file and an `index.md` file. **And both of them are optional**.
+
 ## MDX
 
 Docusaurus let's you write JSX inside your markdown files. And that's what Hyperdocs does too.
@@ -58,6 +66,20 @@ Once it's pushed, you will be able to see the new version of your page hosted on
 All thanks to Next.js ISR feature.
 
 There's nothing that you have to worry about except for the content.
+
+## Blog
+
+A blog for a project is where you notify your users about new releases, event and updates such as a funding round, etc..
+
+With Hyperdocs, you write, edit and publish blog posts all from the dashboard. This has a great advantage.
+
+Imagine you want to write a blog post about the next release and save it as a draft to release it later.
+
+With Docusaurus, you have can push it to the repo by mistake and it will be available for your users to read.
+
+You don't want that to happen.
+
+With Hyperdocs, you can write the blog post and save it as draft in dashboard. Publish it only when you feel it's done.
 
 ## Deployment
 
