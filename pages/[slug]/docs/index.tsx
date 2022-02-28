@@ -15,6 +15,7 @@ import MDXRenderer from '@/components/docs/MDXRenderer';
 import DocsMDXcomponents from '@/components/docs/documentation/components';
 import Link from 'next/link';
 import getSidebar from '@/lib/getSidebar';
+import { Markdown } from '@/components/ui/Typography';
 // @ts-ignore
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -25,6 +26,7 @@ const Page: NextPage<DocsPageProps> = ({
   sidebar,
   slug,
   siteId,
+  footerText,
 }) => {
   const Component = useMemo(() => getMDXComponent(content), [content]);
   return (
@@ -57,7 +59,8 @@ const Page: NextPage<DocsPageProps> = ({
                 <ul dangerouslySetInnerHTML={{ __html: tocHtml }}></ul>
               </div>
             </div>
-          )}>
+          )}
+          footerText={footerText}>
           <MDXRenderer>
             {/* @ts-ignore */}
             <Component components={DocsMDXcomponents} />
@@ -137,6 +140,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       siteName: siteData?.siteName,
       slug: siteData?.siteSlug,
       siteId: siteData?.id,
+      footerText: siteData?.footerText,
     },
     revalidate: 10,
   };

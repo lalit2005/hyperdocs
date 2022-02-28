@@ -20,6 +20,7 @@ import web3forms from 'use-web3forms';
 import getSidebar from '@/lib/getSidebar';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
+import { Markdown } from '@/components/ui/Typography';
 
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -31,6 +32,7 @@ const Page: NextPage<DocsPageProps> = ({
   sidebar,
   slug,
   siteId,
+  footerText,
 }) => {
   const Component = useMemo(() => getMDXComponent(content), [content]);
   const router = useRouter();
@@ -92,7 +94,8 @@ const Page: NextPage<DocsPageProps> = ({
               <ul dangerouslySetInnerHTML={{ __html: tocHtml }}></ul>
             </div>
           </div>
-        )}>
+        )}
+        footerText={footerText}>
         <MDXRenderer>
           {/* @ts-ignore */}
           <Component components={DocsMDXcomponents} />
@@ -174,6 +177,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         slug: siteData?.siteSlug,
         siteId: siteData?.id,
         description: siteData?.siteDescription,
+        footerText: siteData?.footerText,
       },
       revalidate: 10,
     };

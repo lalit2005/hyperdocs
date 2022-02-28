@@ -18,7 +18,7 @@ const Blog = () => {
     }
   >(`/api/get/site/?siteId=${router.query.siteId as string}`);
 
-  const [homepage, setHomepage] = useState(data?.homePage);
+  const [footer, setFooter] = useState(data?.footerText);
 
   return (
     <DashboardLayout
@@ -30,12 +30,12 @@ const Blog = () => {
         <ReactTextareaAutosize
           minRows={7}
           // TODO: Add docs link
-          placeholder='Build your homepage in markdown here with all the available react components. Visit docs for more info.'
+          placeholder='Created by [@lalitcodes](https://twitter.com/lalitcodes)'
           className='text-input w-full font-mono'
           // @ts-ignore
-          value={homepage}
+          value={footer}
           onChange={(e) => {
-            setHomepage(e.target.value);
+            setFooter(e.target.value);
           }}
         />
       </div>
@@ -43,8 +43,8 @@ const Blog = () => {
         className='mt-7'
         onClick={() => {
           const req = axios
-            .post('/api/update/homepage', {
-              homepage,
+            .post('/api/update/footer-text', {
+              footerText: footer,
               siteId: data?.id,
             })
             .then(({ data }) => {

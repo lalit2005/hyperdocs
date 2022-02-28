@@ -32,4 +32,5 @@ export interface DocsPageProps {
   sidebar: string[];
   slug: string;
   siteId: string;
+  footerText: string;
 }
