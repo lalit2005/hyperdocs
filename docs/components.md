@@ -127,7 +127,7 @@ Visit [this](https://sandpack.codesandbox.io/docs/getting-started/custom-content
 		style={{
       backgroundColor: '#73e9c1',
       borderRadius: '20px',
-      color: '#fff',
+      color: 'black',
       padding: '10px',
     }}
  onClick={() => alert('Hi there')}>
