@@ -35,6 +35,9 @@ const DocsMDXcomponents = {
   RoughNotation: RoughNotation,
   Grid: Grid,
   Head: Head,
+  CustomComponent: (props: any) => (
+    <div className='not-prose'>{props?.children}</div>
+  ),
 };
 
 function copyToClipboard(children: string | null | undefined): void {
