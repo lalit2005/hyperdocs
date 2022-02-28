@@ -6,7 +6,7 @@ import axios from 'axios';
 import clsx from 'clsx';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { useRouter } from 'next/router';
-import { gradient } from 'pages';
+import { gradient } from '@/components/gradient';
 import { useMemo, useState } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 

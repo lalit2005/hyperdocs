@@ -2,7 +2,6 @@ import Nav from '@/components/Nav';
 import type { NextPage } from 'next';
 import { RoughNotation } from 'react-rough-notation';
 import Link from 'next/link';
-import Image from 'next/image';
 import LandingPageImage from '../public/landing-page-image.png';
 import Hyperdocs3d from '../public/hyperdocs-3d.png';
 import clsx from 'clsx';
@@ -19,8 +18,7 @@ import {
 import WorkflowSvg from '@/components/WorkflowSvg';
 import { Markdown } from '@/components/ui/Typography';
 import { CustomLink } from '@/components/ui/Link';
-
-export const gradient = 'bg-gradient-to-r text-transparent bg-clip-text';
+import { gradient } from '@/components/gradient';
 
 const Home: NextPage = () => {
   return (
@@ -69,12 +67,8 @@ const Home: NextPage = () => {
 
       <div className='mt-24'>
         <div className='max-w-5xl mx-auto'>
-          <Image
-            src={LandingPageImage}
-            alt=''
-            placeholder='blur'
-            className='rounded-lg shadow-2xl'
-          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src='/landing-page-image.png' alt='' />
         </div>
       </div>
 
@@ -208,7 +202,8 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className='mt-20 max-w-xl mx-auto'>
-        <Image src={Hyperdocs3d} alt='' className='dark:invert' />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src='/hyperdocs-3d.png' alt='' className='dark:invert' />
       </div>
       <footer className='px-10 py-5 border-t dark:border-slate-700 mt-10'>
         <div>
