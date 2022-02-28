@@ -1,7 +1,7 @@
 import DocsMDXcomponents from '@/components/docs/documentation/components';
 import MDXRenderer from '@/components/docs/MDXRenderer';
 import { Button } from '@/components/ui/Button';
-import { Heading1 } from '@/components/ui/Typography';
+import { Heading1, TextSmall } from '@/components/ui/Typography';
 import axios from 'axios';
 import clsx from 'clsx';
 import { getMDXComponent } from 'mdx-bundler/client';
@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { gradient } from '@/components/gradient';
 import { useMemo, useState } from 'react';
 import ReactTextareaAutosize from 'react-textarea-autosize';
+import { ArrowDown, ChevronDown } from 'react-feather';
 
 const Playground = () => {
   const DEFAULT_MDX_Code =
@@ -25,6 +26,10 @@ const Playground = () => {
       <Heading1 className={clsx(gradient, 'my-10 from-blue-400 to-green-400')}>
         Hyperdocs mdx preview
       </Heading1>
+      <TextSmall className='my-10'>
+        Paste and check out bits of code here to see if the markdown has no
+        syntax errors.
+      </TextSmall>
       <ReactTextareaAutosize
         minRows={20}
         className='w-full font-mono bg-white dark:bg-black border-none focus:outline-none'
@@ -34,13 +39,17 @@ const Playground = () => {
       />
       <Button
         onClick={() => {
-          const req = axios.post('/api/get/preview', { mdxString });
+          const req = axios.post(
+            'https://hyperdocs-playground.lalitvijay9480.repl.co/mdx',
+            { mdxString }
+          );
           req.then((res) => {
             // window.open(res.data.url, '_blank');
             setMdxCode(res.data.mdxCode);
           });
         }}>
-        Preview
+        Preview{' '}
+        <ArrowDown className='inline-block relative -top-[2px]' size={20} />
       </Button>
       <hr className='my-10' />
       <div>
