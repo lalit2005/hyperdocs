@@ -134,12 +134,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     console.log(allFiles);
 
-    // @ts-ignore
-    let filesArray: string[] = allFiles.data.map((file) =>
-      file.name.replace(/\.md$/, '')
-    );
+    let sidebar;
 
-    const sidebar = await getSidebar(siteData);
+    try {
+      sidebar = await getSidebar(siteData);
+    } catch (error) {
+      console.log(error);
+      // @ts-ignore
+      let filesArray: string[] = allFiles.data.map((file) =>
+        file.name.replace(/\.md$/, '')
+      );
+
+      sidebar = filesArray.filter((file: string) => file !== 'index');
+    }
 
     const content = await getFileContent(
       siteData?.repoLink || '',
