@@ -26,6 +26,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           linkText: 'Docs',
         },
       },
+      homePage: `<Hero1 heading="${siteName}" description="${siteDescription}"/>
+
+<Features1 features={[
+{"title": "Feature 1", "description": "Change these in the dashboard"},
+
+{"title": "Feature 2", "description": "Change these in the dashboard"},
+
+{"title": "Feature 3", "description": "Change these in the dashboard"}
+
+]} />`,
     },
   });
 

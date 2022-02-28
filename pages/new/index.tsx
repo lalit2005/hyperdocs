@@ -43,7 +43,7 @@ const NewSite = () => {
     toast.promise(asd, {
       loading: 'Creating site...',
       success: 'Site created!',
-      error: 'Error creating site',
+      error: 'This slug is already taken. Please use another one.',
     });
 
     // alert(JSON.stringify(asd.data, null, 2));
