@@ -8,6 +8,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import {
   Activity,
+  AlignJustify,
   Command,
   Edit3,
   Home,
@@ -26,6 +27,7 @@ type ActiveTab =
   | 'feedbacks'
   | 'integrations'
   | 'navbar'
+  | 'footer'
   | 'announcement'
   | 'settings';
 
@@ -80,6 +82,12 @@ const DashboardLayout: React.FC<{
       href: `/dashboard/${siteId}/navbar`,
       active: 'navbar',
       Icon: Link2,
+    },
+    {
+      name: `Footer`,
+      href: `/dashboard/${siteId}/footer`,
+      active: 'footer',
+      Icon: AlignJustify,
     },
     {
       name: `Announcement`,

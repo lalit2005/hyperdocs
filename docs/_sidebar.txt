@@ -12,3 +12,4 @@ vs-gitbook.md
 homepage.md
 plugins.md
 themes.md
+showcase.md

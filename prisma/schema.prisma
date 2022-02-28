@@ -78,6 +78,7 @@ model Site {
   customHead        String?
   homePage          String?      @db.LongText
   navbarCta         String?
+  footerText        String?      @db.LongText
   navbarLinks       NavbarLink[]
   announcement      String?
   blogs             Blog[]
