@@ -15,6 +15,7 @@ const getSidebar = async (
   );
 
   const sidebar = sidebarFileContent
+    .trim()
     .split('\n')
     .map((file) => file.trim().replace(/\.md$/, ''));
 
