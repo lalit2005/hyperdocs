@@ -131,7 +131,7 @@ const Home: NextPage = () => {
           <WorkflowSvg />
         </div>
       </div>
-      <div className='w-full py-16'>
+      <div className='w-full'>
         <div className='max-w-7xl mx-auto'>
           <h3 className='text-7xl font-extrabold'>
             <span className={clsx(gradient, 'from-[#1dbde6] to-[#f1515e]')}>
@@ -184,6 +184,46 @@ const Home: NextPage = () => {
         </p>
         {/* // TODO: add image */}
       </div>
+
+      <div className='mt-24 max-w-7xl mx-auto'>
+        <h3 className='text-7xl font-extrabold'>
+          <p className={clsx(gradient, 'from-[#61f4de] to-[#6e78ff]')}>
+            Feedbacks
+          </p>
+          from docs should be easier
+        </h3>
+        <p className='text-lg max-w-3xl opacity-70 mt-3'>
+          Hyperdocs provides a built in feedback widget to all sites that helps
+          you collect feedback from your users
+        </p>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src='/feedbacks.png'
+          alt='Feedbacks dashboard'
+          className='max x-auto w-full rounded-lg mt-7'
+        />
+      </div>
+
+      <div className='max-w-7xl mx-auto mt-20'>
+        <h3 className='text-7xl font-extrabold'>
+          A{' '}
+          <span className={clsx(gradient, 'from-[#61f4de] to-[#6e78ff]')}>
+            Blog
+          </span>
+          <br />
+          for your docs
+        </h3>
+        <p className='text-lg max-w-3xl opacity-70 mt-3'>
+          Hyperdocs provides a built in blog for your documentation.
+        </p>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src='/blogs.png'
+          alt='Blog dashboard'
+          className='max x-auto w-full rounded-lg mt-7'
+        />
+      </div>
+
       <div className='mt-20 max-w-7xl mx-auto text-invert rounded-xl py-10 shadow-xl mb-5'>
         <h3
           className={clsx(
@@ -200,10 +240,6 @@ const Home: NextPage = () => {
             Get started now →
           </CustomLink>
         </div>
-      </div>
-      <div className='mt-20 max-w-xl mx-auto'>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src='/hyperdocs-3d.png' alt='' className='dark:invert' />
       </div>
       <footer className='px-10 py-5 border-t dark:border-slate-700 mt-10'>
         <div>
