@@ -4,3 +4,4 @@ how-hyperdocs-works.md
 components.md
 cli.md
 vs-docusaurus.md
+some-important-points.md
