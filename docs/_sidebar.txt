@@ -2,3 +2,4 @@ introduction.md
 getting-started.md
 how-hyperdocs-works.md
 components.md
+cli.md
