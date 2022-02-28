@@ -67,6 +67,14 @@ All thanks to Next.js ISR feature.
 
 There's nothing that you have to worry about except for the content.
 
+## Feedbacks
+
+Hyperdocs provides a built-in feedback system for your documentation.
+
+Every docs get a feedback widget that helps you gather feedback from your users. You can view all the feedbacks in the Hyperdocs dashboard.
+
+Docusaurus has no feedback system yet and it is not easy to add one in the docs.
+
 ## Blog
 
 A blog for a project is where you notify your users about new releases, event and updates such as a funding round, etc..
