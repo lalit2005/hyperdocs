@@ -16,3 +16,4 @@ You can avoid these edge cases by avoiding the following:
 - Make sure the `/docs` directory is present in the root of your project.
 - Do not use heading 1 in markdown files(`#`) except for the `index.md`. Use heading 2 or 3.
 - Make sure, you leave a new line at the end of the file in `_sidebar.md`.
+- For images, you can just open a [markdown file on GitHub](https://twitter.com/leeerob/status/1494509861849255937) and paste image there to get the markdown 😜
