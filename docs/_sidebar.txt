@@ -3,5 +3,8 @@ getting-started.md
 how-hyperdocs-works.md
 components.md
 cli.md
-vs-docusaurus.md
 some-important-points.md
+feedbacks.md
+why-web3forms.md
+vs-docusaurus.md
+vs-gitbook.md
