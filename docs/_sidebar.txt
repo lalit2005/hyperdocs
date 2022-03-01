@@ -13,3 +13,4 @@ homepage.md
 plugins.md
 themes.md
 showcase.md
+footer.md
