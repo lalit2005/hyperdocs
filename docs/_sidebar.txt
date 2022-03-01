@@ -6,6 +6,7 @@ cli.md
 custom-domains.md
 some-important-points.md
 feedbacks.md
+comparison.md
 why-web3forms.md
 vs-docusaurus.md
 vs-gitbook.md
