@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/Button';
 import { DialogContent, DialogRoot } from '@/components/ui/Dialog';
+import { CustomLink } from '@/components/ui/Link';
 import DashboardLayout from '@/layouts/DashboardLayout';
 import slugify from '@/lib/slugify';
 import { Blog } from '@prisma/client';
@@ -62,14 +63,24 @@ const BlogPage = () => {
           }}>
           <Save className='inline-block relative -top-px mr-1' size={18} /> Save
         </Button>
-        <Button noInvert className='mr-4'>
+        <CustomLink
+          href='/playground'
+          target='_blank'
+          rel='noopener noreferrer'
+          noInvert
+          className='mr-4'>
           <Eye className='inline-block relative -top-px mr-1' size={18} />{' '}
           Preview
-        </Button>
-        <Button noInvert className='mr-4'>
+        </CustomLink>
+        <CustomLink
+          href='/hyperdocs/docs/components'
+          target='_blank'
+          rel='noopener noreferrer'
+          noInvert
+          className='mr-4'>
           <Zap className='inline-block relative -top-px mr-1' size={18} /> View
           all components
-        </Button>
+        </CustomLink>
         <DialogRoot>
           <DialogTrigger>
             <Button>
