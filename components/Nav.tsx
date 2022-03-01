@@ -25,8 +25,8 @@ const Nav = () => {
             </Link>
             <span className='inline-block'>
               <Tooltip content='Coming soon!'>
-                <Link href='/themes'>
-                  <a className='cursor-default opacity-60'>Themes</a>
+                <Link href='/hyperdocs/blog'>
+                  <a className='cursor-default opacity-60'>Blog</a>
                 </Link>
               </Tooltip>
             </span>
