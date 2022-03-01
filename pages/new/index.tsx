@@ -123,6 +123,9 @@ const NewSite = () => {
                 placeholder='https://github.com/lalit2005/hyperdocs'
                 {...register('repoLink')}
               />
+              <TextSmall className='text-xs mt-px'>
+                Make sure a `/docs` folder is present in the root of the repo
+              </TextSmall>
               {errors.repoLink && (
                 <p className='mt-1 text-sm text-red-400'>
                   {errors.repoLink.message}
