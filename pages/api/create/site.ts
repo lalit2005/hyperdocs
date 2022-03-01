@@ -20,6 +20,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       ogImageUrl: ogImageUrl,
       siteSlug: siteSlug,
       navbarCta: `GitHub|||${repoLink}`,
+      footerText: `Created with [Hyperdocs](https://hyperdocs.vercel.app)`,
       navbarLinks: {
         create: {
           link: `/${siteSlug}/docs`,
