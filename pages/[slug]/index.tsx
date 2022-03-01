@@ -55,6 +55,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       navbarCta: siteData?.navbarCta,
       siteName: siteData?.siteName,
     },
+    revalidate: 15 * 60,
   };
 };
 

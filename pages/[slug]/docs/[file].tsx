@@ -179,7 +179,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         description: siteData?.siteDescription,
         footerText: siteData?.footerText,
       },
-      revalidate: 10,
+      revalidate: 15 * 60,
     };
     // @ts-ignore
   } catch (error: Error) {

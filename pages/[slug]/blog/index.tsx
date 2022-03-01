@@ -78,6 +78,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       logo: siteData?.siteName || '',
       siteId: siteData?.id || '',
     },
+    revalidate: 15 * 60,
   };
 };
 

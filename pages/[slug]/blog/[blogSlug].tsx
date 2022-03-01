@@ -113,6 +113,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       logo: blog?.site?.siteName,
       author: blog?.postedBy,
     },
+    revalidate: 15 * 60,
   };
 };
 

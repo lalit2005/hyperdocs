@@ -142,7 +142,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       siteId: siteData?.id,
       footerText: siteData?.footerText,
     },
-    revalidate: 10,
+    revalidate: 15 * 60,
   };
 };
 
