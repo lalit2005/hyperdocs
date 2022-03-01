@@ -70,19 +70,31 @@ const SuccessPage = () => {
             </span>
           </Heading2>
 
-          <div className='mt-10'>
+          <div className='mt-10 space-y-5 max-w-sm'>
             <div>
               <CustomLink
                 href={`/dashboard/${router.query.siteId}`}
-                className='inline-block'>
+                className='inline-block w-full'>
                 View dashboard
               </CustomLink>
             </div>
+            <div>
+              <CustomLink
+                href={`/hyperdocs/docs`}
+                noInvert
+                className='inline-block w-full'>
+                View Docs
+              </CustomLink>
+            </div>
+            <div>
+              <CustomLink
+                href={`/hyperdocs/docs`}
+                noInvert
+                className='inline-block w-full'>
+                View CLI documentation
+              </CustomLink>
+            </div>
           </div>
-        </div>
-        <div className='mt-20'>
-          <Heading3>How to proceed further?</Heading3>
-          {/* // TODO: add link to docs */}
         </div>
       </div>
     </ProtectedRoute>
