@@ -6,6 +6,7 @@ import { SWRConfig } from 'swr';
 import Head from 'next/head';
 import { Toaster } from 'react-hot-toast';
 import { NextSeo } from 'next-seo';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
@@ -28,6 +29,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           cardType: 'summary_large_image',
           handle: '@lalit2005',
         }}
+      />
+      <Script
+        async
+        defer
+        strategy='lazyOnload'
+        data-website-id='f5fb6854-4d11-4e2c-a31d-883996688672'
+        src='https://lalit-projects-analytics.vercel.app/umami.js'
       />
       <SessionProvider session={session}>
         <Head>
