@@ -10,6 +10,18 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/docs/:path*',
+        destination: '/hyperdocs/docs/:path*',
+      },
+      {
+        source: '/blog/:path*',
+        destination: '/hyperdocs/blog/:path*',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
