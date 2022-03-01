@@ -1,2 +1,0 @@
-/docs/*   /hyperdocs/:splat  200
-/blog/*  /blog/:splat  200
