@@ -14,7 +14,7 @@ const Showcase = () => {
           return (
             <div key={site.name}>
               <CustomLink
-                href={`/dashboard/${site.link}`}
+                href={site.link}
                 target='_blank'
                 rel='noopener noreferrer'
                 noInvert
