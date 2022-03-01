@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Logo from './Logo';
 import { useSession } from 'next-auth/react';
+import { Tooltip } from 'react-tiny-tooltip';
 
 const Nav = () => {
   const { data, status } = useSession();
@@ -12,7 +13,7 @@ const Nav = () => {
         </div>
         <div>
           <ul className='space-x-10 py-5'>
-            <Link href='/docs'>
+            <Link href='/hyperdocs/docs'>
               <a className='opacity-60 transition-all hover:opacity-100'>
                 Docs
               </a>
@@ -22,11 +23,13 @@ const Nav = () => {
                 Showcase
               </a>
             </Link>
-            <Link href='/themes'>
-              <a className='opacity-60 transition-all hover:opacity-100'>
-                Themes
-              </a>
-            </Link>
+            <span className='inline-block'>
+              <Tooltip content='Coming soon!'>
+                <Link href='/themes'>
+                  <a className='cursor-default opacity-60'>Themes</a>
+                </Link>
+              </Tooltip>
+            </span>
             <Link href='/login'>
               <a className='opacity-60 transition-all hover:opacity-100'>
                 Login
