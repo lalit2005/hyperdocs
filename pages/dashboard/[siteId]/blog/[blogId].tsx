@@ -68,7 +68,7 @@ const BlogPage = () => {
           target='_blank'
           rel='noopener noreferrer'
           noInvert
-          className='mr-4'>
+          className='mr-4 inline-block'>
           <Eye className='inline-block relative -top-px mr-1' size={18} />{' '}
           Preview
         </CustomLink>
@@ -77,7 +77,7 @@ const BlogPage = () => {
           target='_blank'
           rel='noopener noreferrer'
           noInvert
-          className='mr-4'>
+          className='mr-4 inline-block'>
           <Zap className='inline-block relative -top-px mr-1' size={18} /> View
           all components
         </CustomLink>
