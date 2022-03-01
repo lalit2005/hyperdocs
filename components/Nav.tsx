@@ -23,13 +23,11 @@ const Nav = () => {
                 Showcase
               </a>
             </Link>
-            <span className='inline-block'>
-              <Tooltip content='Coming soon!'>
-                <Link href='/hyperdocs/blog'>
-                  <a className='cursor-default opacity-60'>Blog</a>
-                </Link>
-              </Tooltip>
-            </span>
+            <Link href='/hyperdocs/blog'>
+              <a className='opacity-60 transition-all hover:opacity-100'>
+                Blog
+              </a>
+            </Link>
             <Link href='/login'>
               <a className='opacity-60 transition-all hover:opacity-100'>
                 Login
