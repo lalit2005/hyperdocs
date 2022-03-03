@@ -4,5 +4,5 @@ Hyperdocs vs other documentation tools
 
 View detailed comparison of Hyperdocs with
 
-- [Docusaurus](/hyperdocs/docs/vs-docusaraus)
+- [Docusaurus](/hyperdocs/docs/vs-docusaurus)
 - [Gitbook](/hyperdocs/docs/vs-gitbook)
