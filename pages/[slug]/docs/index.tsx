@@ -32,7 +32,7 @@ const Page: NextPage<DocsPageProps> = ({
   return (
     <div>
       <div>
-        <div className='sticky top-0'>
+        <div className='sticky top-0 z-50'>
           <DocsNav links={navLinks} navbarCta={navCta} logo={siteName} />
         </div>
         <DocsLayout

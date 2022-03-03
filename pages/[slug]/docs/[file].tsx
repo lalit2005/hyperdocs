@@ -61,7 +61,7 @@ const Page: NextPage<DocsPageProps> = ({
           cardType: 'summary_large_image',
         }}
       />
-      <div className='sticky top-0 z-30'>
+      <div className='sticky top-0 z-50'>
         <DocsNav links={navLinks} navbarCta={navCta} logo={siteName} />
       </div>
       <DocsLayout
