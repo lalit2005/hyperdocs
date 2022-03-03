@@ -1,7 +1,8 @@
 You can have the documentation site hosted on a custom domain with help of rewrites
 
 <Callout type='warning'>
-	This feature still has a slight disadvantage - it's not possible to have **customdomain.com/docs/** yet. Instead one can have **customdomain.com/SLUG/docs**
+	This feature has a slight disadvantage - it's not possible to have **customdomain.com/docs/** yet. Instead one can have **customdomain.com/SLUG/docs**.  
+	But this should be fixed soon.
 </Callout>
 
 Replace all `SLUG`s here with the one you created while creating site in hyperdocs dashboard
@@ -27,6 +28,8 @@ Let's use Vercel here
 }
 ```
 
-Now you can access the website from your custom domain.
+Now add a new domain or subdomain(my-project.vercel.app) to that Vercel project.
+
+Now you can access the website from that custom domain or subdomain.
 
 Eg. https://hyperdocs-proxy.vercel.app/ rewrites to https://hyperdocs.netlify.app/hyperdocs/
