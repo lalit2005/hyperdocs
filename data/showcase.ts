@@ -5,8 +5,8 @@ const showcaseSites: {
   image: string;
 }[] = [
   {
-    name: 'Hyperdocs',
-    desc: 'Documentation simplified. Hyperdocs is the easiest and simplest way to build documentation.',
+    name: 'Hashnode Support',
+    desc: 'Rebuild of the Hashnode support docs site with Hyperdocs',
     link: 'https://hyperdocs.netlify.app/hyperdocs/docs',
     image: 'https://cdn.statically.io/og/Hashnode%20Support',
   },
