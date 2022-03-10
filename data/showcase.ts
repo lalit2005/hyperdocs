@@ -6,16 +6,16 @@ const showcaseSites: {
 }[] = [
   {
     name: 'Hyperdocs',
-    desc: 'Documentation simplified. Hyperdocs is the easiest and simplest way to build documentation.',
+    desc: 'Hyperdocs documentation - Learn how to use Hyperdocs. Built with Hyperdocs.',
     link: 'https://hyperdocs.netlify.app/hyperdocs/docs',
-    image: 'https://cdn.statically.io/og/Hashnode%20Support',
+    image:
+      'https://user-images.githubusercontent.com/69138026/156039285-2ea7e303-c14d-4b31-b079-addbbe494c77.png',
   },
   {
     name: 'Hashnode Support',
-    desc: 'Hashnode support recreated with hyperdocs for demo purposes',
+    desc: 'Hashnode support recreated with hyperdocs for demo.',
     link: 'https://hyperdocs.netlify.app/hashnode/docs',
-    image:
-      'https://user-images.githubusercontent.com/69138026/156039285-2ea7e303-c14d-4b31-b079-addbbe494c77.png',
+    image: 'https://cdn.statically.io/og/Hashnode%20Support',
   },
   {
     name: 'Shtr.',
