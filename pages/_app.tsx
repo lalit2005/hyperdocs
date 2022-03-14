@@ -37,11 +37,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         data-website-id='f5fb6854-4d11-4e2c-a31d-883996688672'
         src='https://lalit-projects-analytics.vercel.app/umami.js'
       />
+      <Head>
+        <meta
+          name='google-site-verification'
+          content='efSV_Sii9i2ClwuhUYhHEZHngS_jvev18w_xD4PayEg'
+        />
+        <title>Hyperdocs - Documentation made easy</title>
+        <link rel='shortcut icon' href='/favicon.png' type='image/x-icon' />
+      </Head>
       <SessionProvider session={session}>
-        <Head>
-          <title>Hyperdocs - Documentation made easy</title>
-          <link rel='shortcut icon' href='/favicon.png' type='image/x-icon' />
-        </Head>
         <SWRConfig
           value={{ fetcher: (url) => fetch(url).then((res) => res.json()) }}>
           <ThemeProvider attribute='class'>
