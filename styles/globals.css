@@ -22,6 +22,10 @@ html {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -67,7 +71,7 @@ html {
 }
 
 .anchor .icon-link {
-  @apply absolute invisible;
+  @apply invisible absolute;
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -91,9 +95,9 @@ html {
 .mdx-content ul > code,
 .mdx-content ol > code,
 .mdx-content li > code {
-  @apply px-1 py-px rounded bg-slate-200 dark:bg-slate-700;
+  @apply rounded bg-slate-200 px-1 py-px dark:bg-slate-700;
 }
 
 hr {
-  @apply border-b-2 border-slate-300 dark:border-slate-600 rounded-full;
+  @apply rounded-full border-b-2 border-slate-300 dark:border-slate-600;
 }

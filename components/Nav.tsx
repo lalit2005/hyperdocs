@@ -9,7 +9,7 @@ const Nav = () => {
   const { data, status } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className='sticky top-0 mb-20 bg-white/70 dark:bg-black/70 backdrop-blur-md z-50 shadow-sm'>
+    <nav className='sticky top-0 z-50 mb-20 bg-white/70 shadow-sm backdrop-blur-md dark:bg-black/70'>
       <div className='flex items-center justify-between px-5'>
         <div>
           <Logo />
@@ -19,13 +19,15 @@ const Nav = () => {
             <MenuRoot isOpen={isOpen} setIsOpen={setIsOpen}>
               <MenuTrigger>
                 <div>
-                  <Menu className='inline-block p-1 my-4' size={30} />
+                  <Menu className='my-4 inline-block p-1' size={30} />
                 </div>
                 <MenuContent isOpen={isOpen}>
                   <MenuItem link='/hyperdocs/docs'>Docs</MenuItem>
                   <MenuItem link='/hyperdocs/showcase'>Showcase</MenuItem>
                   <MenuItem link='/hyperdocs/blog'>Blog</MenuItem>
-                  <MenuItem link='/login'>Login</MenuItem>
+                  <MenuItem className='hidden md:block' link='/login'>
+                    Login
+                  </MenuItem>
                   {status === 'unauthenticated' || status === 'loading' ? (
                     <MenuItem link='/login'>Login</MenuItem>
                   ) : (
@@ -35,7 +37,7 @@ const Nav = () => {
               </MenuTrigger>
             </MenuRoot>
           </div>
-          <ul className='space-x-10 py-5 hidden md:block'>
+          <ul className='hidden space-x-10 py-7 md:block'>
             <Link href='/hyperdocs/docs'>
               <a className='opacity-60 transition-all hover:opacity-100'>
                 Docs
