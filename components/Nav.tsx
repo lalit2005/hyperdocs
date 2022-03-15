@@ -29,7 +29,7 @@ const Nav = () => {
                     Login
                   </MenuItem>
                   {status === 'unauthenticated' || status === 'loading' ? (
-                    <MenuItem link='/login'>Login</MenuItem>
+                    <MenuItem link='/signup'>Sign up</MenuItem>
                   ) : (
                     <MenuItem link='/dashboard'>Dashboard</MenuItem>
                   )}
