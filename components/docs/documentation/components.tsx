@@ -9,6 +9,7 @@ import { RoughNotation } from 'react-rough-notation';
 import Grid from './Grid';
 import Head from 'next/head';
 import DocsLink from './Link';
+import Loom from './Loom';
 
 const DocsMDXcomponents = {
   pre: (props: any) => {
@@ -35,6 +36,7 @@ const DocsMDXcomponents = {
   RoughNotation: RoughNotation,
   Grid: Grid,
   Head: Head,
+  Loom: Loom,
   CustomComponent: (props: any) => (
     <div className='not-prose'>{props?.children}</div>
   ),
