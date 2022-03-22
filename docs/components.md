@@ -51,6 +51,24 @@ Hello world 👋
 <Accordion title='Hi there'>Hello world 👋</Accordion>
 ```
 
+## Loom video embed
+
+[Loom](https://loom.com) let's you easily embed videos in webpages.  
+But the embed can decrease the lighthouse score and affects the speed of the page.
+
+And that's why Hyperdocs provides a component
+that helps you embed loom videos without affecting the loading of the page.
+
+<Loom url="https://www.loom.com/share/64bb8c253a5d4cdabbc5ac4db92df606" title="Hyperdocs Intro" />
+
+```tsx
+<Loom url='LOOM-VIDEO-URL' title='TITLE' />
+```
+
+<Callout type="warning">
+  **LOOM-VIDEO-URL** is the url that you find in the address bar of the browser in Loom's dashboard, not the embedding URL that Loom provides. Hyperdocs auto-generates the embed link from the regular URL(*https://loom.com/share/video-id*)
+</Callout>
+
 ## Sandpack
 
 [Sandpack](https://sandpack.codesandbox.io) from CodeSandbox. Hyperdocs just exposes the `Sandpack` component from it so that you can use everything out of it.
