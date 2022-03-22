@@ -13,6 +13,8 @@ Hyperdocs is the simplest way you can create documentation for your project. It 
 
 Hyperdocs requires no configuration and yet is highly customizable. You just need to have a bunch of markdown files in a `/docs` directory and Hyperdocs will take care of the rest.
 
+<Loom url="https://www.loom.com/share/64bb8c253a5d4cdabbc5ac4db92df606" title="What's Hyperdocs??" />
+
 Here are some links that can help you get started with Hyperdocs:
 
 - [Introduction to Hyperdocs](/hyperdocs/docs/introduction)
