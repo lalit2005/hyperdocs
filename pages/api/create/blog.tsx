@@ -1,4 +1,5 @@
 import requireSession from '@/lib/require-session';
+import slugify from '@/lib/slugify';
 import prisma from '@/utils/prisma';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/react';
@@ -16,6 +17,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       description,
       siteId,
       published: false,
+      slug: slugify(title),
     },
   });
 
