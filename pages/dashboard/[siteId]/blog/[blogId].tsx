@@ -9,7 +9,7 @@ import axios from 'axios';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { Eye, Save, Settings, Zap } from 'react-feather';
+import { Eye, Save, Settings, Trash2, Zap } from 'react-feather';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import ReactTextareaAutosize from 'react-textarea-autosize';
@@ -58,24 +58,6 @@ const BlogPage = () => {
               success: 'Blog updated!',
               error: 'Error updating blog!',
               loading: 'Updating blog...',
-            });
-          }}>
-          <Save className='relative -top-px mr-1 inline-block' size={18} /> Save
-        </Button>
-        <Button
-          className='mr-4'
-          onClick={() => {
-            const req = axios
-              .post('/api/delete/blog', {
-                blogId: router.query.blogId,
-              })
-              .then(() => {
-                router.push(`/dashboard/${router.query.siteId}/blog`);
-              });
-            toast.promise(req, {
-              success: 'Blog deleted!',
-              error: 'Error deleting blog!',
-              loading: 'Deleting blog...',
             });
           }}>
           <Save className='relative -top-px mr-1 inline-block' size={18} /> Save
@@ -204,6 +186,29 @@ const BlogPage = () => {
                   />
                 </div>
                 <Button type='submit'>Update</Button>
+                <Button
+                  noInvert
+                  className='mr-4'
+                  onClick={() => {
+                    const req = axios
+                      .post('/api/delete/blog', {
+                        blogId: router.query.blogId,
+                      })
+                      .then(() => {
+                        router.push(`/dashboard/${router.query.siteId}/blog`);
+                      });
+                    toast.promise(req, {
+                      success: 'Blog deleted!',
+                      error: 'Error deleting blog!',
+                      loading: 'Deleting blog...',
+                    });
+                  }}>
+                  <Trash2
+                    className='relative -top-px mr-1 inline-block'
+                    size={18}
+                  />{' '}
+                  Delete
+                </Button>
               </form>
             </div>
           </DialogContent>
