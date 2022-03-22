@@ -23,14 +23,13 @@ const BlogPage = () => {
   );
   const [content, setContent] = useState<string>(data?.content || '');
 
-  const { register, handleSubmit } =
-    useForm<{
-      siteSlug: string;
-      title: string;
-      description: string;
-      ogImageUrl: string;
-      postedBy: string;
-    }>();
+  const { register, handleSubmit } = useForm<{
+    siteSlug: string;
+    title: string;
+    description: string;
+    ogImageUrl: string;
+    postedBy: string;
+  }>();
 
   return (
     <DashboardLayout
@@ -61,7 +60,25 @@ const BlogPage = () => {
               loading: 'Updating blog...',
             });
           }}>
-          <Save className='inline-block relative -top-px mr-1' size={18} /> Save
+          <Save className='relative -top-px mr-1 inline-block' size={18} /> Save
+        </Button>
+        <Button
+          className='mr-4'
+          onClick={() => {
+            const req = axios
+              .post('/api/delete/blog', {
+                blogId: router.query.blogId,
+              })
+              .then(() => {
+                router.push(`/dashboard/${router.query.siteId}/blog`);
+              });
+            toast.promise(req, {
+              success: 'Blog deleted!',
+              error: 'Error deleting blog!',
+              loading: 'Deleting blog...',
+            });
+          }}>
+          <Save className='relative -top-px mr-1 inline-block' size={18} /> Save
         </Button>
         <CustomLink
           href='/playground'
@@ -69,7 +86,7 @@ const BlogPage = () => {
           rel='noopener noreferrer'
           noInvert
           className='mr-4 inline-block'>
-          <Eye className='inline-block relative -top-px mr-1' size={18} />{' '}
+          <Eye className='relative -top-px mr-1 inline-block' size={18} />{' '}
           Preview
         </CustomLink>
         <CustomLink
@@ -78,14 +95,14 @@ const BlogPage = () => {
           rel='noopener noreferrer'
           noInvert
           className='mr-4 inline-block'>
-          <Zap className='inline-block relative -top-px mr-1' size={18} /> View
+          <Zap className='relative -top-px mr-1 inline-block' size={18} /> View
           all components
         </CustomLink>
         <DialogRoot>
           <DialogTrigger>
             <Button>
               <Settings
-                className='inline-block relative -top-px mr-1'
+                className='relative -top-px mr-1 inline-block'
                 size={18}
               />{' '}
               Settings
@@ -201,11 +218,11 @@ const BlogPage = () => {
               : 'The blog is not published yet. Publish from the settings → '
           }>
           {data?.published ? (
-            <div className='rounded-sm text-teal-800 bg-teal-200 inline-block text-xs px-1 py-px mt-4'>
+            <div className='mt-4 inline-block rounded-sm bg-teal-200 px-1 py-px text-xs text-teal-800'>
               Blog Published
             </div>
           ) : (
-            <div className='rounded-sm text-red-800 bg-red-200 inline-block text-xs px-1 py-px mt-4'>
+            <div className='mt-4 inline-block rounded-sm bg-red-200 px-1 py-px text-xs text-red-800'>
               Blog not Published yet
             </div>
           )}
@@ -214,7 +231,7 @@ const BlogPage = () => {
       <div className='mt-10'>
         <ReactTextareaAutosize
           defaultValue={data?.content || ''}
-          className='w-full max-w-3xl font-mono bg-white dark:bg-black focus:outline-none text-slate-900 dark:text-slate-300'
+          className='w-full max-w-3xl bg-white font-mono text-slate-900 focus:outline-none dark:bg-black dark:text-slate-300'
           spellCheck={false}
           minRows={15}
           onChange={(e) => setContent(e.target.value)}
