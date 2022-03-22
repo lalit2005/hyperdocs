@@ -32,6 +32,10 @@ View demo [here](https://hyperdocs.netlify.app/hashnode/docs)
 - ✅ Dashboard to manage your docs site.
 - ✅ Support for private repositories.
 
+## Support
+
+If you would like to support me, you can by me a coffee [here](https://www.buymeacoffee.com/lalitcodes)
+
 ## Stats
 
 ![Stats](https://repobeats.axiom.co/api/embed/023417e740610fab743aadbd051ec40dad00c63f.svg 'Repobeats analytics image')
