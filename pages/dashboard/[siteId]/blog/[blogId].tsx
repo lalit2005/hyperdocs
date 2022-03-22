@@ -188,6 +188,7 @@ const BlogPage = () => {
                 <Button type='submit'>Update</Button>
                 <Button
                   noInvert
+                  type='button'
                   className='mr-4'
                   onClick={() => {
                     const req = axios
