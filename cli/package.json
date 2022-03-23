@@ -1,6 +1,6 @@
 {
   "name": "hyperdocs-cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Easiest and simplest way to add documentation for your project on GitHub. Visit https://hyperdocs.netlify.app for more info.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
