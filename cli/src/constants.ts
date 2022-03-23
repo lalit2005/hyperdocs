@@ -2,25 +2,23 @@ export const SidebarFileContent = `introduction.md
 getting-started.md
 `;
 
-export const IndexFileContent = `Welcome to Hyperdocs!
+export const IndexFileContent = `# Welcome to Hyperdocs!
 
 This page will be rendered at at the root of the documetation at /docs/
 
-Visit https://hyperdocs.netlify.app/docs/ for more info.
+Visit https://hyperdocs.netlify.app/docs for more info.
 `;
 
-export const IntroductionFileContent = `# Introduction
-
-Introduce your project here.
+export const IntroductionFileContent = `Introduce your project here.
 
 You can use jsx inside this markdown file and also use many prebuilt components.
 
-Visit https://hyperdocs.netlify.app/docs/ for more info.
+Visit https://hyperdocs.netlify.app/docs for more info.
 `;
 
-export const GettingStartedFileContent = `# Getting Started
+export const GettingStartedFileContent = `You can write your project's getting started guide here. 
 
-Write your project's getting started guide here.
+You can delete this file and remove it from \`_sidebar.txt\` if you would like to not have this page
 
 To create a new page, just run \`hyperdocs-cli new <filename>\``;
 
