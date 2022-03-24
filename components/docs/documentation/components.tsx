@@ -10,6 +10,7 @@ import Grid from './Grid';
 import Head from 'next/head';
 import DocsLink from './Link';
 import Loom from './Loom';
+import Badge from './Badge';
 
 const DocsMDXcomponents = {
   pre: (props: any) => {
@@ -37,6 +38,7 @@ const DocsMDXcomponents = {
   Grid: Grid,
   Head: Head,
   Loom: Loom,
+  Badge: Badge,
   CustomComponent: (props: any) => (
     <div className='not-prose'>{props?.children}</div>
   ),

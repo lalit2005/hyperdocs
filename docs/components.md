@@ -40,6 +40,24 @@ Just use the type attribute to set the type of the callout.
 
 This is how you use tooltips in your docs.
 
+## Badges
+
+A badge is a visual indicator for to draw attention of the user. Eg. A new feature, a new update, in beta, etc.
+
+<Badge color="green">Beta</Badge>
+
+```jsx
+// default color is green
+<Badge color='green | red | blue | yellow'>Beta</Badge>
+```
+
+<Accordion title="All available badges">
+	<Badge color="red">Alpha</Badge>
+	<Badge color="green">Beta</Badge>
+	<Badge color="blue">Gamma</Badge>
+	<Badge color="yellow">Delta</Badge>
+</Accordion>
+
 ## Accordions
 
 <Accordion
