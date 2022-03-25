@@ -44,12 +44,16 @@ This is how you use tooltips in your docs.
 
 A badge is a visual indicator for to draw attention of the user. Eg. A new feature, a new update, in beta, etc.
 
+Hyperdocs provides a ready-to-use badge component that you can use in docs and blogs.
+
 <Badge color="green">Beta</Badge>
 
 ```jsx
 // default color is green
 <Badge color='green | red | blue | yellow'>Beta</Badge>
 ```
+
+Switch the dark/light theme to see the 2 different variants of the badges.
 
 <Accordion title="All available badges">
 	<Badge color="red">Alpha</Badge>
