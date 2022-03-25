@@ -4,7 +4,7 @@ const Badge = (props: any) => {
   return (
     <span
       className={clsx(
-        'px-2 py-1 rounded border dark:bg-transparent',
+        'px-2 py-1 rounded border dark:bg-transparent text-sm',
         props.color == 'blue' &&
           'border-blue-200 text-blue-700 bg-blue-100 dark:border-blue-700 dark:text-blue-500',
         props.color == 'green' &&
