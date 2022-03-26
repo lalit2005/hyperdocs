@@ -62,7 +62,12 @@ const Page: NextPage<DocsPageProps> = ({
         }}
       />
       <div className='sticky top-0 z-50'>
-        <DocsNav links={navLinks} navbarCta={navCta} logo={siteName} />
+        <DocsNav
+          links={navLinks}
+          navbarCta={navCta}
+          logo={siteName}
+          slug={slug}
+        />
       </div>
       <DocsLayout
         siteId={siteId}

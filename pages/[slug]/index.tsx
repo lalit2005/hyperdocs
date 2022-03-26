@@ -12,7 +12,8 @@ const Index: NextPage<{
   navLinks: NavbarLink[];
   navbarCta: string;
   siteName: string;
-}> = ({ homepageContent, navLinks, navbarCta, siteName }) => {
+  slug: string;
+}> = ({ homepageContent, slug, navLinks, navbarCta, siteName }) => {
   const Component = useMemo(
     () => getMDXComponent(homepageContent),
     [homepageContent]
@@ -21,7 +22,12 @@ const Index: NextPage<{
   return (
     <div>
       <div className='sticky top-0'>
-        <DocsNav links={navLinks} navbarCta={navbarCta} logo={siteName} />
+        <DocsNav
+          slug={slug}
+          links={navLinks}
+          navbarCta={navbarCta}
+          logo={siteName}
+        />
       </div>
       <div>
         <Component components={HomepageMDXcomponents} />
@@ -54,6 +60,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       navLinks: siteData?.navbarLinks,
       navbarCta: siteData?.navbarCta,
       siteName: siteData?.siteName,
+      slug,
     },
     revalidate: 15 * 60,
   };

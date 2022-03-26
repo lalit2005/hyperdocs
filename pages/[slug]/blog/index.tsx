@@ -4,7 +4,6 @@ import { Heading1 } from '@/components/ui/Typography';
 import prisma from '@/utils/prisma';
 import { Blog, NavbarLink } from '@prisma/client';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { useRouter } from 'next/router';
 
 const BlogsPage: NextPage<{
   blogs: Blog[];
@@ -12,13 +11,16 @@ const BlogsPage: NextPage<{
   navbarCta: string;
   logo: string;
   siteId: string;
-}> = ({ blogs, navbarLinks, navbarCta, logo }) => {
-  const router = useRouter();
-  const { slug } = router.query;
-
+  slug: string;
+}> = ({ blogs, slug, navbarLinks, navbarCta, logo }) => {
   return (
     <div>
-      <DocsNav links={navbarLinks} navbarCta={navbarCta} logo={logo} />
+      <DocsNav
+        slug={slug}
+        links={navbarLinks}
+        navbarCta={navbarCta}
+        logo={logo}
+      />
 
       <main className='max-w-3xl mx-auto p-5 mt-10'>
         <Heading1 className='my-10'>Blog</Heading1>
@@ -77,6 +79,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       navbarCta: siteData?.navbarCta || '',
       logo: siteData?.siteName || '',
       siteId: siteData?.id || '',
+      slug: siteData?.siteSlug || 'hyperdocs',
     },
     revalidate: 15 * 60,
   };

@@ -7,11 +7,12 @@ const DocsNav: React.FC<{
   links: NavbarLink[];
   navbarCta: string;
   logo: string;
-}> = ({ links, navbarCta, logo, ...props }) => {
+  slug: string;
+}> = ({ links, slug, navbarCta, logo, ...props }) => {
   return (
     <nav className='flex w-screen items-center justify-between bg-white py-3 px-10 shadow-lg dark:border-b dark:border-b-slate-700 dark:bg-black dark:shadow-slate-800/50 sticky top-0 !z-50'>
       <div className='text-lg font-bold'>
-        <Link href='/'>
+        <Link href={`/${slug}`}>
           <a>{logo}</a>
         </Link>
       </div>

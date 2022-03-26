@@ -18,6 +18,7 @@ const BlogPage: NextPage<{
   navbarCta: string;
   author: string;
   logo: string;
+  slug: string;
 }> = ({
   mdxCode,
   description,
@@ -28,11 +29,17 @@ const BlogPage: NextPage<{
   title,
   author,
   updatedAt,
+  slug,
 }) => {
   const Component = useMemo(() => getMDXComponent(mdxCode), [mdxCode]);
   return (
     <div>
-      <DocsNav links={navbarLinks} navbarCta={navbarCta} logo={logo} />
+      <DocsNav
+        slug={slug}
+        links={navbarLinks}
+        navbarCta={navbarCta}
+        logo={logo}
+      />
       <main className='max-w-4xl mx-auto p-5 mt-10'>
         <h2 className='text-5xl font-extrabold'>{title}</h2>
         <p className='text-slate-600 text-lg dark:text-slate-400 my-2'>
@@ -112,6 +119,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       navbarCta: blog?.site?.navbarCta,
       logo: blog?.site?.siteName,
       author: blog?.postedBy,
+      slug: blog?.site?.siteSlug,
     },
     revalidate: 15 * 60,
   };

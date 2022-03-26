@@ -15,7 +15,6 @@ import MDXRenderer from '@/components/docs/MDXRenderer';
 import DocsMDXcomponents from '@/components/docs/documentation/components';
 import Link from 'next/link';
 import getSidebar from '@/lib/getSidebar';
-import { Markdown } from '@/components/ui/Typography';
 // @ts-ignore
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -33,7 +32,12 @@ const Page: NextPage<DocsPageProps> = ({
     <div>
       <div>
         <div className='sticky top-0 z-50'>
-          <DocsNav links={navLinks} navbarCta={navCta} logo={siteName} />
+          <DocsNav
+            slug={slug}
+            links={navLinks}
+            navbarCta={navCta}
+            logo={siteName}
+          />
         </div>
         <DocsLayout
           siteId={siteId}
