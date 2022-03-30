@@ -48,7 +48,8 @@ const Home: NextPage = () => {
               animationDuration={2000}
               color='rgb(129 140 248)'
               animate
-              show>
+              show
+            >
               <span>auto-updating</span>
             </RoughNotation>{' '}
             <br /> documentation website up in less than 30 seconds
@@ -67,34 +68,35 @@ const Home: NextPage = () => {
         </div>
 
         <div className='mt-24'>
-          <div className='max-w-5xl mx-auto'>
+          <div className='mx-auto max-w-5xl'>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src='/landing-page-image.png' alt='' />
           </div>
         </div>
 
-        <div className='px-10 max-w-7xl mx-auto mt-40 mb-10'>
+        <div className='mx-auto mt-40 mb-10 max-w-7xl px-10'>
           <div>
-            <h2 className='text-5xl sm:text-7xl font-extrabold'>
+            <h2 className='text-5xl font-extrabold sm:text-7xl'>
               A feature packed <br />
               <span className={clsx(gradient, `from-[#696eff] to-[#f8acff]`)}>
                 documentation generator
               </span>
             </h2>
-            <p className='mt-3 text-lg text-slate-700 dark:text-slate-300 max-w-2xl'>
+            <p className='mt-3 max-w-2xl text-lg text-slate-700 dark:text-slate-300'>
               Hyperdocs has all the features you need to create a fully fledged
               documentation website for your open source project.
             </p>
           </div>
-          <div className='mt-10 grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
+          <div className='mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3'>
             {features.map(({ title, description, Icon }) => (
               <div
                 key={title}
-                className='p-7 rounded shadow-lg border dark:border-slate-800'>
+                className='rounded border p-7 shadow-lg dark:border-slate-800'
+              >
                 <Icon size={25} opacity={0.7} />
                 <div className='mt-4'>
                   <h3 className='text-xl font-bold'>{title}</h3>
-                  <p className='text-base mt-1 text-slate-700 dark:text-slate-300'>
+                  <p className='mt-1 text-base text-slate-700 dark:text-slate-300'>
                     {description}
                   </p>
                 </div>
@@ -102,8 +104,8 @@ const Home: NextPage = () => {
             ))}
           </div>
           <div className='mt-32'>
-            <h3 className='text-5xl sm:text-7xl font-extrabold max-w-3xl'>
-              <span className='opacity-40 mb-2'>Building docs is boring.</span>
+            <h3 className='max-w-3xl text-5xl font-extrabold sm:text-7xl'>
+              <span className='mb-2 opacity-40'>Building docs is boring.</span>
               <br />
               <span>
                 But Hyperdocs makes docs{' '}
@@ -111,12 +113,13 @@ const Home: NextPage = () => {
                   className={clsx(
                     gradient,
                     'from-cyan-500 to-slate-100 dark:from-[#61f4de] dark:to-slate-900'
-                  )}>
+                  )}
+                >
                   fun and intuitive
                 </span>
               </span>
             </h3>
-            <p className='text-lg opacity-70 mt-2 max-w-3xl'>
+            <p className='mt-2 max-w-3xl text-lg opacity-70'>
               Just focus on content. Hyperdocs will take care of hosting,
               feedback collection, blog management, SEO, lighthouse score and
               many more.{' '}
@@ -126,7 +129,8 @@ const Home: NextPage = () => {
                 animationDuration={2000}
                 color='rgb(129 140 248)'
                 animate
-                show>
+                show
+              >
                 <span>Just push to GitHub and it&apos;s done.</span>
               </RoughNotation>
             </p>
@@ -134,13 +138,13 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className='w-full'>
-          <div className='max-w-7xl mx-auto'>
-            <h3 className='text-5xl sm:text-7xl font-extrabold'>
+          <div className='mx-auto max-w-7xl'>
+            <h3 className='text-5xl font-extrabold sm:text-7xl'>
               <span className={clsx(gradient, 'from-[#1dbde6] to-[#f1515e]')}>
                 Prebuilt components{' '}
               </span>
               <Box
-                className='inline-block relative -top-1'
+                className='relative -top-1 inline-block'
                 strokeWidth={3}
                 size={40}
               />
@@ -151,7 +155,7 @@ const Home: NextPage = () => {
             using right away in your markdown files.'
               />
             </p>
-            <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 mt-10'>
+            <div className='mt-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5'>
               {[
                 'Tooltips',
                 'JSX',
@@ -161,7 +165,7 @@ const Home: NextPage = () => {
               ].map((name) => (
                 // TODO: link to docs
                 <div key={name} className='p-4'>
-                  <h3 className='text-xl border dark:border-slate-800 font-semibold px-4 py-6 rounded bg-white dark:bg-black text-black dark:text-white h-full flex justify-center items-center text-center'>
+                  <h3 className='flex h-full items-center justify-center rounded border bg-white px-4 py-6 text-center text-xl font-semibold text-black dark:border-slate-800 dark:bg-black dark:text-white'>
                     {name}
                   </h3>
                 </div>
@@ -169,16 +173,14 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className='max-w-7xl mx-auto mt-20'>
-          <h3 className=' font-extrabold text-5xl sm:text-7xl'>
+        <div className='mx-auto mt-20 max-w-7xl'>
+          <h3 className=' text-5xl font-extrabold sm:text-7xl'>
             No more{' '}
             <span
-              className={clsx(
-                gradient,
-                'from-[#6274e7] to-[#8752a3]'
-              )}>{`{ config }`}</span>
+              className={clsx(gradient, 'from-[#6274e7] to-[#8752a3]')}
+            >{`{ config }`}</span>
           </h3>
-          <p className='text-lg my-3 opacity-70 max-w-3xl'>
+          <p className='my-3 max-w-3xl text-lg opacity-70'>
             Every documentation generator needs a separate <code>`.json`</code>{' '}
             config file to function properly. Although Hyperdocs works without
             any config, you can add a <code>`_sidebar.txt`</code> file to
@@ -187,14 +189,14 @@ const Home: NextPage = () => {
           {/* // TODO: add image */}
         </div>
 
-        <div className='mt-24 max-w-7xl mx-auto'>
-          <h3 className='text-5xl sm:text-7xl font-extrabold'>
+        <div className='mx-auto mt-24 max-w-7xl'>
+          <h3 className='text-5xl font-extrabold sm:text-7xl'>
             <p className={clsx(gradient, 'from-[#61f4de] to-[#6e78ff]')}>
               Feedbacks
             </p>
             from docs should be easier
           </h3>
-          <p className='text-lg max-w-3xl opacity-70 mt-3'>
+          <p className='mt-3 max-w-3xl text-lg opacity-70'>
             Hyperdocs provides a built in feedback widget to all sites that
             helps you collect feedback from your users
           </p>
@@ -202,12 +204,12 @@ const Home: NextPage = () => {
           <img
             src='/feedbacks.png'
             alt='Feedbacks dashboard'
-            className='max x-auto w-full rounded-lg mt-7'
+            className='max x-auto mt-7 w-full rounded-lg'
           />
         </div>
 
-        <div className='max-w-7xl mx-auto mt-20'>
-          <h3 className='text-5xl sm:text-7xl font-extrabold'>
+        <div className='mx-auto mt-20 max-w-7xl'>
+          <h3 className='text-5xl font-extrabold sm:text-7xl'>
             A{' '}
             <span className={clsx(gradient, 'from-[#61f4de] to-[#6e78ff]')}>
               Blog
@@ -215,41 +217,44 @@ const Home: NextPage = () => {
             <br />
             for your docs
           </h3>
-          <p className='text-lg max-w-3xl opacity-70 mt-3'>
+          <p className='mt-3 max-w-3xl text-lg opacity-70'>
             Hyperdocs provides a built in blog for your documentation.
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src='/blogs.png'
             alt='Blog dashboard'
-            className='max x-auto w-full rounded-lg mt-7'
+            className='max x-auto mt-7 w-full rounded-lg'
           />
         </div>
 
-        <div className='mt-20 max-w-7xl mx-auto text-invert rounded-xl py-10 px-5 shadow-xl mb-5'>
+        <div className='text-invert mx-auto mt-20 mb-5 max-w-7xl rounded-xl py-10 px-5 shadow-xl'>
           <h3
             className={clsx(
               gradient,
-              'text-5xl sm:text-7xl font-extrabold from-[#f44369] to-[#3e3b92] text-center'
-            )}>
+              'from-[#f44369] to-[#3e3b92] text-center text-5xl font-extrabold sm:text-7xl'
+            )}
+          >
             Supercharge your docs now
           </h3>
 
-          <div className='text-invert max-w-xs mx-auto flex flex-wrap justify-around'>
+          <div className='text-invert mx-auto flex max-w-xs flex-wrap justify-around'>
             <CustomLink
               href='/new'
-              className='text-center text-2xl font-semibold !p-4 mt-10 shadow-2xl hover:scale-105 transition-all'>
+              className='mt-10 !p-4 text-center text-2xl font-semibold shadow-2xl transition-all hover:scale-105'
+            >
               Get started now →
             </CustomLink>
           </div>
         </div>
       </div>
-      <footer className='px-10 py-5 border-t dark:border-slate-700 mt-10'>
+      <footer className='mt-10 border-t px-10 py-5 dark:border-slate-700'>
         <div>
           <a
             className='text-blue-500 hover:text-blue-700'
             rel='noopener noreferrer'
-            href='https://lalit2005.hashnode.dev/hyperdocs'>
+            href='https://lalit2005.hashnode.dev/hyperdocs'
+          >
             Made by lalit
           </a>
         </div>

@@ -11,7 +11,8 @@ const DashboardNav: React.FC<{ className?: string }> = ({ className }) => {
       className={clsx(
         'sticky top-0 z-10 mb-20 bg-white/50 backdrop-blur-sm backdrop-filter dark:bg-black/50',
         className
-      )}>
+      )}
+    >
       <div className='flex items-center justify-between px-5'>
         <div>
           <Logo href='/dashboard' />

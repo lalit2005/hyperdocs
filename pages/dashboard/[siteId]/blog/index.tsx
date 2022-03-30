@@ -48,9 +48,10 @@ const BlogPage = () => {
     <DashboardLayout
       title='Blogs'
       subtitle='Feedbacks that people submitted through the documentation website'
-      active='blog'>
+      active='blog'
+    >
       <div className='max-w-3xl'>
-        <div className='w-full flex flex-wrap items-center justify-between'>
+        <div className='flex w-full flex-wrap items-center justify-between'>
           <Heading2>All Blogs</Heading2>
           <DialogRoot>
             <DialogTrigger>
@@ -75,28 +76,29 @@ const BlogPage = () => {
                     error: 'Error creating blog',
                     loading: 'Creating blog...',
                   });
-                })}>
+                })}
+              >
                 <div>
                   <label htmlFor='title'>Blog title</label>
                   <input
-                    className='w-full text-input'
+                    className='text-input w-full'
                     id='title'
                     placeholder='Hello Hyperdocs'
                     {...register('title')}
                   />
-                  <p className='text-red-400 mt-1 text-xs'>
+                  <p className='mt-1 text-xs text-red-400'>
                     {errors.title?.message}
                   </p>
                 </div>
                 <div className='my-5'>
                   <label htmlFor='description'>Blog description</label>
                   <input
-                    className='w-full text-input'
+                    className='text-input w-full'
                     id='description'
                     placeholder='Introducing Hyperdocs - The simplest way to create documentation websites'
                     {...register('description')}
                   />
-                  <p className='text-red-400 mt-1 text-xs'>
+                  <p className='mt-1 text-xs text-red-400'>
                     {errors.description?.message}
                   </p>
                 </div>
@@ -111,16 +113,17 @@ const BlogPage = () => {
               <CustomLink
                 noInvert
                 key={blog.id}
-                className='!p-5 my-3'
-                href={`/dashboard/${siteId}/blog/${blog.id}`}>
-                <h3 className='text-lg font-semibold mb-2'>{blog.title}</h3>
+                className='my-3 !p-5'
+                href={`/dashboard/${siteId}/blog/${blog.id}`}
+              >
+                <h3 className='mb-2 text-lg font-semibold'>{blog.title}</h3>
                 <p className='text-opacity-50'>{blog.description}</p>
               </CustomLink>
             ))}
           {data?.length == 0 && (
             <div>
               <Empty />{' '}
-              <p className='text-center mt-10'>No blogs created yet</p>
+              <p className='mt-10 text-center'>No blogs created yet</p>
             </div>
           )}
           {!data && !error && <Loader />}

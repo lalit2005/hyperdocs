@@ -10,7 +10,8 @@ const Loom: React.FC<{ url: string; title: string }> = ({ url, title }) => {
           position: 'relative',
           paddingBottom: '62.5%',
           height: '0',
-        }}>
+        }}
+      >
         {isVideoVisible ? (
           <iframe
             src={url}
@@ -26,7 +27,8 @@ const Loom: React.FC<{ url: string; title: string }> = ({ url, title }) => {
               left: 0,
               width: '100%',
               height: '100%',
-            }}></iframe>
+            }}
+          ></iframe>
         ) : (
           <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center rounded-lg bg-slate-600'>
             <p className='relative top-1/3 select-none text-lg font-bold text-slate-200 sm:text-2xl'>
@@ -34,13 +36,15 @@ const Loom: React.FC<{ url: string; title: string }> = ({ url, title }) => {
             </p>
             <div
               className='absolute cursor-pointer'
-              onClick={() => setIsVideoVisible(true)}>
+              onClick={() => setIsVideoVisible(true)}
+            >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='h-24 w-24 text-white transition-all hover:scale-125'
                 fill='none'
                 viewBox='0 0 24 24'
-                stroke='currentColor'>
+                stroke='currentColor'
+              >
                 <path
                   strokeLinecap='round'
                   strokeLinejoin='round'

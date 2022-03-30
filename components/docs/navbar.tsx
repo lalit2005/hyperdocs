@@ -10,7 +10,7 @@ const DocsNav: React.FC<{
   slug: string;
 }> = ({ links, slug, navbarCta, logo, ...props }) => {
   return (
-    <nav className='flex w-screen items-center justify-between bg-white py-3 px-10 shadow-lg dark:border-b dark:border-b-slate-700 dark:bg-black dark:shadow-slate-800/50 sticky top-0 !z-50'>
+    <nav className='sticky top-0 !z-50 flex w-screen items-center justify-between bg-white py-3 px-10 shadow-lg dark:border-b dark:border-b-slate-700 dark:bg-black dark:shadow-slate-800/50'>
       <div className='text-lg font-bold'>
         <Link href={`/${slug}`}>
           <a>{logo}</a>
@@ -23,7 +23,8 @@ const DocsNav: React.FC<{
               target='_blank'
               rel='noopener noreferrer'
               href={link.link}
-              className='text-light'>
+              className='text-light'
+            >
               {link?.linkText}
             </a>
           </div>

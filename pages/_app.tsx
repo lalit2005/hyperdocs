@@ -47,7 +47,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       </Head>
       <SessionProvider session={session}>
         <SWRConfig
-          value={{ fetcher: (url) => fetch(url).then((res) => res.json()) }}>
+          value={{ fetcher: (url) => fetch(url).then((res) => res.json()) }}
+        >
           <ThemeProvider attribute='class'>
             <Component {...pageProps} />
             <Toaster position='bottom-left' />

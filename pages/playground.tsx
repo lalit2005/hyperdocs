@@ -32,7 +32,7 @@ const Playground = () => {
       </TextSmall>
       <ReactTextareaAutosize
         minRows={20}
-        className='w-full font-mono bg-white dark:bg-black border-none focus:outline-none'
+        className='w-full border-none bg-white font-mono focus:outline-none dark:bg-black'
         placeholder='Enter your markdown(mdx) here'
         value={mdxString}
         onChange={(e) => setMdxString(e.target.value)}
@@ -47,9 +47,10 @@ const Playground = () => {
             // window.open(res.data.url, '_blank');
             setMdxCode(res.data.mdxCode);
           });
-        }}>
+        }}
+      >
         Preview{' '}
-        <ArrowDown className='inline-block relative -top-[2px]' size={20} />
+        <ArrowDown className='relative -top-[2px] inline-block' size={20} />
       </Button>
       <hr className='my-10' />
       <div>

@@ -184,7 +184,8 @@ Visit [this](https://sandpack.codesandbox.io/docs/getting-started/custom-content
       color: 'black',
       padding: '10px',
     }}
-    onClick={() => alert('Hi there')}>
+    onClick={() => alert('Hi there')}
+  >
     Click me
   </button>
 </CustomComponent>
@@ -302,7 +303,8 @@ You can highlight any part of text with [RoughNotation](https://www.npmjs.com/pa
   animationDuration={2000}
   color='rgb(129 140 248)'
   animate
-  show>
+  show
+>
   <span>Just push to GitHub and it&apos;s done.</span>
 </RoughNotation>
 ```

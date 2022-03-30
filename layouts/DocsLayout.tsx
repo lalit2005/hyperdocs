@@ -21,7 +21,7 @@ const DocsLayout: React.FC<{
       <div className='lg:pl-72'>
         <div className='mx-auto max-w-3xl pt-10 xl:ml-0 2xl:ml-[max(0px,calc(60%-45rem))]'>
           <main className='relative z-20 mt-8'>{props.children}</main>
-          <footer className='py-4 px-3 mt-5 border-t-2 border-t-slate-300 dark:border-t-slate-700'>
+          <footer className='mt-5 border-t-2 border-t-slate-300 py-4 px-3 dark:border-t-slate-700'>
             <Markdown text={footerText} />
           </footer>
           <div className='fixed top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] z-20 hidden w-[19.5rem] overflow-y-auto py-10 px-8 xl:block'>

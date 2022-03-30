@@ -11,13 +11,13 @@ const Grid: React.FC<{
   }[];
 }> = ({ items }) => {
   return (
-    <div className='grid md:grid-cols-2 gap-5 !text-black not-prose'>
+    <div className='not-prose grid gap-5 !text-black md:grid-cols-2'>
       {items?.map(({ color, title, description, customColor, link }, i) => (
         <Link key={i} href={link || '#'}>
           <a className='block'>
             <div
               className={clsx(
-                'rounded-lg shadow-md hover:scale-[1.02] px-4 py-6 transition-all duration-75 h-full bg-gradient-to-tr',
+                'h-full rounded-lg bg-gradient-to-tr px-4 py-6 shadow-md transition-all duration-75 hover:scale-[1.02]',
                 color === 'blue' && 'from-blue-500 to-blue-200',
                 color === 'cyan' && 'from-cyan-500 to-cyan-200',
                 color === 'green' && 'from-green-500 to-green-200',
@@ -30,8 +30,9 @@ const Grid: React.FC<{
               )}
               style={{
                 backgroundColor: customColor && customColor,
-              }}>
-              <h3 className='text-2xl font-bold mb-4'>{title}</h3>
+              }}
+            >
+              <h3 className='mb-4 text-2xl font-bold'>{title}</h3>
               <p className='text-base'>{description}</p>
             </div>
           </a>

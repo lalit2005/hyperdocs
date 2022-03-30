@@ -40,27 +40,28 @@ const BlogPage: NextPage<{
         navbarCta={navbarCta}
         logo={logo}
       />
-      <main className='max-w-4xl mx-auto p-5 mt-10'>
+      <main className='mx-auto mt-10 max-w-4xl p-5'>
         <h2 className='text-5xl font-extrabold'>{title}</h2>
-        <p className='text-slate-600 text-lg dark:text-slate-400 my-2'>
+        <p className='my-2 text-lg text-slate-600 dark:text-slate-400'>
           {description}
         </p>
 
-        <p className='text-opacity-30 text-sm my-5'>
+        <p className='my-5 text-sm text-opacity-30'>
           Posted by:{' '}
           <a
             target='_blank'
             rel='noopener noreferrer'
-            href={`https://twitter.com/${author}`}>
+            href={`https://twitter.com/${author}`}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={`https://unavatar.io/twitter/${author}`}
               width={25}
               height={25}
-              className='rounded-full inline-block ml-1 mr-1'
+              className='ml-1 mr-1 inline-block rounded-full'
               alt=''
             />
-            <span className='dark:text-blue-400 text-blue-600'>
+            <span className='text-blue-600 dark:text-blue-400'>
               {author.startsWith('@') ? author : `@${author}`}
             </span>
           </a>
@@ -71,7 +72,7 @@ const BlogPage: NextPage<{
           <img
             src={ogImageUrl}
             alt=''
-            className='rounded-xl mt-10'
+            className='mt-10 rounded-xl'
             width={1200}
             height={600}
           />

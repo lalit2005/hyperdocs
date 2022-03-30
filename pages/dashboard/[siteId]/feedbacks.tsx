@@ -21,7 +21,8 @@ const Feedbacks = () => {
     <DashboardLayout
       title='Feedbacks'
       subtitle='Feedbacks that people submitted through the documentation website'
-      active='feedbacks'>
+      active='feedbacks'
+    >
       <div className='max-w-4xl'>
         <div>
           {!site?.web3formsKey && (

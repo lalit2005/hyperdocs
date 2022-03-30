@@ -60,21 +60,22 @@ const SuccessPage = () => {
   return (
     <ProtectedRoute>
       <DashboardNav />
-      <div className='max-w-6xl mx-auto px-10'>
+      <div className='mx-auto max-w-6xl px-10'>
         <div>
           <Heading1>Congratulations!!</Heading1>
           <Heading2 className='mt-5'>
-            <span className='bg-clip-text text-transparent bg-gradient-to-r from-[#1dbde6] to-[#f1515e]'>
+            <span className='bg-gradient-to-r from-[#1dbde6] to-[#f1515e] bg-clip-text text-transparent'>
               {'`' + router.query.siteName + '`' || 'Your site'} has been
               created
             </span>
           </Heading2>
 
-          <div className='mt-10 space-y-5 max-w-sm'>
+          <div className='mt-10 max-w-sm space-y-5'>
             <div>
               <CustomLink
                 href={`/dashboard/${router.query.siteId}`}
-                className='inline-block w-full'>
+                className='inline-block w-full'
+              >
                 View dashboard
               </CustomLink>
             </div>
@@ -82,7 +83,8 @@ const SuccessPage = () => {
               <CustomLink
                 href={`/hyperdocs/docs`}
                 noInvert
-                className='inline-block w-full'>
+                className='inline-block w-full'
+              >
                 View Docs
               </CustomLink>
             </div>
@@ -90,7 +92,8 @@ const SuccessPage = () => {
               <CustomLink
                 href={`/hyperdocs/docs`}
                 noInvert
-                className='inline-block w-full'>
+                className='inline-block w-full'
+              >
                 View CLI documentation
               </CustomLink>
             </div>

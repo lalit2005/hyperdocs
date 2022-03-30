@@ -59,12 +59,13 @@ const Page: NextPage<DocsPageProps> = ({
           RightSidebarContent={() => (
             <div>
               <div className='prose-sm prose-ul:relative prose-ul:-left-5 dark:prose-invert'>
-                <p className='mb-5 font-semibold text-sm'>On this page</p>
+                <p className='mb-5 text-sm font-semibold'>On this page</p>
                 <ul dangerouslySetInnerHTML={{ __html: tocHtml }}></ul>
               </div>
             </div>
           )}
-          footerText={footerText}>
+          footerText={footerText}
+        >
           <MDXRenderer>
             {/* @ts-ignore */}
             <Component components={DocsMDXcomponents} />

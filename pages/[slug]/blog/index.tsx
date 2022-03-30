@@ -22,7 +22,7 @@ const BlogsPage: NextPage<{
         logo={logo}
       />
 
-      <main className='max-w-3xl mx-auto p-5 mt-10'>
+      <main className='mx-auto mt-10 max-w-3xl p-5'>
         <Heading1 className='my-10'>Blog</Heading1>
         {blogs?.map((blog) => {
           return (
@@ -30,9 +30,10 @@ const BlogsPage: NextPage<{
               key={blog.id}
               href={`/${slug}/blog/${blog.slug}`}
               noInvert
-              className='!p-5 hover:scale-[1.02] transition-all duration-75 border my-3'>
+              className='my-3 border !p-5 transition-all duration-75 hover:scale-[1.02]'
+            >
               <h2 className='text-2xl font-bold'>{blog.title}</h2>
-              <p className='text-slate-600 dark:text-slate-400 my-2'>
+              <p className='my-2 text-slate-600 dark:text-slate-400'>
                 {blog.description}
               </p>
             </CustomLink>
