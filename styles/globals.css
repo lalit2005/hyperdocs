@@ -105,3 +105,7 @@ hr {
 .dark .callout p > code {
   @apply text-slate-200;
 }
+
+.callout p a {
+  @apply text-blue-700 hover:!text-blue-800;
+}
