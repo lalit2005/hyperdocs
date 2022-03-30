@@ -95,14 +95,19 @@ const Dashboard = () => {
           <div className='text-center'>
             <Empty />
             <TextSmall className='my-3'>
-              You don&apos;t have any sites created.
+              You haven&apos;t created a docs site yet.
               <br />
+              <CustomLink href='/new' className='my-3 mx-auto max-w-sm'>
+                Create your first documentation site
+              </CustomLink>
+            </TextSmall>
+            <TextSmall className='my-3'>
               <CustomLink
-                href='/new'
+                href='/hyperdocs/docs/getting-started'
                 noInvert
                 className='my-3 mx-auto max-w-sm'
               >
-                Create your first documentation site
+                View docs on how to create a site
               </CustomLink>
             </TextSmall>
           </div>
