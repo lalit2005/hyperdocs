@@ -101,3 +101,7 @@ body {
 hr {
   @apply rounded-full border-b-2 border-slate-300 dark:border-slate-600;
 }
+
+.dark .callout p > code {
+  @apply text-slate-200;
+}

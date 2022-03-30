@@ -5,7 +5,7 @@ const Callout = (props: any) => {
   return (
     <div
       className={clsx(
-        'not-prose my-5 rounded p-7 text-black',
+        'not-prose callout my-5 rounded p-7 text-black',
         props.type == 'info' && 'bg-blue-400',
         props.type == 'tip' && 'bg-cyan-400',
         props.type == 'success' && 'bg-green-400',
