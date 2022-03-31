@@ -49,6 +49,7 @@ const BlogPage = () => {
       title='Blogs'
       subtitle='Feedbacks that people submitted through the documentation website'
       active='blog'
+      siteName='All Blogs'
     >
       <div className='max-w-3xl'>
         <div className='flex w-full flex-wrap items-center justify-between'>

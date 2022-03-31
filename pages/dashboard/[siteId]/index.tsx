@@ -18,6 +18,7 @@ const Index = () => {
 
   return (
     <DashboardLayout
+      siteName={data?.siteName}
       active='overview'
       title='Overview'
       subtitle={`A brief overview and status of **${data?.siteName}**`}

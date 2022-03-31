@@ -82,6 +82,7 @@ const Settings = () => {
       title='Settings'
       subtitle='Settings that control the behavior of the documentation website'
       active='settings'
+      siteName={data?.siteName}
     >
       <div>
         <Card

@@ -26,6 +26,7 @@ const SnippetInjection = () => {
       title='Snippet Injection'
       subtitle='Inject custom code such as analytics, popup menus, CSS stylesheets, custom fonts, etc.'
       active='snippet-injection'
+      siteName={data?.siteName}
     >
       <div>
         <div>

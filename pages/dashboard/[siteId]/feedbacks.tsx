@@ -19,6 +19,7 @@ const Feedbacks = () => {
 
   return (
     <DashboardLayout
+      siteName={site?.siteName}
       title='Feedbacks'
       subtitle='Feedbacks that people submitted through the documentation website'
       active='feedbacks'

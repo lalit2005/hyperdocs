@@ -36,6 +36,7 @@ const BlogPage = () => {
       title={data?.title || '...'}
       subtitle={data?.description || '...'}
       active='blog'
+      siteName={data?.title}
     >
       <div>
         <Button

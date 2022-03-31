@@ -5,6 +5,7 @@ import { Heading1, Markdown } from '@/components/ui/Typography';
 import ProtectedRoute from '@/lib/ProtectedRoute';
 import clsx from 'clsx';
 import { useSession } from 'next-auth/react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import {
   Activity,
@@ -42,7 +43,8 @@ const DashboardLayout: React.FC<{
   title: string;
   subtitle: string;
   active: ActiveTab;
-}> = ({ title, subtitle, active, ...props }) => {
+  siteName?: string;
+}> = ({ title, subtitle, active, siteName, ...props }) => {
   const router = useRouter();
   const siteId = router.query.siteId as string;
 
@@ -105,6 +107,9 @@ const DashboardLayout: React.FC<{
 
   return (
     <ProtectedRoute>
+      <Head>
+        <title>{`${siteName} | ${title} - Hyperdocs`}</title>
+      </Head>
       <div className='h-screen w-screen'>
         <div className='flex flex-row flex-wrap'>
           <aside className='w-1/5'>

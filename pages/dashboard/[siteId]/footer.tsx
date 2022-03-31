@@ -23,6 +23,7 @@ const Blog = () => {
   return (
     <DashboardLayout
       title='Footer'
+      siteName={data?.siteName}
       // TODO: Add docs link
       subtitle={`This footer will be displayed on the homepage and other parts of the site of your site. You can use Markdown here (not mdx).`}
       active='footer'

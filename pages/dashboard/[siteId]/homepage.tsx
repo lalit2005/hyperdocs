@@ -23,6 +23,7 @@ const Blog = () => {
   return (
     <DashboardLayout
       title='Homepage'
+      siteName={data?.siteName}
       // TODO: Add docs link
       subtitle={`Create the homepage of your documentation with pre-made components. Visit [docs](docs) for more info.Want a new component? Just ask for it [here](https://github.com/lalit2005/hyperdocs/issues/new)`}
       active='homepage'

@@ -28,6 +28,7 @@ const Announcement = () => {
 
   return (
     <DashboardLayout
+      siteName={data?.siteName}
       title='Announcement'
       subtitle='This text shows up as banner on the top of the website. You can use it for announcing new releases or other milestones'
       active='announcement'

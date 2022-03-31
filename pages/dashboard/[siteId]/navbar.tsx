@@ -41,6 +41,7 @@ const Navbar = () => {
 
   return (
     <DashboardLayout
+      siteName={data?.siteName}
       title='Navbar'
       subtitle='Customize the navbar of the documentation website'
       active='navbar'
