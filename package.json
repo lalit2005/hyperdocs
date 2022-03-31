@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "yarn remove-cli && next build",
+    "build-dev": "next build",
     "remove-cli": "rm -rf cli/",
     "start": "next start",
     "lint": "next lint",
