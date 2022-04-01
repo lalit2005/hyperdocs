@@ -24,6 +24,7 @@ import { Markdown } from '@/components/ui/Typography';
 import { getNextItem, getPreviousItem } from '@/lib/get-next-item';
 import { Button } from '@/components/ui/Button';
 import { CustomLink } from '@/components/ui/Link';
+import DocsPageNavCard from '@/components/docs/DocsPageNavCard';
 
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -113,26 +114,19 @@ const Page: NextPage<DocsPageProps> = ({
           <Component components={DocsMDXcomponents} />
         </MDXRenderer>
         <div className='my-10 flex flex-wrap items-center justify-between'>
-          <CustomLink
-            href={`/${slug}/docs/${prevPage}`}
-            noInvert
-            className='my-3 mx-auto w-full px-7 !py-5 hover:scale-105 md:mx-0 md:max-w-xs'
-          >
-            <p className='mb-1 text-left text-xs font-bold uppercase'>
-              &larr; Previous
-            </p>
-            <p className='capitalize'>{prevPage.replace(/-/gi, ' ')}</p>
-          </CustomLink>
-          <CustomLink
-            href={`/${slug}/docs/${nextPage}`}
-            noInvert
-            className='my-3 mx-auto w-full px-7 !py-5 hover:scale-105 md:mx-0 md:max-w-xs'
-          >
-            <p className='mb-1 text-left text-xs font-bold uppercase'>
-              Next &rarr;
-            </p>
-            <p className='capitalize'>{nextPage.replace(/-/gi, ' ')}</p>
-          </CustomLink>
+          <DocsPageNavCard
+            slug={slug}
+            pageTitle={prevPage === 'index' ? '' : prevPage.replace(/-/gi, ' ')}
+            pageSlug={prevPage === 'index' ? siteName : prevPage}
+            title='&larr; Previous'
+          />
+          {nextPage && (
+            <DocsPageNavCard
+              slug={slug}
+              pageTitle={nextPage}
+              title='Next &rarr;'
+            />
+          )}
         </div>
       </DocsLayout>
     </div>
@@ -169,7 +163,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       siteData?.gitHubAccessToken || ''
     );
 
-    console.log(allFiles);
+    // console.log(allFiles);
 
     let sidebar;
 
@@ -198,6 +192,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       getPreviousItem(sidebar, filename),
     ];
 
+    const asasd = prevPage || 'index';
+
+    console.log({ asasd });
+
     return {
       // * Make sure to change the DocsPageProps in @types/types.ts
       props: {
@@ -217,8 +215,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         siteId: siteData?.id,
         description: siteData?.siteDescription,
         footerText: siteData?.footerText,
-        nextPage: nextPage || 'Next page',
-        prevPage: prevPage || slug,
+        nextPage: nextPage || '',
+        prevPage: prevPage || 'index',
       },
       revalidate: 15 * 60,
     };
