@@ -116,7 +116,7 @@ const Page: NextPage<DocsPageProps> = ({
         <div className='my-10 flex flex-wrap items-center justify-between'>
           <DocsPageNavCard
             slug={slug}
-            pageTitle={prevPage === 'index' ? '' : prevPage.replace(/-/gi, ' ')}
+            pageTitle={prevPage === 'index' ? '' : prevPage}
             pageSlug={prevPage === 'index' ? siteName : prevPage}
             title='&larr; Previous'
           />

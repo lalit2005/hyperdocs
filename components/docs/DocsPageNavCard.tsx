@@ -13,7 +13,9 @@ const DocsPageNavCard: React.FC<{
       className='my-3 mx-auto block w-full px-7 !py-5 hover:scale-105 md:mx-0 md:max-w-xs'
     >
       <p className='mb-1 text-left text-xs font-bold uppercase'>{title}</p>
-      <p className='capitalize'>{pageSlug || pageTitle.replace(/-/gi, ' ')}</p>
+      <p className='capitalize'>
+        {pageSlug?.replace(/-/gi, ' ') || pageTitle.replace(/-/gi, ' ')}
+      </p>
     </CustomLink>
   );
 };
