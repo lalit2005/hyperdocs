@@ -33,4 +33,6 @@ export interface DocsPageProps {
   slug: string;
   siteId: string;
   footerText: string;
+  nextPage: string;
+  prevPage: string;
 }

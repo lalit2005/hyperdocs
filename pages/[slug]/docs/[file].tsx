@@ -21,6 +21,9 @@ import getSidebar from '@/lib/getSidebar';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
 import { Markdown } from '@/components/ui/Typography';
+import { getNextItem, getPreviousItem } from '@/lib/get-next-item';
+import { Button } from '@/components/ui/Button';
+import { CustomLink } from '@/components/ui/Link';
 
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -33,6 +36,8 @@ const Page: NextPage<DocsPageProps> = ({
   slug,
   siteId,
   footerText,
+  nextPage,
+  prevPage,
 }) => {
   const Component = useMemo(() => getMDXComponent(content), [content]);
   const router = useRouter();
@@ -107,6 +112,28 @@ const Page: NextPage<DocsPageProps> = ({
           {/* @ts-ignore */}
           <Component components={DocsMDXcomponents} />
         </MDXRenderer>
+        <div className='my-10 flex flex-wrap items-center justify-between'>
+          <CustomLink
+            href={`/${slug}/docs/${prevPage}`}
+            noInvert
+            className='my-3 mx-auto w-full px-7 !py-5 hover:scale-105 md:mx-0 md:max-w-xs'
+          >
+            <p className='mb-1 text-left text-xs font-bold uppercase'>
+              &larr; Previous
+            </p>
+            <p className='capitalize'>{prevPage.replace(/-/gi, ' ')}</p>
+          </CustomLink>
+          <CustomLink
+            href={`/${slug}/docs/${nextPage}`}
+            noInvert
+            className='my-3 mx-auto w-full px-7 !py-5 hover:scale-105 md:mx-0 md:max-w-xs'
+          >
+            <p className='mb-1 text-left text-xs font-bold uppercase'>
+              Next &rarr;
+            </p>
+            <p className='capitalize'>{nextPage.replace(/-/gi, ' ')}</p>
+          </CustomLink>
+        </div>
       </DocsLayout>
     </div>
   );
@@ -166,6 +193,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     const tocHtml = mdToHtml.render(mdToc(content).content);
 
+    const [nextPage, prevPage] = [
+      getNextItem(sidebar, filename),
+      getPreviousItem(sidebar, filename),
+    ];
+
     return {
       // * Make sure to change the DocsPageProps in @types/types.ts
       props: {
@@ -185,6 +217,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         siteId: siteData?.id,
         description: siteData?.siteDescription,
         footerText: siteData?.footerText,
+        nextPage: nextPage || 'Next page',
+        prevPage: prevPage || slug,
       },
       revalidate: 15 * 60,
     };

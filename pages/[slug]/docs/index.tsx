@@ -15,6 +15,7 @@ import MDXRenderer from '@/components/docs/MDXRenderer';
 import DocsMDXcomponents from '@/components/docs/documentation/components';
 import Link from 'next/link';
 import getSidebar from '@/lib/getSidebar';
+import DocsPageNavCard from '@/components/docs/DocsPageNavCard';
 // @ts-ignore
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -70,6 +71,13 @@ const Page: NextPage<DocsPageProps> = ({
             {/* @ts-ignore */}
             <Component components={DocsMDXcomponents} />
           </MDXRenderer>
+          <div className='flex flex-row-reverse'>
+            <DocsPageNavCard
+              slug={slug}
+              pageTitle={sidebar[0]}
+              title='Next &rarr;'
+            />
+          </div>
         </DocsLayout>
       </div>
     </div>
