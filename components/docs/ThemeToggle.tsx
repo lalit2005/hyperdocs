@@ -11,7 +11,7 @@ const ThemeToggle = () => {
     <div>
       <MenuRoot isOpen={isOpen} setIsOpen={setIsOpen}>
         <MenuTrigger>
-          <div className='relative -bottom-1 rounded border-none p-2 px-[8px] hover:bg-slate-50 group-focus:ring group-focus:ring-blue-500 dark:hover:bg-slate-900'>
+          <div className='relative -bottom-1 rounded border-none p-2 px-[8px] hover:bg-gray-50 group-focus:ring group-focus:ring-blue-500 dark:hover:bg-gray-900'>
             {theme === 'dark' ? <Moon size={20} /> : <Sun size={20} />}
           </div>
         </MenuTrigger>

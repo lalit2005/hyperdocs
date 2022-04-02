@@ -36,7 +36,7 @@ export const MenuContent: React.FC<{
           side={side || 'bottom'}
           forceMount
           align='start'
-          className='block max-h-96 !w-full !max-w-lg overflow-y-scroll rounded border border-slate-200 bg-white shadow-lg dark:border-slate-600 dark:bg-black'
+          className='block max-h-96 !w-full !max-w-lg overflow-y-scroll rounded border border-gray-200 bg-white shadow-lg dark:border-gray-600 dark:bg-black'
         >
           <motion.div
             initial={{
@@ -83,7 +83,7 @@ export const MenuItem: React.FC<{
       <RadixMenu.Item
         onSelect={callBack || r(link)}
         className={clsx(
-          'cursor-pointer px-5 py-2 pr-10 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none hover:dark:bg-slate-800 focus:dark:bg-slate-800',
+          'cursor-pointer px-5 py-2 pr-10 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none hover:dark:bg-gray-800 focus:dark:bg-gray-800',
           className
         )}
       >
@@ -113,7 +113,7 @@ export const MenuTriggerItem: React.FC<{
     <>
       <RadixMenu.TriggerItem
         className={clsx(
-          'cursor-pointer px-5 py-2 pr-10 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none hover:dark:bg-slate-800 focus:dark:bg-slate-800',
+          'cursor-pointer px-5 py-2 pr-10 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none hover:dark:bg-gray-800 focus:dark:bg-gray-800',
           className
         )}
       >
@@ -129,7 +129,5 @@ export const MenuTriggerItem: React.FC<{
 };
 
 export const MenuSeparator: React.FC = () => {
-  return (
-    <RadixMenu.Separator className='h-px bg-slate-200 dark:bg-slate-600' />
-  );
+  return <RadixMenu.Separator className='h-px bg-gray-200 dark:bg-gray-600' />;
 };

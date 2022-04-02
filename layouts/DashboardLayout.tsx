@@ -114,7 +114,7 @@ const DashboardLayout: React.FC<{
         <div className='flex flex-row flex-wrap'>
           <aside className='w-1/5'>
             <div className='sticky top-0 w-full'>
-              <div className='relative h-screen border-r-2 border-r-slate-200 pt-24 dark:border-r-slate-800'>
+              <div className='relative h-screen border-r-2 border-r-gray-200 pt-24 dark:border-r-gray-800'>
                 <div className='absolute top-0 p-4'>
                   <Logo href='/dashboard' />
                 </div>
@@ -129,7 +129,7 @@ const DashboardLayout: React.FC<{
                           className={clsx(
                             'border-none',
                             active === link.active &&
-                              '!bg-slate-100 font-semibold dark:!bg-slate-700 dark:!text-white'
+                              '!bg-gray-100 font-semibold dark:!bg-gray-700 dark:!text-white'
                           )}
                         >
                           <Icon className='relative -top-px mr-2 inline-block scale-75 opacity-75' />
@@ -147,13 +147,13 @@ const DashboardLayout: React.FC<{
                       <CustomLink
                         href='/dashboard'
                         noInvert
-                        className='mt-3 mb-[2px] block rounded-none border-none !bg-slate-100 py-3 px-5 text-sm text-slate-400 hover:font-bold dark:!bg-slate-900'
+                        className='mt-3 mb-[2px] block rounded-none border-none !bg-gray-100 py-3 px-5 text-sm text-gray-400 hover:font-bold dark:!bg-gray-900'
                       >
                         {'<-'}{' '}
                         <span className='hidden sm:inline-block'>Go back</span>
                       </CustomLink>
                     </div>
-                    <div className='items-center justify-between border-t border-t-slate-300 bg-slate-100 px-5 py-2 pt-5 dark:border-t-slate-700 dark:bg-slate-900'>
+                    <div className='items-center justify-between border-t border-t-gray-300 bg-gray-100 px-5 py-2 pt-5 dark:border-t-gray-700 dark:bg-gray-900'>
                       <ProfileDropdown />
                     </div>
                   </div>

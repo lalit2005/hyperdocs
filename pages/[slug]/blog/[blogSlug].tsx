@@ -52,7 +52,7 @@ const BlogPage: NextPage<{
       />
       <main className='mx-auto mt-10 max-w-4xl p-5'>
         <h2 className='text-5xl font-extrabold'>{title}</h2>
-        <p className='my-2 text-lg text-slate-600 dark:text-slate-400'>
+        <p className='my-2 text-lg text-gray-600 dark:text-gray-400'>
           {description}
         </p>
 

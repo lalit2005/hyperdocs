@@ -305,7 +305,7 @@ const Card: React.FC<{ title: string; subtitle: string }> = ({
 }) => {
   return (
     <div>
-      <div className='my-9 w-full max-w-3xl rounded border p-4 shadow-sm dark:border-slate-800'>
+      <div className='my-9 w-full max-w-3xl rounded border p-4 shadow-sm dark:border-gray-800'>
         <Heading3>{title}</Heading3>
         <TextSmall className='my-2'>
           <Markdown text={subtitle} />

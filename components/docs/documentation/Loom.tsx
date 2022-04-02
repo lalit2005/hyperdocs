@@ -30,8 +30,8 @@ const Loom: React.FC<{ url: string; title: string }> = ({ url, title }) => {
             }}
           ></iframe>
         ) : (
-          <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center rounded-lg bg-slate-600'>
-            <p className='relative top-1/3 select-none text-lg font-bold text-slate-200 sm:text-2xl'>
+          <div className='absolute top-0 left-0 flex h-full w-full items-center justify-center rounded-lg bg-gray-600'>
+            <p className='relative top-1/3 select-none text-lg font-bold text-gray-200 sm:text-2xl'>
               {title}
             </p>
             <div

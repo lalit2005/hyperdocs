@@ -23,7 +23,7 @@ const DocsMDXcomponents = {
           className='absolute right-3 top-2 inline-block'
           onClick={() => copyToClipboard(ref.current?.textContent)}
         >
-          <FeatherIcons.Clipboard className='h-6 w-6 text-slate-400 transition-all hover:scale-105 hover:text-slate-50' />
+          <FeatherIcons.Clipboard className='h-6 w-6 text-gray-400 transition-all hover:scale-105 hover:text-gray-50' />
         </button>
         {props?.children}
       </pre>

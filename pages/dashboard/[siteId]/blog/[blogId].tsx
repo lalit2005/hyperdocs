@@ -246,7 +246,7 @@ const BlogPage = () => {
       <div className='mt-10'>
         <ReactTextareaAutosize
           defaultValue={data?.content || ''}
-          className='w-full max-w-3xl bg-white font-mono text-slate-900 focus:outline-none dark:bg-black dark:text-slate-300'
+          className='w-full max-w-3xl bg-white font-mono text-gray-900 focus:outline-none dark:bg-black dark:text-gray-300'
           spellCheck={false}
           minRows={15}
           onChange={(e) => setContent(e.target.value)}

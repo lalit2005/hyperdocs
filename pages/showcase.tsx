@@ -25,7 +25,7 @@ const Showcase = () => {
                 <h3 className='mt-4 text-xl font-bold capitalize'>
                   {site.name}
                 </h3>
-                <p className='mt-1 dark:text-slate-300'>
+                <p className='mt-1 dark:text-gray-300'>
                   {truncate(site.desc, {
                     length: 100,
                   })}

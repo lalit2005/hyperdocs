@@ -93,10 +93,8 @@ const Page: NextPage<DocsPageProps> = ({
                   <Link href={`/${slug}/docs/${file}`}>
                     <a
                       className={clsx(
-                        'block rounded px-3 py-2 capitalize hover:bg-slate-50 dark:hover:bg-slate-800',
-                        fileName === file
-                          ? 'bg-slate-100 dark:bg-slate-800'
-                          : ''
+                        'block rounded px-3 py-2 capitalize hover:bg-gray-50 dark:hover:bg-gray-800',
+                        fileName === file ? 'bg-gray-100 dark:bg-gray-800' : ''
                       )}
                     >
                       {file.replace(/-/gi, ' ')}

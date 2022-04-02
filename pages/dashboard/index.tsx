@@ -77,7 +77,7 @@ const Dashboard = () => {
                     <h3 className='text-xl font-bold capitalize'>
                       {site.siteName}
                     </h3>
-                    <p className='mt-5 dark:text-slate-300'>
+                    <p className='mt-5 dark:text-gray-300'>
                       {truncate(site.siteDescription, {
                         length: 100,
                       })}

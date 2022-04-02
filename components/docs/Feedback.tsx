@@ -14,7 +14,7 @@ const Feedback: React.FC<{ siteId: string }> = ({ siteId }) => {
   return (
     <div className='max-w-sm pb-1 text-sm'>
       <ReactTextareaAutosize
-        className='relative left-1 rounded border border-slate-300 p-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-500'
+        className='relative left-1 rounded border border-gray-300 p-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-500'
         placeholder='Any feedbacks or ideas to improve the docs?'
         minRows={3}
         value={feedback}

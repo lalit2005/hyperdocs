@@ -48,7 +48,7 @@ const BlogsPage: NextPage<{
               className='my-3 border !p-5 transition-all duration-75 hover:scale-[1.02]'
             >
               <h2 className='text-2xl font-bold'>{blog.title}</h2>
-              <p className='my-2 text-slate-600 dark:text-slate-400'>
+              <p className='my-2 text-gray-600 dark:text-gray-400'>
                 {blog.description}
               </p>
             </CustomLink>
@@ -57,7 +57,7 @@ const BlogsPage: NextPage<{
         {blogs.length === 0 && (
           <>
             <Empty />
-            <p className='mt-5 text-center text-slate-600 dark:text-slate-400'>
+            <p className='mt-5 text-center text-gray-600 dark:text-gray-400'>
               No blogs yet.
             </p>
           </>

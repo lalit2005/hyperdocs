@@ -34,7 +34,7 @@ const ProfileDropdown = () => {
           </Tooltip>
         </MenuTrigger>
         <MenuContent isOpen={isOpen}>
-          <MenuItem className='cursor-pointer px-5 py-3 pr-10 hover:bg-slate-100 focus:bg-slate-100 focus:outline-none hover:dark:bg-slate-800 focus:dark:bg-slate-800'>
+          <MenuItem className='cursor-pointer px-5 py-3 pr-10 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none hover:dark:bg-gray-800 focus:dark:bg-gray-800'>
             Signed in as <span className='font-bold'>{name}</span>
             <br />
             <p className='mt-1 text-sm opacity-80'>{email}</p>

@@ -26,7 +26,7 @@ const Home: NextPage = () => {
       <Nav />
       <div className='px-10'>
         <div>
-          <p className='mb-2 text-center text-sm font-semibold uppercase text-slate-500 dark:text-slate-400'>
+          <p className='mb-2 text-center text-sm font-semibold uppercase text-gray-500 dark:text-gray-400'>
             Open source. Free forever
           </p>
           <h1 className='text-center text-6xl font-black md:text-[80px]'>
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
             </p>
             <br /> for your open source projects
           </h1>
-          <p className='mt-10 text-center text-2xl text-slate-700 dark:text-slate-300'>
+          <p className='mt-10 text-center text-2xl text-gray-700 dark:text-gray-300'>
             Just add a{' '}
             <code className='text-blue-600 dark:text-blue-300'>`/docs`</code>{' '}
             folder with{' '}
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                 documentation generator
               </span>
             </h2>
-            <p className='mt-3 max-w-2xl text-lg text-slate-700 dark:text-slate-300'>
+            <p className='mt-3 max-w-2xl text-lg text-gray-700 dark:text-gray-300'>
               Hyperdocs has all the features you need to create a fully fledged
               documentation website for your open source project.
             </p>
@@ -91,12 +91,12 @@ const Home: NextPage = () => {
             {features.map(({ title, description, Icon }) => (
               <div
                 key={title}
-                className='rounded border p-7 shadow-lg dark:border-slate-800'
+                className='rounded border p-7 shadow-lg dark:border-gray-800'
               >
                 <Icon size={25} opacity={0.7} />
                 <div className='mt-4'>
                   <h3 className='text-xl font-bold'>{title}</h3>
-                  <p className='mt-1 text-base text-slate-700 dark:text-slate-300'>
+                  <p className='mt-1 text-base text-gray-700 dark:text-gray-300'>
                     {description}
                   </p>
                 </div>
@@ -112,7 +112,7 @@ const Home: NextPage = () => {
                 <span
                   className={clsx(
                     gradient,
-                    'from-cyan-500 to-slate-100 dark:from-[#61f4de] dark:to-slate-900'
+                    'from-cyan-500 to-gray-100 dark:from-[#61f4de] dark:to-gray-900'
                   )}
                 >
                   fun and intuitive
@@ -165,7 +165,7 @@ const Home: NextPage = () => {
               ].map((name) => (
                 // TODO: link to docs
                 <div key={name} className='p-4'>
-                  <h3 className='flex h-full items-center justify-center rounded border bg-white px-4 py-6 text-center text-xl font-semibold text-black dark:border-slate-800 dark:bg-black dark:text-white'>
+                  <h3 className='flex h-full items-center justify-center rounded border bg-white px-4 py-6 text-center text-xl font-semibold text-black dark:border-gray-800 dark:bg-black dark:text-white'>
                     {name}
                   </h3>
                 </div>
@@ -248,7 +248,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <footer className='mt-10 border-t px-10 py-5 dark:border-slate-700'>
+      <footer className='mt-10 border-t px-10 py-5 dark:border-gray-700'>
         <div>
           <a
             className='text-blue-500 hover:text-blue-700'

@@ -47,7 +47,7 @@ body {
 }
 
 .text-input {
-  @apply relative -bottom-[1px] m-px rounded border border-slate-500 px-5 py-[9px] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500;
+  @apply relative -bottom-[1px] m-px rounded border border-gray-500 px-5 py-[9px] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
 
 .markdown > a {
@@ -77,7 +77,7 @@ body {
   width: 80%;
   max-width: 700px;
   cursor: pointer;
-  @apply p-0 text-slate-400 hover:bg-transparent group-hover:inline-block;
+  @apply p-0 text-gray-400 hover:bg-transparent group-hover:inline-block;
 }
 
 .anchor .icon-link:after {
@@ -95,15 +95,15 @@ body {
 .mdx-content ul > code,
 .mdx-content ol > code,
 .mdx-content li > code {
-  @apply rounded bg-slate-200 px-1 py-px dark:bg-slate-700;
+  @apply rounded bg-gray-200 px-1 py-px dark:bg-gray-700;
 }
 
 hr {
-  @apply rounded-full border-b-2 border-slate-300 dark:border-slate-600;
+  @apply rounded-full border-b-2 border-gray-300 dark:border-gray-600;
 }
 
 .dark .callout p > code {
-  @apply text-slate-200;
+  @apply text-gray-200;
 }
 
 .callout p a {

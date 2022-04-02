@@ -12,7 +12,7 @@ const HomepageMDXcomponents = {
           className='absolute right-3 top-2 inline-block'
           onClick={() => copyToClipboard(ref.current?.textContent)}
         >
-          <Clipboard className='h-6 w-6 text-slate-400 transition-all hover:scale-105 hover:text-slate-50' />
+          <Clipboard className='h-6 w-6 text-gray-400 transition-all hover:scale-105 hover:text-gray-50' />
         </button>
         {props?.children}
       </pre>
@@ -25,7 +25,7 @@ const HomepageMDXcomponents = {
         <h1 className='mt-32 text-6xl font-extrabold md:text-7xl'>
           {props?.heading}
         </h1>
-        <p className='mt-5 text-xl text-slate-600 dark:text-slate-300'>
+        <p className='mt-5 text-xl text-gray-600 dark:text-gray-300'>
           {props?.description}
         </p>
       </div>
@@ -39,7 +39,7 @@ const HomepageMDXcomponents = {
         <h1 className='mt-10 text-6xl font-black md:text-7xl'>
           {props?.heading}
         </h1>
-        <p className='mt-5 text-xl text-slate-600 dark:text-slate-300'>
+        <p className='mt-5 text-xl text-gray-600 dark:text-gray-300'>
           {props?.description}
         </p>
       </div>
@@ -57,7 +57,7 @@ const HomepageMDXcomponents = {
             ) => (
               <div
                 key={index}
-                className='w-full rounded border border-slate-300 p-5 text-center shadow dark:border-slate-700'
+                className='w-full rounded border border-gray-300 p-5 text-center shadow dark:border-gray-700'
               >
                 <h3 className='text-2xl font-bold'>{feature?.title}</h3>
                 <p className='text-light mt-6 text-lg'>

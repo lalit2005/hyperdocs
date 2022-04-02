@@ -56,7 +56,7 @@ const Page: NextPage<DocsPageProps> = ({
                 return (
                   <li key={file}>
                     <Link href={`/${slug}/docs/${file}`}>
-                      <a className='block rounded px-3 py-2 capitalize hover:bg-slate-50 dark:hover:bg-slate-800'>
+                      <a className='block rounded px-3 py-2 capitalize hover:bg-gray-50 dark:hover:bg-gray-800'>
                         {file.replace(/-/gi, ' ')}
                       </a>
                     </Link>
