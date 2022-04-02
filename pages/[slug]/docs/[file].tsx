@@ -25,6 +25,7 @@ import { getNextItem, getPreviousItem } from '@/lib/get-next-item';
 import { Button } from '@/components/ui/Button';
 import { CustomLink } from '@/components/ui/Link';
 import DocsPageNavCard from '@/components/docs/DocsPageNavCard';
+import CommonComponents from '@/components/docs/CommonComponents';
 
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -39,6 +40,8 @@ const Page: NextPage<DocsPageProps> = ({
   footerText,
   nextPage,
   prevPage,
+  announcementText,
+  announcementUrl,
 }) => {
   const Component = useMemo(() => getMDXComponent(content), [content]);
   const router = useRouter();
@@ -67,6 +70,10 @@ const Page: NextPage<DocsPageProps> = ({
           cardType: 'summary_large_image',
         }}
       />
+      <CommonComponents
+        announcementText={announcementText}
+        announcementUrl={announcementUrl}
+      />
       <div className='sticky top-0 z-50'>
         <DocsNav
           links={navLinks}
@@ -76,6 +83,7 @@ const Page: NextPage<DocsPageProps> = ({
         />
       </div>
       <DocsLayout
+        extraTopMargin={announcementText ? true : false}
         siteId={siteId}
         LeftSidebarContent={() => (
           <ul className='mt-10 space-y-4'>
@@ -217,6 +225,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         footerText: siteData?.footerText,
         nextPage: nextPage || '',
         prevPage: prevPage || 'index',
+        announcementText: siteData?.announcement?.split('|||')[0],
+        announcementUrl: siteData?.announcement?.split('|||')[1],
       },
       revalidate: 15 * 60,
     };

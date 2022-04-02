@@ -35,4 +35,6 @@ export interface DocsPageProps {
   footerText: string;
   nextPage: string;
   prevPage: string;
+  announcementText?: string;
+  announcementUrl?: string;
 }

@@ -1,3 +1,4 @@
+import CommonComponents from '@/components/docs/CommonComponents';
 import HomepageMDXcomponents from '@/components/docs/homepage/components';
 import DocsNav from '@/components/docs/navbar';
 import bundleMdxContent from '@/lib/mdx-bundler';
@@ -13,7 +14,17 @@ const Index: NextPage<{
   navbarCta: string;
   siteName: string;
   slug: string;
-}> = ({ homepageContent, slug, navLinks, navbarCta, siteName }) => {
+  announcementText?: string;
+  announcementUrl?: string;
+}> = ({
+  homepageContent,
+  slug,
+  navLinks,
+  navbarCta,
+  siteName,
+  announcementText,
+  announcementUrl,
+}) => {
   const Component = useMemo(
     () => getMDXComponent(homepageContent),
     [homepageContent]
@@ -22,6 +33,10 @@ const Index: NextPage<{
   return (
     <div>
       <div className='sticky top-0'>
+        <CommonComponents
+          announcementText={announcementText}
+          announcementUrl={announcementUrl}
+        />
         <DocsNav
           slug={slug}
           links={navLinks}
@@ -61,6 +76,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       navbarCta: siteData?.navbarCta,
       siteName: siteData?.siteName,
       slug,
+      announcementText: siteData?.announcement?.split('|||')[0],
+      announcementUrl: siteData?.announcement?.split('|||')[1],
     },
     revalidate: 15 * 60,
   };

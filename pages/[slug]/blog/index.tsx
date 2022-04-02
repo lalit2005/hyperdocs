@@ -1,4 +1,6 @@
+import CommonComponents from '@/components/docs/CommonComponents';
 import DocsNav from '@/components/docs/navbar';
+import Empty from '@/components/Empty';
 import { CustomLink } from '@/components/ui/Link';
 import { Heading1 } from '@/components/ui/Typography';
 import prisma from '@/utils/prisma';
@@ -12,16 +14,29 @@ const BlogsPage: NextPage<{
   logo: string;
   siteId: string;
   slug: string;
-}> = ({ blogs, slug, navbarLinks, navbarCta, logo }) => {
+  announcementText?: string;
+  announcementUrl?: string;
+}> = ({
+  blogs,
+  slug,
+  navbarLinks,
+  navbarCta,
+  logo,
+  announcementText,
+  announcementUrl,
+}) => {
   return (
     <div>
+      <CommonComponents
+        announcementText={announcementText}
+        announcementUrl={announcementUrl}
+      />
       <DocsNav
         slug={slug}
         links={navbarLinks}
         navbarCta={navbarCta}
         logo={logo}
       />
-
       <main className='mx-auto mt-10 max-w-3xl p-5'>
         <Heading1 className='my-10'>Blog</Heading1>
         {blogs?.map((blog) => {
@@ -39,6 +54,14 @@ const BlogsPage: NextPage<{
             </CustomLink>
           );
         })}
+        {blogs.length === 0 && (
+          <>
+            <Empty />
+            <p className='mt-5 text-center text-slate-600 dark:text-slate-400'>
+              No blogs yet.
+            </p>
+          </>
+        )}
       </main>
     </div>
   );
@@ -81,6 +104,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       logo: siteData?.siteName || '',
       siteId: siteData?.id || '',
       slug: siteData?.siteSlug || 'hyperdocs',
+      announcementText: siteData?.announcement?.split('|||')[0],
+      announcementUrl: siteData?.announcement?.split('|||')[1],
     },
     revalidate: 15 * 60,
   };

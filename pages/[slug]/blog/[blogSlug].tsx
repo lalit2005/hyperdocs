@@ -1,16 +1,18 @@
+import CommonComponents from '@/components/docs/CommonComponents';
 import DocsMDXcomponents from '@/components/docs/documentation/components';
 import MDXRenderer from '@/components/docs/MDXRenderer';
 import DocsNav from '@/components/docs/navbar';
 import bundleMdxContent from '@/lib/mdx-bundler';
 import prisma from '@/utils/prisma';
 import { NavbarLink } from '@prisma/client';
+import { formatRelative, formatDistanceToNow } from 'date-fns';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useMemo } from 'react';
 
 const BlogPage: NextPage<{
   mdxCode: string;
-  updatedAt: string;
+  updatedAt: number;
   ogImageUrl: string;
   title: string;
   description: string;
@@ -19,6 +21,8 @@ const BlogPage: NextPage<{
   author: string;
   logo: string;
   slug: string;
+  announcementText?: string;
+  announcementUrl?: string;
 }> = ({
   mdxCode,
   description,
@@ -29,11 +33,17 @@ const BlogPage: NextPage<{
   title,
   author,
   updatedAt,
+  announcementText,
+  announcementUrl,
   slug,
 }) => {
   const Component = useMemo(() => getMDXComponent(mdxCode), [mdxCode]);
   return (
     <div>
+      <CommonComponents
+        announcementText={announcementText}
+        announcementUrl={announcementUrl}
+      />
       <DocsNav
         slug={slug}
         links={navbarLinks}
@@ -64,7 +74,11 @@ const BlogPage: NextPage<{
             <span className='text-blue-600 dark:text-blue-400'>
               {author.startsWith('@') ? author : `@${author}`}
             </span>
-          </a>
+          </a>{' '}
+          &bull; Last updated:{' '}
+          {formatDistanceToNow(new Date(updatedAt), {
+            addSuffix: true,
+          })}
         </p>
 
         {ogImageUrl && (
@@ -112,7 +126,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       mdxCode,
-      updatedAt: blog?.updatedAt.toString(),
+      updatedAt: Number(blog?.updatedAt),
       ogImageUrl: blog?.ogImageUrl,
       title: blog?.title,
       description: blog?.description,
@@ -121,6 +135,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       logo: blog?.site?.siteName,
       author: blog?.postedBy,
       slug: blog?.site?.siteSlug,
+      announcementText: blog?.site?.announcement?.split('|||')[0],
+      announcementUrl: blog?.site?.announcement?.split('|||')[1],
     },
     revalidate: 15 * 60,
   };

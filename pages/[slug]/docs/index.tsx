@@ -16,6 +16,7 @@ import DocsMDXcomponents from '@/components/docs/documentation/components';
 import Link from 'next/link';
 import getSidebar from '@/lib/getSidebar';
 import DocsPageNavCard from '@/components/docs/DocsPageNavCard';
+import CommonComponents from '@/components/docs/CommonComponents';
 // @ts-ignore
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -27,11 +28,17 @@ const Page: NextPage<DocsPageProps> = ({
   slug,
   siteId,
   footerText,
+  announcementText,
+  announcementUrl,
 }) => {
   const Component = useMemo(() => getMDXComponent(content), [content]);
   return (
     <div>
       <div>
+        <CommonComponents
+          announcementText={announcementText}
+          announcementUrl={announcementUrl}
+        />
         <div className='sticky top-0 z-50'>
           <DocsNav
             slug={slug}
@@ -42,6 +49,7 @@ const Page: NextPage<DocsPageProps> = ({
         </div>
         <DocsLayout
           siteId={siteId}
+          extraTopMargin={announcementText ? true : false}
           LeftSidebarContent={() => (
             <ul className='mt-10 space-y-4'>
               {sidebar.map((file: string) => {
@@ -141,7 +149,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const tocHtml = mdToHtml.render(mdToc(content).content);
-
+  console.log(siteData?.announcement);
   return {
     // * Make sure to change the DocsPageProps in @types/types.ts
     props: {
@@ -154,6 +162,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slug: siteData?.siteSlug,
       siteId: siteData?.id,
       footerText: siteData?.footerText,
+      announcementText: siteData?.announcement?.split('|||')[0],
+      announcementUrl: siteData?.announcement?.split('|||')[1],
     },
     revalidate: 15 * 60,
   };
