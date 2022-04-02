@@ -2,6 +2,7 @@ import { CustomLink } from '@/components/ui/Link';
 import { Markdown, TextSmall } from '@/components/ui/Typography';
 import DashboardLayout from '@/layouts/DashboardLayout';
 import { Feedback, NavbarLink, Site } from '@prisma/client';
+import { formatDistanceToNow } from 'date-fns';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
@@ -21,7 +22,7 @@ const Index = () => {
       siteName={data?.siteName}
       active='overview'
       title='Overview'
-      subtitle={`A brief overview and status of **${data?.siteName}**`}
+      subtitle={`A brief overview and status of **${data?.siteName || '...'}**`}
     >
       <div>
         <CustomLink
@@ -55,9 +56,13 @@ const Index = () => {
       <div className='mt-10'>
         <TextSmall>
           <Markdown
-            text={`Site was last updated at: **${new Date(
-              data?.updatedAt || ''
-            ).toLocaleString()}**`}
+            text={`Site was last updated **${
+              (data?.updatedAt &&
+                formatDistanceToNow(new Date(data?.updatedAt), {
+                  addSuffix: true,
+                })) ||
+              '...'
+            }**`}
           />
         </TextSmall>
       </div>
