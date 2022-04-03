@@ -54,8 +54,8 @@ const Signup = () => {
 export default Signup;
 
 const features = [
-  'Create a landing page for your docs site from premade templates',
-  'Write and publish your blog for your docs from a rich text markdown editor in dashboard.',
-  'Switch themes for your directly docs from dashboard.',
-  'Manage docs metadata such as docs navbar, analytics scripts, SEO settings, from dashboard.',
+  'Just have a docs/ folder with markdown files and a beautiful documentation site will be generated.',
+  'Update the `docs/` folder and the website will auto update automagically.',
+  'Every docs comes with a feedback widget to help you get better feedback from your users.',
+  'You can manage blog posts from the dashboard. No more pushing drafts to GitHub.',
 ];
