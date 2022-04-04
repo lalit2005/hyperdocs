@@ -1,3 +1,4 @@
+import { Markdown } from '@/components/ui/Typography';
 import clsx from 'clsx';
 import Link from 'next/link';
 
@@ -33,7 +34,9 @@ const Grid: React.FC<{
               }}
             >
               <h3 className='mb-4 text-2xl font-bold'>{title}</h3>
-              <p className='text-base'>{description}</p>
+              <p className='text-base'>
+                <Markdown text={description} />
+              </p>
             </div>
           </a>
         </Link>

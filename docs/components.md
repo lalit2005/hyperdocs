@@ -149,8 +149,6 @@ export default function App() {
 ```
 </Accordion>
 
-NPM dependencies are supported too! You can use it to demo your component library!
-
 <Callout type="info">
 You can use different templates to use different frontend frameworks.
 Here's the list of all of them:
@@ -159,6 +157,8 @@ Here's the list of all of them:
 Visit [this](https://sandpack.codesandbox.io/docs/getting-started/custom-content#templates) page for more info.
 
 </Callout>
+
+NPM dependencies are supported too! You can use it to demo your component library!
 
 ## Custom JSX
 
@@ -196,6 +196,20 @@ Visit [this](https://sandpack.codesandbox.io/docs/getting-started/custom-content
 ## Grids
 
 The `Grid` component is used to display cards in the beginning of your docs that helps the user navigate to the main parts of the documentation.
+
+```tsx
+<Grid
+  items={[
+    {
+      title: 'Introduction',
+      description: 'Get started with Hyperdocs and build your first docs site',
+      color: 'blue',
+      customColor: string,
+      link: string,
+    },
+  ]}
+/>
+```
 
 <Grid
 items={[
@@ -263,6 +277,8 @@ items={[
 />
 ```
 </Accordion>
+
+You can also use markdown in the description field.
 
 ## Icons
 
