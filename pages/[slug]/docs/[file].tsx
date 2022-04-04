@@ -20,10 +20,7 @@ import web3forms from 'use-web3forms';
 import getSidebar from '@/lib/getSidebar';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
-import { Markdown } from '@/components/ui/Typography';
 import { getNextItem, getPreviousItem } from '@/lib/get-next-item';
-import { Button } from '@/components/ui/Button';
-import { CustomLink } from '@/components/ui/Link';
 import DocsPageNavCard from '@/components/docs/DocsPageNavCard';
 import CommonComponents from '@/components/docs/CommonComponents';
 
@@ -42,6 +39,7 @@ const Page: NextPage<DocsPageProps> = ({
   prevPage,
   announcementText,
   announcementUrl,
+  repoUrl,
 }) => {
   const Component = useMemo(() => getMDXComponent(content), [content]);
   const router = useRouter();
@@ -113,6 +111,8 @@ const Page: NextPage<DocsPageProps> = ({
             </div>
           </div>
         )}
+        repoUrl={repoUrl}
+        fileName={`${fileName}.md`}
         footerText={footerText}
       >
         <MDXRenderer>
@@ -225,6 +225,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         prevPage: prevPage || 'index',
         announcementText: siteData?.announcement?.split('|||')[0],
         announcementUrl: siteData?.announcement?.split('|||')[1],
+        repoUrl: siteData?.repoLink,
       },
       revalidate: 15 * 60,
     };

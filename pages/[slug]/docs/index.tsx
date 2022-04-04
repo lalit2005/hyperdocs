@@ -30,6 +30,7 @@ const Page: NextPage<DocsPageProps> = ({
   footerText,
   announcementText,
   announcementUrl,
+  repoUrl,
 }) => {
   const Component = useMemo(() => getMDXComponent(content), [content]);
   return (
@@ -73,6 +74,8 @@ const Page: NextPage<DocsPageProps> = ({
               </div>
             </div>
           )}
+          repoUrl={repoUrl}
+          fileName={`index.md`}
           footerText={footerText}
         >
           <MDXRenderer>
@@ -164,6 +167,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       footerText: siteData?.footerText,
       announcementText: siteData?.announcement?.split('|||')[0],
       announcementUrl: siteData?.announcement?.split('|||')[1],
+      repoUrl: siteData?.repoLink,
     },
     revalidate: 15 * 60,
   };

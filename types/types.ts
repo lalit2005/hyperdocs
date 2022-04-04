@@ -37,4 +37,5 @@ export interface DocsPageProps {
   prevPage: string;
   announcementText?: string;
   announcementUrl?: string;
+  repoUrl: string;
 }
