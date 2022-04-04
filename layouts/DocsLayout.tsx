@@ -41,26 +41,18 @@ const DocsLayout: React.FC<{
               <RightSidebarContent />
               <div className='mt-10'>
                 <Feedback siteId={siteId} />
-                <a
-                  href={`${
-                    repoUrl.endsWith('/') ? repoUrl.slice(0, -1) : repoUrl
-                  }/edit/master/docs/${fileName}`}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='mt-5 block text-sm underline underline-offset-1 opacity-75 hover:opacity-90'
-                >
-                  Edit file on GitHub
-                </a>
-                <a
-                  href={`${
-                    repoUrl.endsWith('/') ? repoUrl.slice(0, -1) : repoUrl
-                  }/tree/master/docs/${fileName}`}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='mt-2 block text-sm underline underline-offset-1 opacity-75 hover:opacity-90'
-                >
-                  View file on GitHub
-                </a>
+                <div>
+                  <a
+                    href={`${
+                      repoUrl.endsWith('/') ? repoUrl.slice(0, -1) : repoUrl
+                    }/tree/master/docs/${fileName}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='mt-5 block text-sm underline underline-offset-1 opacity-75 hover:opacity-90'
+                  >
+                    Edit this page on GitHub
+                  </a>
+                </div>
               </div>
             </div>
           </div>
