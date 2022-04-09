@@ -35,7 +35,7 @@ const DocsLayout: React.FC<{
       >
         <LeftSidebarContent />
       </div>
-      <div className='fixed bottom-0 z-50 inline-flex w-full border-t !bg-white py-3 dark:bg-black lg:hidden'>
+      <div className='fixed bottom-0 z-50 inline-flex w-full border-t bg-white py-3 dark:bg-black lg:hidden'>
         <MenuRoot isOpen={isOpen} setIsOpen={setIsOpen}>
           <MenuTrigger>
             <Button>
