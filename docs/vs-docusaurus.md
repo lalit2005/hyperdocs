@@ -83,7 +83,7 @@ With Hyperdocs, you write, edit and publish blog posts all from the dashboard. T
 
 Imagine you want to write a blog post about the next release and save it as a draft to release it later.
 
-With Docusaurus, you have can push it to the repo by mistake and it will be available for your users to read.
+With Docusaurus, you can push it to the repo by mistake and it will be available for your users to read.
 
 You don't want that to happen.
 
