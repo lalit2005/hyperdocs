@@ -23,7 +23,7 @@ const Nav = () => {
                 </div>
                 <MenuContent isOpen={isOpen}>
                   <MenuItem link='/hyperdocs/docs'>Docs</MenuItem>
-                  <MenuItem link='/hyperdocs/showcase'>Showcase</MenuItem>
+                  <MenuItem link='/showcase'>Showcase</MenuItem>
                   <MenuItem link='/hyperdocs/blog'>Blog</MenuItem>
                   <MenuItem className='hidden md:block' link='/login'>
                     Login
