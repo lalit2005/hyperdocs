@@ -1,6 +1,10 @@
 import Feedback from '@/components/docs/Feedback';
+import { Button } from '@/components/ui/Button';
+import { MenuContent, MenuRoot, MenuTrigger } from '@/components/ui/Menu';
 import { Markdown } from '@/components/ui/Typography';
 import clsx from 'clsx';
+import { useState } from 'react';
+import { Menu, Sidebar } from 'react-feather';
 
 const DocsLayout: React.FC<{
   LeftSidebarContent: React.FC;
@@ -20,6 +24,7 @@ const DocsLayout: React.FC<{
   extraTopMargin = false,
   ...props
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className='w-screen px-4 sm:px-6 md:px-8'>
       <div
@@ -29,6 +34,27 @@ const DocsLayout: React.FC<{
         )}
       >
         <LeftSidebarContent />
+      </div>
+      <div className='fixed bottom-0 z-50 inline-flex w-full border-t !bg-white py-3 dark:bg-black lg:hidden'>
+        <MenuRoot isOpen={isOpen} setIsOpen={setIsOpen}>
+          <MenuTrigger>
+            <Button>
+              <div>
+                {/* <Sidebar /> */}
+                <Sidebar
+                  className='relative -top-[2px] mr-1 inline-block'
+                  size={20}
+                />
+                Menu
+              </div>
+            </Button>
+          </MenuTrigger>
+          <MenuContent isOpen={isOpen}>
+            <div className='-mt-10 px-6 py-5'>
+              <LeftSidebarContent />
+            </div>
+          </MenuContent>
+        </MenuRoot>
       </div>
       <div className='lg:pl-72'>
         <div className='mx-auto max-w-3xl pt-10 xl:ml-0 2xl:ml-[max(0px,calc(60%-45rem))]'>
