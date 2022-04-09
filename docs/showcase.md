@@ -1,4 +1,4 @@
-Hyperdocs has a showcase of awesome documentations created with Hyperdocs.
+Hyperdocs has a [showcase](/hyperdocs/showcase) of awesome documentations created with Hyperdocs.
 
 ## How to add your site there
 
