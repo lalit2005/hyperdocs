@@ -60,6 +60,9 @@ const ProfileDropdown = () => {
           </MenuRoot>
           <MenuItem link='/new'>New Site</MenuItem>
           <MenuItem link='/docs'>Documentation</MenuItem>
+          <MenuItem link='https://twitter.com/lalitcodes'>
+            Who made this?
+          </MenuItem>
           <MenuItem link='/playground'>Playground</MenuItem>
           <MenuItem link='/showcase'>Showcase</MenuItem>
           <MenuItem link='/support'>Support</MenuItem>

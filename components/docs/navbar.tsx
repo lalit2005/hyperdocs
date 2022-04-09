@@ -1,5 +1,8 @@
 import { NavbarLink } from '@prisma/client';
+import clsx from 'clsx';
 import Link from 'next/link';
+import React from 'react';
+import { AnchorHTMLAttributes } from 'react';
 import { CustomLink } from '../ui/Link';
 import ThemeToggle from './ThemeToggle';
 
@@ -19,14 +22,7 @@ const DocsNav: React.FC<{
       <div className='flex items-center space-x-4'>
         {links?.map((link) => (
           <div key={link.id}>
-            <a
-              target='_blank'
-              rel='noopener noreferrer'
-              href={link.link}
-              className='text-light'
-            >
-              {link?.linkText}
-            </a>
+            <NavLink href={link.link}>{link?.linkText}</NavLink>
           </div>
         ))}
         <div>
@@ -41,3 +37,22 @@ const DocsNav: React.FC<{
 };
 
 export default DocsNav;
+
+export const NavLink: React.FC<
+  AnchorHTMLAttributes<HTMLAnchorElement> & { noInvert?: boolean }
+> = ({ noInvert = false, ...props }) => {
+  const isRelative =
+    (props.href?.startsWith('/') || props.href?.startsWith('#')) ?? false;
+  const Wrap = isRelative ? Link : React.Fragment;
+  const wrapProps = isRelative ? { href: props.href } : {};
+  const linkProps = !isRelative ? { target: '_blank' } : {};
+
+  return (
+    // @ts-ignore
+    <Wrap {...wrapProps}>
+      <a {...props} {...linkProps}>
+        {props.children}
+      </a>
+    </Wrap>
+  );
+};

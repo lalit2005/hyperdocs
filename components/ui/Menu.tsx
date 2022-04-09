@@ -36,7 +36,7 @@ export const MenuContent: React.FC<{
           side={side || 'bottom'}
           forceMount
           align='start'
-          className='block max-h-96 !w-full !max-w-lg overflow-y-scroll rounded border border-gray-200 bg-white shadow-lg dark:border-gray-600 dark:bg-black'
+          className='block max-h-[400px] !w-full !max-w-lg overflow-y-scroll rounded border border-gray-200 bg-white shadow-lg dark:border-gray-600 dark:bg-black'
         >
           <motion.div
             initial={{
@@ -71,7 +71,7 @@ export const MenuItem: React.FC<{
   callBack?: () => void;
   link?: string;
 }> = ({ className, callBack, link, ...props }) => {
-  const router = usePrefetch([link || '/dashboard']);
+  const router = usePrefetch([(link?.startsWith('/') && link) || '/dashboard']);
   const r = (url?: string) => {
     return () => {
       router.push(url || '/dashboard');
@@ -88,9 +88,9 @@ export const MenuItem: React.FC<{
         )}
       >
         {link && (
-          <Link href={link}>
-            <a className='w-full'>{props.children}</a>
-          </Link>
+          <a href={link} target='_blank' rel='noopener noreferrer'>
+            {props.children}
+          </a>
         )}
         {!link && props.children}
       </RadixMenu.Item>
