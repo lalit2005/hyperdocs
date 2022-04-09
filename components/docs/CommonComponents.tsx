@@ -16,7 +16,7 @@ const CommonComponents: React.FC<{
           href={announcementUrl}
           target='_blank'
           rel='noopener noreferrer'
-          className='sticky top-0 block bg-blue-500 py-2 text-center text-white'
+          className='sticky top-0 block w-full bg-blue-500 py-2 px-5 text-center text-white'
         >
           {announcementText}
         </a>
