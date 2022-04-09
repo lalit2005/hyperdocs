@@ -4,7 +4,8 @@ import { MenuContent, MenuRoot, MenuTrigger } from '@/components/ui/Menu';
 import { Markdown } from '@/components/ui/Typography';
 import clsx from 'clsx';
 import { useState } from 'react';
-import { Menu, Sidebar } from 'react-feather';
+import { Sidebar } from 'react-feather';
+import { Tooltip } from 'react-tiny-tooltip';
 
 const DocsLayout: React.FC<{
   LeftSidebarContent: React.FC;
@@ -35,19 +36,19 @@ const DocsLayout: React.FC<{
       >
         <LeftSidebarContent />
       </div>
-      <div className='fixed bottom-0 z-50 inline-flex w-full border-t bg-white py-3 dark:bg-black lg:hidden'>
+      <div className='fixed bottom-0 z-50 mb-5 inline-flex max-w-[130px] rounded border border-gray-400 bg-white dark:border-gray-500 dark:bg-black lg:hidden'>
         <MenuRoot isOpen={isOpen} setIsOpen={setIsOpen}>
           <MenuTrigger>
-            <Button>
-              <div>
-                {/* <Sidebar /> */}
-                <Sidebar
-                  className='relative -top-[2px] mr-1 inline-block'
-                  size={20}
-                />
-                Menu
-              </div>
-            </Button>
+            <Tooltip content='Menu'>
+              <Button>
+                <div>
+                  <Sidebar
+                    className='relative -top-[2px] mr-1 inline-block'
+                    size={20}
+                  />
+                </div>
+              </Button>
+            </Tooltip>
           </MenuTrigger>
           <MenuContent isOpen={isOpen}>
             <div className='-mt-10 px-6 py-5'>
@@ -59,7 +60,7 @@ const DocsLayout: React.FC<{
       <div className='lg:pl-72'>
         <div className='mx-auto max-w-3xl pt-10 xl:ml-0 2xl:ml-[max(0px,calc(60%-45rem))]'>
           <main className='relative z-20 mt-8'>{props.children}</main>
-          <footer className='mt-5 border-t-2 border-t-gray-300 py-4 px-3 dark:border-t-gray-700'>
+          <footer className='mt-5 border-t-2 border-t-gray-300 py-4 px-3 pb-20 dark:border-t-gray-700 lg:pb-4'>
             <Markdown text={footerText} />
           </footer>
           <div className='fixed top-[5.5rem] bottom-0 right-[max(0px,calc(50%-45rem))] z-20 hidden w-[19.5rem] overflow-y-auto py-10 px-8 xl:block'>
