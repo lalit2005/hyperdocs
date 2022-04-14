@@ -61,8 +61,7 @@ const BlogPage: NextPage<{
           <a
             target='_blank'
             rel='noopener noreferrer'
-            href={`https://twitter.com/${author}`}
-          >
+            href={`https://twitter.com/${author}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={`https://unavatar.io/twitter/${author}`}
@@ -135,8 +134,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       logo: blog?.site?.siteName,
       author: blog?.postedBy,
       slug: blog?.site?.siteSlug,
-      announcementText: blog?.site?.announcement?.split('|||')[0],
-      announcementUrl: blog?.site?.announcement?.split('|||')[1],
+      announcementText: blog?.site?.announcement?.split('|||')[0] || null,
+      announcementUrl: blog?.site?.announcement?.split('|||')[1] || null,
     },
     revalidate: 15 * 60,
   };

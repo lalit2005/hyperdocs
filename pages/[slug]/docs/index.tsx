@@ -76,8 +76,7 @@ const Page: NextPage<DocsPageProps> = ({
           )}
           repoUrl={repoUrl}
           fileName={`index.md`}
-          footerText={footerText}
-        >
+          footerText={footerText}>
           <MDXRenderer>
             {/* @ts-ignore */}
             <Component components={DocsMDXcomponents} />
@@ -165,8 +164,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slug: siteData?.siteSlug,
       siteId: siteData?.id,
       footerText: siteData?.footerText,
-      announcementText: siteData?.announcement?.split('|||')[0],
-      announcementUrl: siteData?.announcement?.split('|||')[1],
+      announcementText: siteData?.announcement?.split('|||')[0] || null,
+      announcementUrl: siteData?.announcement?.split('|||')[1] || null,
       repoUrl: siteData?.repoLink,
     },
     revalidate: 15 * 60,

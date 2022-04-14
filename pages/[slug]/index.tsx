@@ -76,8 +76,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       navbarCta: siteData?.navbarCta,
       siteName: siteData?.siteName,
       slug,
-      announcementText: siteData?.announcement?.split('|||')[0],
-      announcementUrl: siteData?.announcement?.split('|||')[1],
+      announcementText: siteData?.announcement?.split('|||')[0] || null,
+      announcementUrl: siteData?.announcement?.split('|||')[1] || null,
     },
     revalidate: 15 * 60,
   };

@@ -45,8 +45,7 @@ const BlogsPage: NextPage<{
               key={blog.id}
               href={`/${slug}/blog/${blog.slug}`}
               noInvert
-              className='my-3 border !p-5 transition-all duration-75 hover:scale-[1.02]'
-            >
+              className='my-3 border !p-5 transition-all duration-75 hover:scale-[1.02]'>
               <h2 className='text-2xl font-bold'>{blog.title}</h2>
               <p className='my-2 text-gray-600 dark:text-gray-400'>
                 {blog.description}
@@ -104,8 +103,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       logo: siteData?.siteName || '',
       siteId: siteData?.id || '',
       slug: siteData?.siteSlug || 'hyperdocs',
-      announcementText: siteData?.announcement?.split('|||')[0],
-      announcementUrl: siteData?.announcement?.split('|||')[1],
+      announcementText: siteData?.announcement?.split('|||')[0] || null,
+      announcementUrl: siteData?.announcement?.split('|||')[1] || null,
     },
     revalidate: 15 * 60,
   };
