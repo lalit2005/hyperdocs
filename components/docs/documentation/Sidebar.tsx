@@ -6,9 +6,12 @@ const Sidebar: React.FC<{
   slug: string;
   filename?: string;
 }> = ({ sidebar, slug, filename }) => {
+  // remove all empty strings from the array
+  const sidebarItems = sidebar.filter((item) => item);
+
   return (
     <ul className='mt-10 space-y-4'>
-      {sidebar.map((file) => {
+      {sidebarItems.map((file) => {
         if (file.startsWith('- ')) {
           return (
             <p className='block px-3 pt-10 font-semibold text-gray-800 dark:text-gray-100'>
