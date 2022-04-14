@@ -23,6 +23,7 @@ import clsx from 'clsx';
 import { getNextItem, getPreviousItem } from '@/lib/get-next-item';
 import DocsPageNavCard from '@/components/docs/DocsPageNavCard';
 import CommonComponents from '@/components/docs/CommonComponents';
+import Sidebar from '@/components/docs/documentation/Sidebar';
 
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -83,25 +84,7 @@ const Page: NextPage<DocsPageProps> = ({
       <DocsLayout
         extraTopMargin={announcementText ? true : false}
         siteId={siteId}
-        LeftSidebarContent={() => (
-          <ul className='mt-10 space-y-4'>
-            {sidebar.map((file: string) => {
-              return (
-                <li key={file}>
-                  <Link href={`/${slug}/docs/${file}`}>
-                    <a
-                      className={clsx(
-                        'block rounded px-3 py-2 capitalize hover:bg-gray-50 dark:hover:bg-gray-800',
-                        fileName === file ? 'bg-gray-100 dark:bg-gray-800' : ''
-                      )}>
-                      {file.replace(/-/gi, ' ')}
-                    </a>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+        LeftSidebarContent={() => <Sidebar sidebar={sidebar} slug={slug} />}
         RightSidebarContent={() => (
           <div>
             <div className='prose-sm prose-ul:relative prose-ul:-left-5 dark:prose-invert'>

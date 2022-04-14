@@ -17,6 +17,7 @@ import Link from 'next/link';
 import getSidebar from '@/lib/getSidebar';
 import DocsPageNavCard from '@/components/docs/DocsPageNavCard';
 import CommonComponents from '@/components/docs/CommonComponents';
+import Sidebar from '@/components/docs/documentation/Sidebar';
 // @ts-ignore
 const Page: NextPage<DocsPageProps> = ({
   content,
@@ -51,21 +52,7 @@ const Page: NextPage<DocsPageProps> = ({
         <DocsLayout
           siteId={siteId}
           extraTopMargin={announcementText ? true : false}
-          LeftSidebarContent={() => (
-            <ul className='mt-10 space-y-4'>
-              {sidebar.map((file: string) => {
-                return (
-                  <li key={file}>
-                    <Link href={`/${slug}/docs/${file}`}>
-                      <a className='block rounded px-3 py-2 capitalize hover:bg-gray-50 dark:hover:bg-gray-800'>
-                        {file.replace(/-/gi, ' ')}
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
+          LeftSidebarContent={() => <Sidebar sidebar={sidebar} slug={slug} />}
           RightSidebarContent={() => (
             <div>
               <div className='prose-sm prose-ul:relative prose-ul:-left-5 dark:prose-invert'>
