@@ -1,15 +1,18 @@
+- INTRO
 introduction.md
 getting-started.md
 how-hyperdocs-works.md
-components.md
-cli.md
-custom-domains.md
-some-important-points.md
-feedbacks.md
+- VS OTHERS
 comparison.md
-why-web3forms.md
 vs-docusaurus.md
 vs-gitbook.md
+- USAGE
+components.md
+custom-domains.md
+cli.md
+some-important-points.md
+feedbacks.md
+why-web3forms.md
 homepage.md
 plugins.md
 themes.md
