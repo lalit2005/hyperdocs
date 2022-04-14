@@ -10,6 +10,7 @@ vs-gitbook.md
 
 - USAGE
 components.md
+sidebar-sections.md
 custom-domains.md
 cli.md
 some-important-points.md
