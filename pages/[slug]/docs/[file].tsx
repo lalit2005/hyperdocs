@@ -179,9 +179,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     const tocHtml = mdToHtml.render(mdToc(content).content);
 
+    const sidebarItems = sidebar.filter((item) => item);
     const [nextPage, prevPage] = [
-      getNextItem(sidebar, filename),
-      getPreviousItem(sidebar, filename),
+      getNextItem(sidebarItems, filename),
+      getPreviousItem(sidebarItems, filename),
     ];
 
     return {
