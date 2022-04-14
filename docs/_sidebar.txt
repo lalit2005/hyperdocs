@@ -2,10 +2,12 @@
 introduction.md
 getting-started.md
 how-hyperdocs-works.md
+
 - VS OTHERS
 comparison.md
 vs-docusaurus.md
 vs-gitbook.md
+
 - USAGE
 components.md
 custom-domains.md
