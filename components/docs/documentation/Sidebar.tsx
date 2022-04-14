@@ -10,11 +10,15 @@ const Sidebar: React.FC<{
   const sidebarItems = sidebar.filter((item) => item);
 
   return (
-    <ul className='mt-10 space-y-4'>
+    <ul
+      className={clsx(
+        'space-y-3',
+        sidebarItems[0].startsWith('- ') ? '' : 'mt-10'
+      )}>
       {sidebarItems.map((file) => {
         if (file.startsWith('- ')) {
           return (
-            <p className='block px-3 pt-10 font-semibold text-gray-800 dark:text-gray-100'>
+            <p className='block px-3 pt-10 text-sm font-semibold text-gray-800 dark:text-gray-100'>
               {file.substring(2)}
             </p>
           );
@@ -24,7 +28,7 @@ const Sidebar: React.FC<{
               <Link href={`/${slug}/docs/${file}`}>
                 <a
                   className={clsx(
-                    'block rounded px-3 py-2 capitalize text-gray-700 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-800',
+                    'block rounded-sm px-3 py-1 capitalize text-gray-700 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-800',
                     filename === file ? 'bg-gray-100 dark:bg-gray-800' : ''
                   )}>
                   {file.replace(/-/gi, ' ')}
