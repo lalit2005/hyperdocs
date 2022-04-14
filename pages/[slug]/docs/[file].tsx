@@ -84,7 +84,13 @@ const Page: NextPage<DocsPageProps> = ({
       <DocsLayout
         extraTopMargin={announcementText ? true : false}
         siteId={siteId}
-        LeftSidebarContent={() => <Sidebar sidebar={sidebar} slug={slug} />}
+        LeftSidebarContent={() => (
+          <Sidebar
+            sidebar={sidebar}
+            slug={slug}
+            filename={fileName as string}
+          />
+        )}
         RightSidebarContent={() => (
           <div>
             <div className='prose-sm prose-ul:relative prose-ul:-left-5 dark:prose-invert'>
@@ -138,7 +144,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   });
 
   try {
-    const slug = params?.slug as string;
     const filename = params?.file as string;
 
     console.log(filename);
@@ -179,10 +184,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       getPreviousItem(sidebar, filename),
     ];
 
-    const asasd = prevPage || 'index';
-
-    console.log({ asasd });
-
     return {
       // * Make sure to change the DocsPageProps in @types/types.ts
       props: {
@@ -212,6 +213,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
     // @ts-ignore
   } catch (error: Error) {
+    console.log(error);
+
     const { submit } = web3forms({
       apikey: siteData?.gitHubAccessToken || '',
       onSuccess: () => {

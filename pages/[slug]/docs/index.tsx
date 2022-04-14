@@ -71,7 +71,7 @@ const Page: NextPage<DocsPageProps> = ({
           <div className='flex flex-row-reverse'>
             <DocsPageNavCard
               slug={slug}
-              pageTitle={sidebar[0]}
+              pageTitle={sidebar[0].startsWith('- ') ? sidebar[1] : sidebar[0]}
               title='Next &rarr;'
             />
           </div>
