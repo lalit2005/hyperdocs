@@ -3,21 +3,23 @@ introduction.md
 getting-started.md
 how-hyperdocs-works.md
 
-- VS OTHERS
-comparison.md
+- COMPARISON
+overview.md
 vs-docusaurus.md
 vs-gitbook.md
 
-- USAGE
+- FEATURES
 components.md
 sidebar-sections.md
 custom-domains.md
 cli.md
-some-important-points.md
 feedbacks.md
-why-web3forms.md
 homepage.md
 plugins.md
 themes.md
 showcase.md
 footer.md
+
+- OTHERS
+some-important-points.md
+why-web3forms.md
