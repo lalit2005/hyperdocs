@@ -32,6 +32,10 @@ View demo [here](https://hyperdocs.netlify.app/hashnode/docs)
 - ✅ Dashboard to manage your docs site.
 - ✅ Support for private repositories.
 
+## Comparison
+
+![image](https://user-images.githubusercontent.com/69138026/164963852-ec3f5885-d4c6-42c2-b38c-ee76f1ffff28.png)
+
 ## Support
 
 If you would like to support me, you can by me a coffee [here](https://www.buymeacoffee.com/lalitcodes)
