@@ -50,7 +50,10 @@ Hyperdocs provides a ready-to-use badge component that you can use in docs and b
 
 ```jsx
 // default color is green
-<Badge color='green | red | blue | yellow'>Beta</Badge>
+<Badge block color='green | red | blue | yellow'>
+  Beta
+</Badge>
+// the block attribute is optional which sets the css display property to block
 ```
 
 Switch the dark/light theme to see the 2 different variants of the badges.
@@ -184,8 +187,7 @@ NPM dependencies are supported too! You can use it to demo your component librar
       color: 'black',
       padding: '10px',
     }}
-    onClick={() => alert('Hi there')}
-  >
+    onClick={() => alert('Hi there')}>
     Click me
   </button>
 </CustomComponent>
@@ -319,8 +321,7 @@ You can highlight any part of text with [RoughNotation](https://www.npmjs.com/pa
   animationDuration={2000}
   color='rgb(129 140 248)'
   animate
-  show
->
+  show>
   <span>Just push to GitHub and it&apos;s done.</span>
 </RoughNotation>
 ```
