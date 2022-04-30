@@ -14,9 +14,9 @@ const Badge = (props: any) => {
         props.color == 'red' &&
           'border-red-200 bg-red-100 text-red-700 dark:border-red-700 dark:text-red-500',
         !props.color &&
-          'border-green-200 bg-green-200 text-green-700 dark:border-green-700 dark:text-green-500'
-      )}
-    >
+          'border-green-200 bg-green-200 text-green-700 dark:border-green-700 dark:text-green-500',
+        props.block && 'block'
+      )}>
       {props?.children}
     </span>
   );
