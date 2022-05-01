@@ -5,13 +5,13 @@ const Callout = (props: any) => {
   return (
     <div
       className={clsx(
-        'not-prose callout my-5 border-l-4 p-7',
-        props.type == 'info' && 'border-blue-500 bg-gray-800/70',
-        props.type == 'tip' && 'border-cyan-500 bg-gray-800/70',
-        props.type == 'success' && 'border-green-500 bg-gray-800/70',
-        props.type == 'warning' && 'border-yellow-500 bg-gray-800/70',
-        props.type == 'danger' && 'border-red-500 bg-gray-800/70',
-        !props.type && 'border-blue-500 bg-gray-800/70'
+        'not-prose callout my-5 border-l-4 p-7 dark:bg-gray-800/70',
+        props.type == 'info' && 'border-blue-500 bg-blue-400/10',
+        props.type == 'tip' && 'border-cyan-500 bg-cyan-400/10',
+        props.type == 'success' && 'border-green-500 bg-green-400/10',
+        props.type == 'warning' && 'border-yellow-500 bg-yellow-400/10',
+        props.type == 'danger' && 'border-red-500 bg-red-400/10',
+        !props.type && 'border-blue-500 bg-blue-400/10'
       )}>
       <div
         className={clsx(
