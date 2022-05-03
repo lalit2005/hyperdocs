@@ -73,7 +73,7 @@ Using `npx hyperdocs-cli new` is preferred as it creates a new markdown file in 
 [Here](/hyperdocs/docs/some-important-points) are some important things to remember when writing docs in markdown.
 
 <Callout type='tip'>
-	You can use the playground feature to test out bits of markdown and mdx syntax to see if they are broken.
+	You can use the [playground](https://hyperdocs.netlify.app/playground) feature to test out bits of markdown and mdx syntax to see if they are broken.
 </Callout>
 
 ## Next Steps
