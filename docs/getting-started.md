@@ -79,7 +79,7 @@ Using `npx hyperdocs-cli new` is preferred as it creates a new markdown file in 
 ## Next Steps
 
 - [Using react components inside markdown in docs](/hyperdocs/docs/components)
-- [Adding a blog to your docs](/hyperdocs/docs/blog)
-- [Adding analytics, custom styles and more](/hyperdocs/docs/customization)
-- [Customizing navbar](/hyperdocs/docs/navbar)
-- [Adding footer](/hyperdocs/docs/footer)
+- [Start collecting feedbacks](/hyperdocs/docs/feedbacks)
+- [Customize homepage](/hyperdocs/docs/homepage)
+- [Add a custom domain](/hyperdocs/docs/custom-domains)
+- [Add it to the showcase](/hyperdocs/docs/showcase)
