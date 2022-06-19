@@ -27,7 +27,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           linkText: 'Docs',
         },
       },
-      homePage: `<Hero1 heading="${siteName}" description="${siteDescription}"/>
+      homePage: `<Hero1 heading="${siteName}" link="${siteSlug}" description="${siteDescription}"/>
 
 <Features1 features={[
 {"title": "Feature 1", "description": "Change these in the dashboard"},
