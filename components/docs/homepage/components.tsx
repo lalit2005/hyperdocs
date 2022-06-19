@@ -1,3 +1,4 @@
+import { CustomLink } from '@/components/ui/Link';
 import { useRef } from 'react';
 import { Clipboard } from 'react-feather';
 
@@ -10,8 +11,7 @@ const HomepageMDXcomponents = {
       <pre ref={ref} {...props} className='relative'>
         <button
           className='absolute right-3 top-2 inline-block'
-          onClick={() => copyToClipboard(ref.current?.textContent)}
-        >
+          onClick={() => copyToClipboard(ref.current?.textContent)}>
           <Clipboard className='h-6 w-6 text-gray-400 transition-all hover:scale-105 hover:text-gray-50' />
         </button>
         {props?.children}
@@ -28,6 +28,13 @@ const HomepageMDXcomponents = {
         <p className='mt-5 text-xl text-gray-600 dark:text-gray-300'>
           {props?.description}
         </p>
+        <div className='mx-auto max-w-[200px] mt-16'>
+          <CustomLink
+            className='!py-3 hover:scale-105 focus:scale-105 transition-all shadow-lg hover:shadow-xl dark:shadow-gray-600'
+            href={props?.link}>
+            Get started &rarr;
+          </CustomLink>
+        </div>
       </div>
     );
   },
@@ -57,8 +64,7 @@ const HomepageMDXcomponents = {
             ) => (
               <div
                 key={index}
-                className='w-full rounded border border-gray-300 p-5 text-center shadow dark:border-gray-700'
-              >
+                className='w-full rounded border border-gray-300 p-5 text-center shadow dark:border-gray-700'>
                 <h3 className='text-2xl font-bold'>{feature?.title}</h3>
                 <p className='text-light mt-6 text-lg'>
                   {feature?.description}
