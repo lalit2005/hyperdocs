@@ -28,13 +28,15 @@ const HomepageMDXcomponents = {
         <p className='mt-5 text-xl text-gray-600 dark:text-gray-300'>
           {props?.description}
         </p>
-        <div className='mx-auto max-w-[200px] mt-16'>
-          <CustomLink
-            className='!py-3 hover:scale-105 focus:scale-105 transition-all shadow-lg hover:shadow-xl dark:shadow-gray-600'
-            href={props?.link}>
-            Get started &rarr;
-          </CustomLink>
-        </div>
+        {props.link && (
+          <div className='mx-auto mt-16 max-w-[200px]'>
+            <CustomLink
+              className='!py-3 shadow-lg transition-all hover:scale-105 hover:shadow-xl focus:scale-105 dark:shadow-gray-600'
+              href={props?.link}>
+              Get started &rarr;
+            </CustomLink>
+          </div>
+        )}
       </div>
     );
   },
