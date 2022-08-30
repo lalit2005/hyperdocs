@@ -1438,6 +1438,11 @@
   dependencies:
     "@types/unist" "*"
 
+"@types/highlight.js@^9.7.0":
+  version "9.12.4"
+  resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.12.4.tgz#8c3496bd1b50cc04aeefd691140aa571d4dbfa34"
+  integrity sha512-t2szdkwmg2JJyuCM20e8kR2X59WCE5Zkl4bzm1u1Oukjm79zpbiAv+QjnwLnuuV0WHEcX2NgUItu0pAMKuOPww==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
@@ -1525,10 +1530,13 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/remarkable@^1.7.5":
-  version "1.7.5"
-  resolved "https://registry.npmjs.org/@types/remarkable/-/remarkable-1.7.5.tgz"
-  integrity sha512-DQa1UFSaw2mEfyJytqMu4sWw5qDG8fc38NwPbB0U8T/fvw0E7XlbxJjf0lUSzj7JdVPQR2bXb4MWNQRF4Ne81w==
+"@types/remarkable@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@types/remarkable/-/remarkable-2.0.3.tgz#ba2e5edada8f0fe64c658beb2127e06ac0b9c1c8"
+  integrity sha512-QQUBeYApuHCNl9Br6ZoI3PlKmwZ69JHrlJktJXnjxobia9liZgsI70fm8PnCqVFAcefYK+9PGzR5L/hzCslNYQ==
+  dependencies:
+    "@types/highlight.js" "^9.7.0"
+    highlight.js "^9.7.0"
 
 "@types/resolve@^1.17.1":
   version "1.20.2"
@@ -3367,6 +3375,11 @@ hey-listen@^1.0.8:
   version "1.0.8"
   resolved "https://registry.npmjs.org/hey-listen/-/hey-listen-1.0.8.tgz"
   integrity sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==
+
+highlight.js@^9.7.0:
+  version "9.18.5"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
+  integrity sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==
 
 highlight.js@~11.6.0:
   version "11.6.0"
