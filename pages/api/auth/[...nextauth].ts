@@ -6,8 +6,8 @@ import prisma from '@/utils/prisma';
 export default NextAuth({
   providers: [
     GitHubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      clientId: process.env.GITHUB_CLIENT_ID as string,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
       profile(profile) {
         return {
           id: profile.id.toString(),
