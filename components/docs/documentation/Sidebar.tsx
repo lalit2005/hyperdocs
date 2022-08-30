@@ -15,10 +15,12 @@ const Sidebar: React.FC<{
         'space-y-3',
         sidebarItems[0].startsWith('- ') ? '' : 'mt-10'
       )}>
-      {sidebarItems.map((file) => {
+      {sidebarItems.map((file, index) => {
         if (file.startsWith('- ')) {
           return (
-            <p className='block px-3 pt-10 text-sm font-semibold text-gray-800 dark:text-gray-100'>
+            <p
+              key={index}
+              className='block px-3 pt-10 text-sm font-semibold text-gray-800 dark:text-gray-100'>
               {file.substring(2)}
             </p>
           );
